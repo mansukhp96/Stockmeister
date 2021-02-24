@@ -8,28 +8,34 @@ const Topbar = ({expand, toggle}) => {
     return(
         <TopbarContainer expand={expand}
                          onClick={toggle}>
-            <div className="stockmeister-icon" onClick={toggle}>
+            <div className="stockmeister-icon"
+                 onClick={toggle}>
                     <i className="fas fa-times text-light"/>
             </div>
             <div className="stockmeister-topbar-wrapper">
                 <div className="stockmeister-topbar-menu">
                     <LinkScroll to="market"
+                                onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Market
                     </LinkScroll>
                     <LinkScroll to="news"
+                                onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         News
                     </LinkScroll>
                     <LinkScroll to="trade"
+                                onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Trade
                     </LinkScroll>
                     <LinkScroll to="search"
+                                onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Search
                     </LinkScroll>
                     <LinkScroll to="register"
+                                onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Sign Up
                     </LinkScroll>

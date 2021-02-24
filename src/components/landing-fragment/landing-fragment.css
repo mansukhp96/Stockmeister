@@ -1,0 +1,89 @@
+.stockmeister-landing-container {
+    background: #0c0c0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    height: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.stockmesiter-landing-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.stockmeister-landing-content {
+    z-index: 3;
+    max-width: 700px;
+    position: absolute;
+    display: flex;
+    padding: 8px 24px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stockmeister-landing-header {
+    color: #fff;
+    font-size: 56px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-landing-header {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stockmeister-landing-header {
+        font-size: 32px;
+    }
+}
+
+.stockmeister-landing-subheader {
+    margin-top: 24px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    max-width: 600px;
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-landing-subheader {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stockmeister-landing-subheader {
+        font-size: 18px;
+    }
+}
+
+.stockmeister-explore-wrapper {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stockmeister-landing-explore-btn {
+    color: #010606;
+    font-size: 19px;
+    background: #00ffb7;
+    border-radius: 60px;
+    padding: 9px 22px;
+}
+
+.stockmeister-landing-explore-btn:hover {
+    color: #010606;
+    background: #fff;
+}

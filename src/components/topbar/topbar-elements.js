@@ -10,7 +10,7 @@ export const TopbarContainer = styled.aside`
     align-items: center;
     top: 0;
     left: 0;
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
     opacity: ${({expand}) => (expand ? '100%' : '0')};
     top: ${({expand}) => (expand ? '0' : '-100%')};
 `;
