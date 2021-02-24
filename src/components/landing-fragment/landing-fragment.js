@@ -1,6 +1,6 @@
 import React from 'react'
 import './landing-fragment.css'
-import Video from '../../videos/landing.mp4'
+import Video from '../../videos/video.mp4'
 import {VideoBackground} from "./landing-fragment-elements";
 
 const LandingFragment = () => {
@@ -18,8 +18,8 @@ const LandingFragment = () => {
                 </p>
                 <div className="stockmeister-explore-wrapper">
                     <button className="btn btn-block stockmeister-landing-explore-btn">
-                        Explore&nbsp;
-                        <i className="fas fa-arrow-circle-right"/>
+                        Start Today&nbsp;
+                        <i className="far fa-arrow-alt-circle-right"/>
                     </button>
                 </div>
             </div>
