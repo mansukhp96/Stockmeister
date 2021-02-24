@@ -1,0 +1,68 @@
+.stockmeister-icon {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.stockmeister-topbar-wrapper {
+    color: #fff;
+}
+
+.stockmeister-topbar-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 90px);
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .stockmeister-topbar-menu {
+        grid-template-rows: repeat(6, 60px);
+    }
+}
+
+.stockmeister-topbar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    list-style: none;
+    transition: 0.2s ease-in-out;
+    color: #fff;
+    cursor: pointer;
+}
+
+.stockmeister-topbar-link:hover {
+    color: #00ffb7;
+    transition: 0.2s ease-in-out;
+}
+
+.stockmeister-topbar-login {
+    display: flex;
+    justify-content: center;
+}
+
+.stockmeister-topbar-link-route-login {
+    color: #010606;
+    border-radius: 60px;
+    background: #00ffb7;
+    white-space: nowrap;
+    padding: 8px 44px;
+    font-size: 22px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.stockmeister-topbar-link-route-login:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+
