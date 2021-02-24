@@ -31,8 +31,8 @@
     height: 80px;
     z-index: 1;
     width: 100%;
-    padding: 0 15px;
-    max-width: 1100px;
+    padding: 0 5px;
+    max-width: 1200px;
 }
 
 .stockmeister-nav-logo {
@@ -59,7 +59,7 @@
     .stockmeister-mobile-icon {
         display: block;
         position: absolute;
-        top: 0;
+        top: -8px;
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -69,7 +69,7 @@
 
 .stockmesiter-nav-item {
     align-items: center;
-    height: 10px;
+    height: 80px;
 }
 
 .stockmeister-link-scroll {
@@ -139,7 +139,7 @@
 .stockmeister-link-route-register {
     height: 52%;
     color: #fff;
-    padding: 10px 22px;
+    padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
