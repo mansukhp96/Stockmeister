@@ -3,7 +3,8 @@ import './navbar.css'
 import {Link as LinkRouter} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 
-const Navbar = () => {
+const Navbar = ({toggle}) => {
+
     return(
         <div className="stockmeister-nav">
             <div className="stockmeister-navbar-container">
@@ -12,7 +13,8 @@ const Navbar = () => {
                     <i className="fas fa-layer-group"/>
                     StockMeister
                 </LinkRouter>
-                <div className="stockmeister-mobile-icon">
+                <div className="stockmeister-mobile-icon"
+                     onClick={toggle}>
                     <div>
                         <i className="fas fa-bars stockmesiter-fa-bars"/>
                     </div>

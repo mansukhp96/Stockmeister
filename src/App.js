@@ -1,14 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Topbar from "./components/topbar/topbar";
-import Navbar from "./components/navbar/navbar";
 import {BrowserRouter} from "react-router-dom";
+import Home from "./components/Home/home";
 
 function App() {
   return (
     <BrowserRouter>
-      <Topbar/>
-      <Navbar/>
+      <Home/>
     </BrowserRouter>
   );
 }

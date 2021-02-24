@@ -4,10 +4,11 @@ import {TopbarContainer} from './topbar-elements'
 import {Link as LinkScroll} from "react-scroll";
 import {Link as LinkRoute} from "react-router-dom";
 
-const Topbar = () => {
+const Topbar = ({expand, toggle}) => {
     return(
-        <TopbarContainer>
-            <div className="stockmeister-icon">
+        <TopbarContainer expand={expand}
+                         onClick={toggle}>
+            <div className="stockmeister-icon" onClick={toggle}>
                     <i className="fas fa-times text-light"/>
             </div>
             <div className="stockmeister-topbar-wrapper">
