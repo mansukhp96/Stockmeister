@@ -42,7 +42,7 @@
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-left: 24px;
+    margin-left: 10px;
     font-weight: bold;
     text-decoration: none;
 }
@@ -113,6 +113,7 @@
 
 .stockmeister-link-route-login {
     height: 52%;
+    margin-right: 10px;
     border-radius: 60px;
     background: #00ffb7;
     white-space: nowrap;
