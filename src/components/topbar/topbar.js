@@ -19,12 +19,22 @@ const Topbar = ({expand, toggle}) => {
                                 className="stockmeister-topbar-link text-decoration-none">
                         Market
                     </LinkScroll>
-                    <LinkScroll to="news"
+                    <LinkScroll to="personal"
+                                smooth={true}
+                                duration={600}
+                                spy={true}
+                                exact="true"
+                                offset={-80}
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         News
                     </LinkScroll>
-                    <LinkScroll to="trade"
+                    <LinkScroll to="access"
+                                smooth={true}
+                                duration={600}
+                                spy={true}
+                                exact="true"
+                                offset={-80}
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Trade

@@ -28,7 +28,7 @@ const InfoFragment = ({lightBg, id, imgStart, title, lightText, header, darkText
                                             spy={true}
                                             exact="true"
                                             offset={-80}
-                                            className="stockmeister-info-getstarted-button text-decoration-none">
+                                            className="btn btn-outline-success stockmeister-info-getstarted-button text-decoration-none">
                                     {buttonLabel}
                                 </LinkScroll>
                             </div>
