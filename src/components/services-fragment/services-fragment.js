@@ -2,8 +2,9 @@ import React from 'react'
 import './services-fragment.css'
 
 import Img1 from '../../images/img1.svg'
-import Img2 from '../../images/img2.svg'
 import Img3 from '../../images/img3.svg'
+import Img4 from '../../images/img4.svg'
+import Img6 from '../../images/img6.svg'
 
 import {ServicesImg} from './service-fragment-elements'
 
@@ -24,7 +25,7 @@ const ServicesFragment = () => {
                     </div>
                 </div>
                 <div className="stockmeister-services-card">
-                    <ServicesImg src={Img2}/>
+                    <ServicesImg src={Img4}/>
                     <div className="stockmeister-services-card-header">
                         Service2
                     </div>
@@ -42,7 +43,7 @@ const ServicesFragment = () => {
                     </div>
                 </div>
                 <div className="stockmeister-services-card">
-                    <ServicesImg src={Img3}/>
+                    <ServicesImg src={Img6}/>
                     <div className="stockmeister-services-card-header">
                         Service4
                     </div>
