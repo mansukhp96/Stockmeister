@@ -88,15 +88,20 @@
 }
 
 .stockmeister-landing-explore-btn {
+    margin-right: 10px;
+    border-radius: 60px;
+    background: #00ffb7;
+    white-space: nowrap;
+    padding: 12px 26px;
     color: #010606;
     font-size: 19px;
-    background: #00ffb7;
-    border-radius: 100px;
-    padding: 9px 22px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
 }
 
 .stockmeister-landing-explore-btn:hover {
-    color: #010606;
+    transition: all 0.3s ease-in-out;
     background: #fff;
-    transform : scale(1.02);
+    color: #010606;
 }

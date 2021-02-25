@@ -1,6 +1,7 @@
 import React from 'react'
 import './landing-fragment.css'
 import Video from '../../videos/video.mp4'
+import {Link as LinkScroll} from 'react-scroll'
 import {VideoBackground} from "./landing-fragment-elements";
 
 const LandingFragment = () => {
@@ -17,10 +18,10 @@ const LandingFragment = () => {
                     Commission-free investing, plus the technology you need to grow your money
                 </p>
                 <div className="stockmeister-explore-wrapper">
-                    <button className="btn btn-block stockmeister-landing-explore-btn">
-                        Start Today&nbsp;
-                        <i className="far fa-arrow-alt-circle-right"/>
-                    </button>
+                    <LinkScroll to="services"
+                                className="stockmeister-landing-explore-btn text-decoration-none">
+                        Start Today
+                    </LinkScroll>
                 </div>
             </div>
         </div>

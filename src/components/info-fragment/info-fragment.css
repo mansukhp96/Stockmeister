@@ -1,0 +1,67 @@
+.stockmeister-info-wrapper {
+    display: grid;
+    z-index: 1;
+    height: 860px;
+    width: 100%;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 24px;
+    justify-content: center;
+}
+
+.stockmeister-info-column1 {
+    margin-bottom: 15px;
+    padding: 0 15px;
+    grid-area: col1;
+}
+
+.stockmeister-info-column2 {
+    margin-bottom: 15px;
+    padding: 0 15px;
+    grid-area: col2;
+}
+
+.stockmeister-info-textwrapper {
+    max-width: 540px;
+    padding-top: 0;
+    padding-bottom: 60px;
+}
+
+.stockmeister-info-title {
+    color: #01bf71;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.stockmesiter-info-btn-wrapper {
+    display: flex;
+    margin-top: 32px;
+}
+
+.stockmeister-info-getstarted-button {
+    margin-right: 10px;
+    border-radius: 60px;
+    background: #00ffb7;
+    white-space: nowrap;
+    padding: 12px 26px;
+    color: #010606;
+    font-size: 19px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.stockmeister-info-getstarted-button:hover {
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+.stockmeister-info-imgwrap {
+    max-width: 555px;
+    height: 100%;
+}
