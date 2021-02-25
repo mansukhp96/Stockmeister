@@ -22,7 +22,7 @@
 }
 
 .stockmesiter-fa-bars:hover {
-    color: #00ffb7;
+    color: #f69d52;
 }
 
 .stockmeister-navbar-container {
@@ -48,7 +48,7 @@
 }
 
 .stockmeister-nav-logo:hover {
-    color: #00ffb7;
+    color: #f69d52;
 }
 
 .stockmeister-mobile-icon {
@@ -83,7 +83,7 @@
 }
 
 .stockmeister-link-scroll:hover {
-    color: #00ffb7;
+    color: #f69d52;
 }
 
 .stockmeister-nav-menu {
@@ -115,7 +115,7 @@
     height: 52%;
     margin-right: 10px;
     border-radius: 60px;
-    background: #00ffb7;
+    background: #f69d52;
     white-space: nowrap;
     padding: 9px 22px;
     color: #010606;
@@ -147,6 +147,6 @@
 }
 
 .stockmeister-link-route-register:hover {
-    color: #00ffb7;
+    color: #f69d52;
 }
 

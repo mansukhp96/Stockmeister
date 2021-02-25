@@ -19,6 +19,11 @@ const LandingFragment = () => {
                 </p>
                 <div className="stockmeister-explore-wrapper">
                     <LinkScroll to="services"
+                                smooth={true}
+                                duration={600}
+                                spy={true}
+                                exact="true"
+                                offset={-79}
                                 className="stockmeister-landing-explore-btn text-decoration-none">
                         Start Today
                     </LinkScroll>

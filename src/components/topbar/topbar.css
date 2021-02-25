@@ -37,7 +37,7 @@
 }
 
 .stockmeister-topbar-link:hover {
-    color: #00ffb7;
+    color: #f69d52;
     transition: 0.2s ease-in-out;
 }
 
@@ -49,7 +49,7 @@
 .stockmeister-topbar-link-route-login {
     color: #010606;
     border-radius: 60px;
-    background: #00ffb7;
+    background: #f69d52;
     white-space: nowrap;
     padding: 8px 44px;
     font-size: 22px;

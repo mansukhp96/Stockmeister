@@ -4,6 +4,7 @@ import Navbar from "../navbar/navbar";
 import LandingFragment from "../landing-fragment/landing-fragment";
 import InfoFragment from "../info-fragment/info-fragment";
 import { InfoData1, InfoData2 } from '../info-fragment/info-data'
+import ServicesFragment from "../services-fragment/services-fragment";
 
 const Home = () => {
 
@@ -20,6 +21,7 @@ const Home = () => {
             <LandingFragment/>
             <InfoFragment {...InfoData1}/>
             <InfoFragment {...InfoData2}/>
+            <ServicesFragment/>
         </div>
     )
 }

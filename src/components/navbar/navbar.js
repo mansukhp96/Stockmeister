@@ -33,7 +33,7 @@ const Navbar = ({toggle}) => {
                                     duration={600}
                                     spy={true}
                                     exact="true"
-                                    offset={-80}
+                                    offset={-79}
                                     className="stockmeister-link-scroll text-decoration-none">
                             <i className="fas fa-globe-americas"/>
                             &nbsp;News
@@ -45,7 +45,7 @@ const Navbar = ({toggle}) => {
                                     duration={600}
                                     spy={true}
                                     exact="true"
-                                    offset={-80}
+                                    offset={-79}
                                     className="stockmeister-link-scroll text-decoration-none">
                             <i className="fas fa-coins"/>
                             &nbsp;Trade
