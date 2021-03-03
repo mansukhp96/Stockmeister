@@ -25,7 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
-    grid-gap: 16px;
+    grid-gap: 17px;
     padding: 0 50px;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .stockmeister-services-card-header {
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
 }
 

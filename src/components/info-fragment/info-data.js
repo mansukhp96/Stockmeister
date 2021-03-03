@@ -21,7 +21,7 @@ export const InfoData2 = {
     lightText: true,
     lightTextDesc: true,
     title: 'For You.',
-    header: 'Personalized News & Stocks',
+    header: 'Curated News & Stocks',
     subtext: 'We provide tailored news topics and stock search suggestions based on your interests',
     buttonLabel: "Explore",
     imgStart: true,

@@ -18,10 +18,10 @@ const ServicesFragment = () => {
                 <div className="stockmeister-services-card">
                     <ServicesImg src={Img1}/>
                     <div className="stockmeister-services-card-header">
-                        Service1
+                        Helpful Tools
                     </div>
                     <div className="stockmeister-services-card-subtext">
-                        Service1 some random text for now
+                        Curated stocks & exclusive insights
                     </div>
                 </div>
                 <div className="stockmeister-services-card">
@@ -36,10 +36,10 @@ const ServicesFragment = () => {
                 <div className="stockmeister-services-card">
                 <ServicesImg src={Img3}/>
                     <div className="stockmeister-services-card-header">
-                        Service3
+                        No limits
                     </div>
                     <div className="stockmeister-services-card-subtext">
-                        Service3 some random text yet again for now
+                        Unlimited commission-free online trades
                     </div>
                 </div>
                 <div className="stockmeister-services-card">
