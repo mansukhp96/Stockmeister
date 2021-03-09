@@ -1,0 +1,116 @@
+.stockmeister-footer-container {
+    background: #030707;
+}
+
+.stockmeister-footer-wrapper {
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.stockmeister-footer-links-container {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 820px) {
+    .stockmeister-footer-links-container {
+        padding-top: 32px;
+    }
+}
+
+.stockmeister-footer-links-wrapper {
+    display: flex;
+}
+
+@media screen and (max-width: 820px) {
+    .stockmeister-footer-links-wrapper {
+        flex-direction: column;
+    }
+}
+
+.stockmeister-links-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    width: 160px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+@media screen and (max-width: 420px) {
+    .stockmeister-links-items {
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+    }
+}
+
+.stockmeister-footer-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-underline-offset: 10px;
+    text-decoration: underline #f69d52;
+}
+
+.stockmeister-footer-link {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+}
+
+.stockmeister-footer-link:hover {
+    color: #f69d52;
+    transition: 0.2s ease-in-out;
+}
+
+.stockmeister-socials {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.stockmeister-socials-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 20px auto 0 auto;
+}
+
+@media screen and (max-width: 820px) {
+    .stockmeister-socials-wrap {
+        flex-direction: column;
+    }
+}
+
+.stockmeister-footer-muted-text-logo {
+    color: #505153;
+    justify-self: start;
+    font-size: 13px;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+.stockmeister-social-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+    color: #505153;
+    font-size: 13px;
+}
+
+.stockmeister-social-link:hover {
+    color: #f69d52;
+    cursor: pointer;
+    font-size: 13px;
+}
+
