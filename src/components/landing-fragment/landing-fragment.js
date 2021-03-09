@@ -8,7 +8,7 @@ const LandingFragment = () => {
     return(
         <div className="stockmeister-landing-container">
             <div className="stockmesiter-landing-background">
-                <VideoBackground autoPlay loop muted src={Video} type='video/mp4'/>
+                <VideoBackground playsInline autoPlay loop muted src={Video} type='video/mp4'/>
             </div>
             <div className="stockmeister-landing-content">
                 <h1 className="stockmeister-landing-header">

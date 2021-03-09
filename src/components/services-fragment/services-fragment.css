@@ -66,6 +66,7 @@
     color: #f69d52;
     margin-bottom: 64px;
     text-align: center;
+    cursor: default;
 }
 
 @media screen and (max-width: 480px) {

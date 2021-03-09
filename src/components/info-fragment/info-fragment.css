@@ -26,6 +26,7 @@
     max-width: 540px;
     padding-top: 0;
     padding-bottom: 60px;
+    cursor: default;
 }
 
 .stockmeister-info-title {
@@ -36,6 +37,7 @@
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
+    cursor: default;
 }
 
 .stockmesiter-info-btn-wrapper {

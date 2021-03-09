@@ -112,7 +112,7 @@
 }
 
 .stockmeister-link-route-login {
-    height: 52%;
+    height: 56%;
     margin-right: 10px;
     border-radius: 60px;
     background: #f69d52;
@@ -148,5 +148,18 @@
 
 .stockmeister-link-route-register:hover {
     color: #f69d52;
+}
+
+.stockmeister-nav-simple {
+    background: #000;
+    height: 80px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
