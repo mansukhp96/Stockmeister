@@ -6,6 +6,7 @@ import InfoFragment from "../info-fragment/info-fragment";
 import { InfoData1, InfoData2 } from '../info-fragment/info-data'
 import ServicesFragment from "../services-fragment/services-fragment";
 import Footer from "../footer/footer";
+import CryptoFragment from "../crypto-fragment/crypto-fragment";
 
 const Home = () => {
 
@@ -23,6 +24,7 @@ const Home = () => {
             <InfoFragment {...InfoData1}/>
             <InfoFragment {...InfoData2}/>
             <ServicesFragment/>
+            <CryptoFragment/>
             <Footer/>
         </div>
     )

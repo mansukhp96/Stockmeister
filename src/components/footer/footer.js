@@ -30,8 +30,8 @@ const Footer = () => {
                                 Projects
                             </h1>
                             <a href="#" className="stockmeister-footer-link text-decoration-none">Chalkboard</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Something1</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Something2</a>
+                            <a href="#" className="stockmeister-footer-link text-decoration-none">SecPassMgr</a>
+                            <a href="#" className="stockmeister-footer-link text-decoration-none">Trawel.co.in</a>
                         </div>
                         <div className="stockmeister-links-items">
                             <h1 className="stockmeister-footer-title">

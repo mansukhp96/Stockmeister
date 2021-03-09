@@ -1,0 +1,109 @@
+.stockmeister-crypto-container {
+    background: #0c0c0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    height: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+.stockmeister-crypto-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+    z-index: 2;
+}
+
+.stockmesiter-crypto-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.stockmeister-crypto-content {
+    z-index: 3;
+    max-width: 700px;
+    position: absolute;
+    display: flex;
+    padding: 8px 24px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stockmeister-crypto-header {
+    color: #fff;
+    font-size: 56px;
+    text-align: center;
+    cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-crypto-header {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stockmeister-crypto-header {
+        font-size: 28px;
+    }
+}
+
+.stockmeister-crypto-subheader {
+    margin-top: 24px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    max-width: 600px;
+    cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-crypto-subheader {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stockmeister-crypto-subheader {
+        font-size: 16px;
+    }
+}
+
+.stockmeister-explore-wrapper {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stockmeister-crypto-explore-btn {
+    margin-right: 10px;
+    border-radius: 60px;
+    background: #f69d52;
+    white-space: nowrap;
+    padding: 12px 26px;
+    color: #010606;
+    font-size: 19px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.stockmeister-crypto-explore-btn:hover {
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
