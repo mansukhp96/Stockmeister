@@ -15,7 +15,7 @@ const CryptoFragment = () => {
                     "Vires in numeris."
                 </h1>
                 <p className="stockmeister-crypto-subheader">
-                    Introducing cryptocurrency trading
+                    Introducing crypto trading
                 </p>
                 <div className="stockmeister-explore-wrapper">
                     <LinkScroll to="services"
