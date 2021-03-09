@@ -44,11 +44,11 @@ const Topbar = ({expand, toggle}) => {
                                 className="stockmeister-topbar-link text-decoration-none">
                         Search
                     </LinkScroll>
-                    <LinkScroll to="register"
-                                onClick={toggle}
-                                className="stockmeister-topbar-link text-decoration-none">
+                    <LinkRoute to="/register"
+                               onClick={toggle}
+                               className="stockmeister-topbar-link text-decoration-none">
                         Sign Up
-                    </LinkScroll>
+                    </LinkRoute>
                 </div>
                 <div className="stockmeister-topbar-login">
                     <LinkRoute to="/login" className="stockmeister-topbar-link-route-login text-decoration-none">

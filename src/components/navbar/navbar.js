@@ -2,6 +2,7 @@ import React from 'react'
 import './navbar.css'
 import {Link as LinkRouter} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
+import {animateScroll as scroll} from 'react-scroll'
 
 const Navbar = ({toggle}) => {
 
@@ -9,7 +10,8 @@ const Navbar = ({toggle}) => {
         <div className="stockmeister-nav">
             <div className="stockmeister-navbar-container">
                 <LinkRouter to="/"
-                      className="stockmeister-nav-logo text-decoration-none">
+                            onClick={() => scroll.scrollToTop()}
+                            className="stockmeister-nav-logo text-decoration-none">
                     <i className="fas fa-layer-group"/>
                     StockMeister
                 </LinkRouter>

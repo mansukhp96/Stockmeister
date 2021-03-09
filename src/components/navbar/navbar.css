@@ -72,6 +72,16 @@
     height: 80px;
 }
 
+.stockmesiter-nav-item:hover {
+    text-decoration: underline #f69d52;
+    text-underline-offset: 33px;
+}
+
+.stockmesiter-nav-item:active {
+    text-decoration: underline #f69d52;
+    text-underline-offset: 33px;
+}
+
 .stockmeister-link-scroll {
     color: #fff;
     display: flex;
