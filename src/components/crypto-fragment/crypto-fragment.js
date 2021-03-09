@@ -2,13 +2,13 @@ import React from 'react'
 import './crypto-fragment.css'
 import Video from '../../videos/crypto.mp4'
 import {Link as LinkScroll} from 'react-scroll'
-import {VideoBackground} from "../landing-fragment/landing-fragment-elements";
 
 const CryptoFragment = () => {
     return(
         <div className="stockmeister-crypto-container">
             <div className="stockmesiter-crypto-background">
-                <VideoBackground playsInline autoPlay loop muted src={Video} type='video/mp4'/>
+                <video className="stockmeister-crypto-video"
+                       playsInline autoPlay loop muted src={Video} />
             </div>
             <div className="stockmeister-crypto-content">
                 <h1 className="stockmeister-crypto-header">

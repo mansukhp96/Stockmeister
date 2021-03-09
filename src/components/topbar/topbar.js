@@ -24,7 +24,7 @@ const Topbar = ({expand, toggle}) => {
                                 duration={600}
                                 spy={true}
                                 exact="true"
-                                offset={-80}
+                                offset={-79}
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         News
@@ -34,7 +34,7 @@ const Topbar = ({expand, toggle}) => {
                                 duration={600}
                                 spy={true}
                                 exact="true"
-                                offset={-80}
+                                offset={-79}
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Trade
