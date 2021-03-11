@@ -7,6 +7,7 @@ import { InfoData1, InfoData2 } from '../info-fragment/info-data'
 import ServicesFragment from "../services-fragment/services-fragment";
 import Footer from "../footer/footer";
 import CryptoFragment from "../crypto-fragment/crypto-fragment";
+import StockMarket from "../market/stock-market";
 
 const Home = () => {
 
@@ -22,6 +23,7 @@ const Home = () => {
             <Navbar toggle={toggleTopbar}/>
             <LandingFragment/>
             <InfoFragment {...InfoData1}/>
+            <StockMarket/>
             <InfoFragment {...InfoData2}/>
             <ServicesFragment/>
             <CryptoFragment/>

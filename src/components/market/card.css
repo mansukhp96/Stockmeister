@@ -1,0 +1,18 @@
+.stockmeister-card {
+    width: 140px;
+    height: 150px;
+    margin: 10px 10px;
+    background: #f69d52;
+    font-size: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.stockmeister-card:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+    cursor: pointer;
+}

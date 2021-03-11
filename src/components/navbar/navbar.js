@@ -24,6 +24,11 @@ const Navbar = ({toggle}) => {
                 <ul className="stockmeister-nav-menu">
                     <li className="stockmesiter-nav-item">
                         <LinkScroll to="market"
+                                    smooth={true}
+                                    duration={600}
+                                    spy={true}
+                                    exact="true"
+                                    offset={-150}
                                     className="stockmeister-link-scroll text-decoration-none">
                             <i className="fas fa-poll"/>
                             &nbsp;Market
