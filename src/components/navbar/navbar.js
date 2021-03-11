@@ -28,7 +28,7 @@ const Navbar = ({toggle}) => {
                                     duration={600}
                                     spy={true}
                                     exact="true"
-                                    offset={-150}
+                                    offset={-130}
                                     className="stockmeister-link-scroll text-decoration-none">
                             <i className="fas fa-poll"/>
                             &nbsp;Market

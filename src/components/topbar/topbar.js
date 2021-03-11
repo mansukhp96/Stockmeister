@@ -15,6 +15,11 @@ const Topbar = ({expand, toggle}) => {
             <div className="stockmeister-topbar-wrapper">
                 <div className="stockmeister-topbar-menu">
                     <LinkScroll to="market"
+                                smooth={true}
+                                duration={600}
+                                spy={true}
+                                exact="true"
+                                offset={-130}
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Market

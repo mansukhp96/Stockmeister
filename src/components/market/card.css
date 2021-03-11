@@ -16,3 +16,11 @@
     transform: scale(1.05);
     cursor: pointer;
 }
+
+.stockmeister-card-symbol {
+    font-weight: bold;
+}
+
+.stockmeister-card-value {
+    color: white;
+}

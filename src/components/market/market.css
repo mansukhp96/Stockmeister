@@ -29,3 +29,15 @@
     background: #f69d52;
     color: black;
 }
+
+.stockmeister-stock-market-title {
+    color: #f69d52;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    cursor: default;
+}
