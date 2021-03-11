@@ -14,6 +14,7 @@
 
 .rec.rec-arrow.rec.rec-arrow-left {
     background: none;
+    box-shadow: none;
 }
 
 .rec.rec-arrow.rec.rec-arrow-left:hover {
@@ -23,6 +24,7 @@
 
 .rec.rec-arrow.rec.rec-arrow-right {
     background: none;
+    box-shadow: none;
 }
 
 .rec.rec-arrow.rec.rec-arrow-right:hover {

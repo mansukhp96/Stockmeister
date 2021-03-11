@@ -21,8 +21,8 @@ export const StockMarket = () => {
                 Trending This week.
             </div>
                 <Carousel enableAutoPlay={true}
-                          disableArrowsOnEnd={true}
-                          autoPlaySpeed={2000}
+                          disableArrowsOnEnd={false}
+                          autoPlaySpeed={2500}
                           pagination={false}
                           breakPoints={breakPoints}
                           className="stockmeister-carousel">
