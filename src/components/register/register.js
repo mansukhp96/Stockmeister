@@ -2,8 +2,19 @@ import React from 'react'
 import './register.css'
 import NavbarSimple from "../navbar/navbar-simple";
 import {Link} from "react-router-dom";
+import GoogleLogin from 'react-google-login';
 
 const Register = () => {
+
+    const googleSuccess = async (res) => {
+        console.log(res)
+    }
+
+    const googleFailure = (error) => {
+        console.log(error)
+        console.log("Google sign up unsuccessful")
+    }
+
     return(
         <>
             <NavbarSimple/>
@@ -47,6 +58,19 @@ const Register = () => {
                             <button className="stockmeister-register-btn">
                                 SIGN UP
                             </button>
+                            <GoogleLogin clientId="773832370247-e8m7hoo3qe1ba9vu590rfhjm67f0itps.apps.googleusercontent.com"
+                                         onSuccess={googleSuccess}
+                                         onFailure={googleFailure}
+                                         cookiePolicy="single_host_origin"
+                                         render={(renderProps) => (
+                                             <button className="stockmeister-register-google-btn"
+                                                     onClick={renderProps.onClick}
+                                                     disabled={renderProps.disabled}
+                                                     color="primary">
+                                                 Google Sign Up
+                                             </button>
+                                         )
+                                         }/>
                             <div className="row">
                                 <Link to="/login"
                                       className="col-12 stockmeister-register-text text-decoration-none">

@@ -1,10 +1,31 @@
 import React from 'react'
 import './login.css'
 import NavbarSimple from "../navbar/navbar-simple";
-import Footer from "../footer/footer";
+import GoogleLogin from 'react-google-login';
 import {Link} from "react-router-dom";
+import {Provider, useDispatch} from 'react-redux';
 
 const Login = () => {
+
+    const dispatch = useDispatch();
+
+    const googleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+        
+        try {
+            dispatch({ type : "AUTH", data : { result, token } });
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const googleFailure = (error) => {
+        console.log(error)
+        console.log("Google sign up unsuccessful")
+    }
+
     return(
         <>
             <NavbarSimple/>
@@ -24,6 +45,19 @@ const Login = () => {
                             <button className="stockmeister-login-btn">
                                 LOGIN
                             </button>
+                            <GoogleLogin clientId="773832370247-e8m7hoo3qe1ba9vu590rfhjm67f0itps.apps.googleusercontent.com"
+                                         onSuccess={googleSuccess}
+                                         onFailure={googleFailure}
+                                         cookiePolicy="single_host_origin"
+                                         render={(renderProps) => (
+                                             <button className="stockmeister-register-google-btn"
+                                                     onClick={renderProps.onClick}
+                                                     disabled={renderProps.disabled}
+                                                     color="primary">
+                                                 Google Sign In
+                                             </button>
+                                         )
+                                         }/>
                             <div className="row">
                                 <Link to="/"
                                       className="col-6 stockmeister-forgot-text text-left text-decoration-none">

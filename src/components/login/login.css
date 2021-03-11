@@ -1,6 +1,6 @@
 .stockmeister-login-container {
     min-height: 602px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -85,7 +85,6 @@
 }
 
 .stockmeister-login-btn:hover {
-    transform: scale(1.008);
     transition: all 0.3s ease-in-out;
     background: #fff;
     color: #010606;

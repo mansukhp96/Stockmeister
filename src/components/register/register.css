@@ -1,6 +1,6 @@
 .stockmeister-register-container {
-    min-height: 602px;
-    position: absolute;
+    min-height: 690px;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -14,6 +14,12 @@
     );
 }
 
+@media screen and (max-width: 400px) {
+    .stockmeister-register-container {
+        min-height: 1450px;
+    }
+}
+
 .stockmeister-form-wrapper {
     height: 100%;
     display: flex;
@@ -23,7 +29,7 @@
 
 @media screen and (max-width: 400px){
     .stockmeister-form-wrapper {
-        height: 85%;
+        height: 50%;
     }
 }
 
@@ -48,26 +54,26 @@
     z-index: 1;
     display: grid;
     margin: 0 auto;
-    padding: 80px 32px;
+    padding: 40px 32px;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 @media screen and (max-width: 400px) {
     .stockmeister-form {
-        padding: 32px 32px;
+        padding: 30px 32px;
     }
 }
 
 .stockmeister-form-label {
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     font-size: 15px;
     color: #fff;
 }
 
 .stockmeister-form-input {
-    padding: 9px 16px;
-    margin-bottom: 20px;
+    padding: 6px 16px;
+    margin-bottom: 15px;
     border: none;
     border-radius: 4px;
 }
@@ -75,25 +81,42 @@
 .stockmeister-register-btn {
     margin: 5px 0;
     background: #f69d52;
-    padding: 10px 0;
+    padding: 6px 0;
     border: none;
     border-radius: 40px;
     color: #010101;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bolder;
     cursor: pointer;
 }
 
 .stockmeister-register-btn:hover {
-    transform: scale(1.008);
     transition: all 0.3s ease-in-out;
     background: #fff;
     color: #010606;
 }
 
+.stockmeister-register-google-btn {
+    margin: 5px 0;
+    background: #ffffff;
+    padding: 6px 0;
+    border: none;
+    border-radius: 40px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.stockmeister-register-google-btn:hover {
+    transition: all 0.3s ease-in-out;
+    background: #77cdff;
+    color: #010606;
+}
+
 .stockmeister-forgot-text {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     color: #fff;
     font-size: 14px;
 }
@@ -104,7 +127,7 @@
 
 .stockmeister-register-text {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     color: #fff;
     font-size: 14px;
 }
@@ -115,11 +138,15 @@
 
 .stockmeister-checkbox-stocks {
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .stockmeister-checkbox {
     cursor: pointer;
     width: 1.2rem;
     height: 1.2rem;
+}
+
+.stockmeister-register-name-wrapper {
+    justify-content: center;
 }
