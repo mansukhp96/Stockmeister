@@ -112,3 +112,14 @@
 .stockmeister-register-text:hover {
     color: #f69d52;
 }
+
+.stockmeister-checkbox-stocks {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.stockmeister-checkbox {
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+}
