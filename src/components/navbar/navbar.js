@@ -104,7 +104,7 @@ const Navbar = ({toggle}) => {
                         <div className="stockmesiter-nav-login">
                             <LinkRouter to="/profile"
                                         className="stockmeister-link-route-avatar text-decoration-none">
-                                <ImgAvatar className="stockmeister-avatar rounded-pill" src={user?.result.imageUrl}/>
+                                <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
                             </LinkRouter>
                             <LinkRouter to="/login"
                                         onClick={()=> { logout() }}
