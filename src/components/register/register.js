@@ -1,13 +1,26 @@
 import React from 'react'
 import './register.css'
 import NavbarSimple from "../navbar/navbar-simple";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
+import {useDispatch} from "react-redux";
 
 const Register = () => {
 
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const googleSuccess = async (res) => {
-        console.log(res)
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+
+        try {
+            dispatch({ type : "AUTH", data : { result, token } });
+            history.push('/')
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     const googleFailure = (error) => {

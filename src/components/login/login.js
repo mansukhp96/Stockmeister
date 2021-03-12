@@ -2,12 +2,13 @@ import React from 'react'
 import './login.css'
 import NavbarSimple from "../navbar/navbar-simple";
 import GoogleLogin from 'react-google-login';
-import {Link} from "react-router-dom";
-import {Provider, useDispatch} from 'react-redux';
+import {Link, useHistory} from "react-router-dom";
+import {useDispatch} from 'react-redux';
 
 const Login = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
@@ -15,6 +16,7 @@ const Login = () => {
         
         try {
             dispatch({ type : "AUTH", data : { result, token } });
+            history.push("/")
         }
         catch (error) {
             console.log(error)

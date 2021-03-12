@@ -57,8 +57,8 @@
 
 @media screen and (max-width: 768px) {
     .stockmeister-mobile-icon {
-        display: block;
-        position: absolute;
+        display: flex;
+        position: fixed;
         top: -8px;
         right: 0;
         transform: translate(-100%, 60%);
@@ -171,5 +171,23 @@
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+.stockmeister-link-route-avatar {
+    height: 52%;
+    color: #fff;
+    padding: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.stockmeister-avatar {
+    height: 45px;
+    opacity: 80%;
+}
+
+.stockmeister-avatar:hover {
+    opacity: 100%;
 }
 
