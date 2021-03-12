@@ -58,8 +58,9 @@
 @media screen and (max-width: 768px) {
     .stockmeister-mobile-icon {
         display: flex;
+        width: 58px;
         position: fixed;
-        top: -8px;
+        top: -15px;
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;

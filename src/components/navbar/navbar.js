@@ -38,7 +38,10 @@ const Navbar = ({toggle}) => {
                 </LinkRouter>
                 <div className="stockmeister-mobile-icon"
                      onClick={toggle}>
-
+                    <LinkRouter to="/profile"
+                                className="stockmeister-link-route-avatar text-decoration-none">
+                        <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
+                    </LinkRouter>
                     <div>
                         <i className="fas fa-bars stockmesiter-fa-bars"/>
                     </div>
