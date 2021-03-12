@@ -36,6 +36,19 @@ const Register = () => {
                     <div className="stockmeister-form-content">
                         <form className="stockmeister-form"
                               action="#">
+                            <div className="row justify-content-center">
+                                <div className="col-5 stockmeister-form-label">
+                                    First Name
+                                </div>
+                                <div className="col stockmeister-form-label">
+                                    Last Name
+                                </div>
+                            </div>
+                            <div className="row justify-content-center">
+                                <input className="col-5 stockmeister-form-input" type="text" required={true}/>
+                                &nbsp;
+                                <input className="col-6 stockmeister-form-input" type="text" required={true}/>
+                            </div>
                             <div className="stockmeister-form-label">
                                 Email
                             </div>
@@ -48,26 +61,6 @@ const Register = () => {
                                 Re-enter Password
                             </div>
                             <input className="stockmeister-form-input" type="password" required={true}/>
-                            <div className="row">
-                                <div className="col-5 stockmeister-checkbox-stocks text-center">
-                                    <input type="checkbox"
-                                           id="stocks-checkbox"
-                                           className="stockmeister-checkbox"/>
-                                   <label htmlFor="stocks-checkbox"
-                                          className="stockmeister-checkbox">
-                                       &nbsp;Stocks
-                                   </label>
-                                </div>
-                                <div className="col-6 stockmeister-checkbox-stocks text-center">
-                                    <input type="checkbox"
-                                           id="crypto-checkbox"
-                                           className="stockmeister-checkbox"/>
-                                    <label htmlFor="crypto-checkbox"
-                                           className="stockmeister-checkbox">
-                                        &nbsp;Crypto
-                                    </label>
-                                </div>
-                            </div>
                             <button className="stockmeister-register-btn">
                                 SIGN UP
                             </button>

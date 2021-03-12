@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 400px) {
     .stockmeister-register-container {
-        min-height: 1450px;
+        min-height: 1500px;
     }
 }
 
@@ -81,7 +81,7 @@
 .stockmeister-register-btn {
     margin: 5px 0;
     background: #f69d52;
-    padding: 6px 0;
+    padding: 8px 0;
     border: none;
     border-radius: 40px;
     color: #010101;
@@ -99,7 +99,7 @@
 .stockmeister-register-google-btn {
     margin: 5px 0;
     background: #ffffff;
-    padding: 6px 0;
+    padding: 8px 0;
     border: none;
     border-radius: 40px;
     color: #000000;
