@@ -4,7 +4,7 @@ import {Link as LinkRouter, useHistory, useLocation} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 import { useDispatch } from "react-redux";
 import {animateScroll as scroll} from 'react-scroll'
-import {Img} from "../info-fragment/info-fragment-elements";
+import {ImgAvatar} from "./navbar-elements";
 
 const Navbar = ({toggle}) => {
 
@@ -104,7 +104,7 @@ const Navbar = ({toggle}) => {
                         <div className="stockmesiter-nav-login">
                             <LinkRouter to="/profile"
                                         className="stockmeister-link-route-avatar text-decoration-none">
-                                <Img className="stockmeister-avatar rounded-pill" src={user?.result.imageUrl}/>
+                                <ImgAvatar className="stockmeister-avatar rounded-pill" src={user?.result.imageUrl}/>
                             </LinkRouter>
                             <LinkRouter to="/login"
                                         onClick={()=> { logout() }}
