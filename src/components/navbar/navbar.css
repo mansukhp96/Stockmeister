@@ -164,7 +164,7 @@
 .stockmeister-nav-simple {
     background: #000;
     height: 80px;
-    margin-top: 0px;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,5 +181,9 @@
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.stockmeister-placeholder-avatar {
+    padding: 14px 15px;
 }
 

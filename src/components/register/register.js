@@ -1,14 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './register.css'
 import NavbarSimple from "../navbar/navbar-simple";
 import {Link, useHistory} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import {useDispatch} from "react-redux";
+import { register }  from "../../services/auth-services";
 
 const Register = () => {
 
+    //Initial states
+    const formInitialState = {
+        firstName : "", lastName : "", email : "", password : "", rePassword : ""
+    };
+
+    //States
+    const [formData, setFormData] = useState(formInitialState);
+
+    //Constants
     const dispatch = useDispatch();
     const history = useHistory();
+
+    //handlers
+    const handleInput = (e) => {
+        setFormData({ ...formData, [e.target.name] : e.target.value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        //sign up service
+        dispatch(register(formData, history));
+
+        console.log(formData);
+    };
 
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
@@ -35,6 +59,7 @@ const Register = () => {
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">
                         <form className="stockmeister-form"
+                              onSubmit={handleSubmit}
                               action="#">
                             <div className="row justify-content-center">
                                 <div className="col-5 stockmeister-form-label">
@@ -45,23 +70,44 @@ const Register = () => {
                                 </div>
                             </div>
                             <div className="row justify-content-center">
-                                <input className="col-5 stockmeister-form-input" type="text" required={true}/>
+                                <input className="col-5 stockmeister-form-input"
+                                       onChange={handleInput}
+                                       name="firstName"
+                                       type="text"
+                                       required={true}/>
                                 &nbsp;
-                                <input className="col-6 stockmeister-form-input" type="text" required={true}/>
+                                <input className="col-6 stockmeister-form-input"
+                                       onChange={handleInput}
+                                       name="lastName"
+                                       type="text"
+                                       required={true}/>
                             </div>
                             <div className="stockmeister-form-label">
                                 Email
                             </div>
-                            <input className="stockmeister-form-input" type="email" required={true}/>
+                            <input className="stockmeister-form-input"
+                                   onChange={handleInput}
+                                   name="email"
+                                   type="email"
+                                   required={true}/>
                             <div className="stockmeister-form-label">
                                 Password
                             </div>
-                            <input className="stockmeister-form-input" type="password" required={true}/>
+                            <input className="stockmeister-form-input"
+                                   onChange={handleInput}
+                                   name="password"
+                                   type="password"
+                                   required={true}/>
                             <div className="stockmeister-form-label">
                                 Re-enter Password
                             </div>
-                            <input className="stockmeister-form-input" type="password" required={true}/>
-                            <button className="stockmeister-register-btn">
+                            <input className="stockmeister-form-input"
+                                   onChange={handleInput}
+                                   name="rePassword"
+                                   type="password"
+                                   required={true}/>
+                            <button type="submit"
+                                    className="stockmeister-register-btn">
                                 SIGN UP
                             </button>
                             <GoogleLogin clientId="773832370247-e8m7hoo3qe1ba9vu590rfhjm67f0itps.apps.googleusercontent.com"
