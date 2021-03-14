@@ -5,6 +5,7 @@ import {Link as LinkScroll} from 'react-scroll'
 import {VideoBackground} from "./landing-fragment-elements";
 
 const LandingFragment = () => {
+
     return(
         <div className="stockmeister-landing-container">
             <div className="stockmesiter-landing-background">
