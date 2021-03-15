@@ -3,12 +3,12 @@ import './register.css'
 import NavbarSimple from "../navbar/navbar-simple";
 import {Link, useHistory} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { register }  from "../../services/auth-services";
 
 //Initial states
 const formInitialState = {
-    firstName : "", lastName : "", email : "", password : "", rePassword : ""
+    firstName : "", lastName : "", email : "", password : "", rePassword : "", followers : 0, following: 0
 };
 
 const Register = () => {
@@ -30,8 +30,6 @@ const Register = () => {
 
         //sign up service
         dispatch(register(formData, history));
-
-        console.log(formData);
     };
 
     const googleSuccess = async (res) => {
@@ -106,6 +104,29 @@ const Register = () => {
                                    name="rePassword"
                                    type="password"
                                    required={true}/>
+                            <div className="row">
+                                <div className="col-5 stockmeister-checkbox-stocks text-center">
+                                    <input type="radio"
+                                           name="stockmeister-user-type"
+                                           id="stocks-checkbox"
+                                           className="stockmeister-checkbox"/>
+                                    <label htmlFor="stocks-checkbox"
+                                           className="stockmeister-checkbox">
+                                        &nbsp;Trader
+                                    </label>
+                                </div>
+                                <div className="col-7 stockmeister-checkbox-stocks text-left">
+                                    <input type="radio"
+                                           name="stockmeister-user-type"
+                                           id="crypto-checkbox"
+                                           className="stockmeister-checkbox"
+                                           required={true}/>
+                                    <label htmlFor="crypto-checkbox"
+                                           className="stockmeister-checkbox">
+                                        &nbsp;Portfolio&nbsp;Manager
+                                    </label>
+                                </div>
+                            </div>
                             <button type="submit"
                                     className="stockmeister-register-btn">
                                 SIGN UP

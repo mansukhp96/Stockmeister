@@ -6,12 +6,12 @@ import {Link, useHistory} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {login} from "../../services/auth-services";
 
-const Login = () => {
+//Initial states
+const loginFormInitialState = {
+    email : "", password : ""
+};
 
-    //Initial states
-    const loginFormInitialState = {
-        email : "", password : ""
-    };
+const Login = () => {
 
     //States
     const [loginFormData, setLoginFormData] = useState(loginFormInitialState);
@@ -30,13 +30,12 @@ const Login = () => {
 
         //Login service
         dispatch(login(loginFormData, history));
-
-        console.log(loginFormData);
     }
 
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
         const token = res?.tokenId;
+        console.log(res?.profileObj)
         
         try {
             dispatch({ type : "AUTH", data : { result, token } });

@@ -11,17 +11,17 @@ const Footer = () => {
                             <h1 className="stockmeister-footer-title">
                                 About
                             </h1>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Our Services</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Investors</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Crypto</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Our Services</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Investors</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Crypto</a>
                         </div>
                         <div className="stockmeister-links-items">
                             <h1 className="stockmeister-footer-title">
                                 Resources
                             </h1>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Technology</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Designs</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Privacy Policy</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Technology</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Designs</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Privacy Policy</a>
                         </div>
                     </div>
                     <div className="stockmeister-footer-links-wrapper">
@@ -29,17 +29,17 @@ const Footer = () => {
                             <h1 className="stockmeister-footer-title">
                                 Projects
                             </h1>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Chalkboard</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">SecPassMgr</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Trawel.co.in</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Chalkboard</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">SecPassMgr</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Trawel.co.in</a>
                         </div>
                         <div className="stockmeister-links-items">
                             <h1 className="stockmeister-footer-title">
                                 Developers
                             </h1>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Ojas Thanawala</a>
-                            <a href="#" className="stockmeister-footer-link text-decoration-none">Vishwas Thakkar</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Ojas Thanawala</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Vishwas Thakkar</a>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import defaultAvatar from '../../images/avatar.svg';
 import {Link as LinkRouter, useHistory, useLocation} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 import { useDispatch } from "react-redux";
+import decode from 'jwt-decode';
 import {animateScroll as scroll} from 'react-scroll'
 import {ImgAvatar} from "./navbar-elements";
 
@@ -23,7 +24,14 @@ const Navbar = ({toggle}) => {
     useEffect(() => {
         const token = user?.token
 
-        //Json Web Token TODO
+        //Json Web Token
+        if(token) {
+            const decodeToken = decode(token);
+
+            if(decodeToken.exp * 1000 < new Date().getTime()) {
+                logout();
+            }
+        }
 
         setUser(JSON.parse(localStorage.getItem('profile')));
     },[location]);
@@ -40,18 +48,17 @@ const Navbar = ({toggle}) => {
                 <div className="stockmeister-mobile-icon"
                      onClick={toggle}>
                     {
-                        user?.result &&
+                        user?.result.imageUrl &&
                         <LinkRouter to="/profile"
-                                 className="stockmeister-link-route-avatar text-decoration-none">
+                                    className="stockmeister-link-route-avatar text-decoration-none">
                             <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
                         </LinkRouter>
                     }
                     {
-                        !user?.result &&
-                        <LinkRouter to="#"
-                                    className="stockmeister-placeholder-avatar">
-                            <div className="stockmeister-placeholder-avatar">
-                            </div>
+                        !user?.result.imageUrl &&
+                        <LinkRouter to="/profile"
+                                    className="stockmeister-link-route-avatar text-decoration-none">
+                            <ImgAvatar className="rounded-pill" src={defaultAvatar}/>
                         </LinkRouter>
                     }
                     <div>

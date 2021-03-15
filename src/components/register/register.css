@@ -29,7 +29,7 @@
 
 @media screen and (max-width: 400px){
     .stockmeister-form-wrapper {
-        height: 45%;
+        height: 44%;
     }
 }
 
@@ -42,7 +42,7 @@
 
 @media screen and (max-width: 480px) {
     .stockmeister-form-content {
-        padding: 10px;
+        padding: 15px;
     }
 }
 
@@ -61,7 +61,7 @@
 
 @media screen and (max-width: 400px) {
     .stockmeister-form {
-        padding: 30px 32px;
+        padding: 5px 32px;
     }
 }
 
@@ -145,6 +145,7 @@
     cursor: pointer;
     width: 1.2rem;
     height: 1.2rem;
+    font-size: 14px;
 }
 
 .stockmeister-register-name-wrapper {

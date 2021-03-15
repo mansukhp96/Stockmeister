@@ -8,6 +8,7 @@ export const register = (formData, router) => async (dispatch) => {
         router.push("/");
     }
     catch (error) {
+        alert(error.response.data.message);
         console.log(error);
     }
 }
@@ -20,6 +21,7 @@ export const login = (loginFormData, router) => async (dispatch) => {
         router.push("/");
     }
     catch (error) {
+        alert(error.response.data.message);
         console.log(error);
     }
 }
