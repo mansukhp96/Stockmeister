@@ -6,12 +6,12 @@ import GoogleLogin from 'react-google-login';
 import {useDispatch} from "react-redux";
 import { register }  from "../../services/auth-services";
 
-const Register = () => {
+//Initial states
+const formInitialState = {
+    firstName : "", lastName : "", email : "", password : "", rePassword : ""
+};
 
-    //Initial states
-    const formInitialState = {
-        firstName : "", lastName : "", email : "", password : "", rePassword : ""
-    };
+const Register = () => {
 
     //States
     const [formData, setFormData] = useState(formInitialState);

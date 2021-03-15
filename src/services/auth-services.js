@@ -1,17 +1,23 @@
-export const register = (formData, history) => async (dispatch) => {
+import * as api from '../api/api.js'
+
+export const register = (formData, router) => async (dispatch) => {
     try {
         //register the user
-        history.push("/");
+        const { data } = await api.register(formData);
+        dispatch({ type : "AUTH", data });
+        router.push("/");
     }
     catch (error) {
         console.log(error);
     }
 }
 
-export const login = (formData, history) => async (dispatch) => {
+export const login = (loginFormData, router) => async (dispatch) => {
     try {
         //login the user
-        history.push("/");
+        const { data } = await api.login(loginFormData);
+        dispatch({ type : "AUTH", data });
+        router.push("/");
     }
     catch (error) {
         console.log(error);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.css'
+import defaultAvatar from '../../images/avatar.svg';
 import {Link as LinkRouter, useHistory, useLocation} from "react-router-dom";
 import {Link as LinkScroll} from "react-scroll"
 import { useDispatch } from "react-redux";
@@ -118,7 +119,14 @@ const Navbar = ({toggle}) => {
                         <div className="stockmesiter-nav-login">
                             <LinkRouter to="/profile"
                                         className="stockmeister-link-route-avatar text-decoration-none">
-                                <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
+                                {
+                                    !user?.result.imageUrl &&
+                                    <ImgAvatar className="rounded-pill" src={defaultAvatar}/>
+                                }
+                                {
+                                    user?.result.imageUrl &&
+                                    <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
+                                }
                             </LinkRouter>
                             <LinkRouter to="/login"
                                         onClick={()=> { logout() }}
