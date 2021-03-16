@@ -48,18 +48,31 @@ const Navbar = ({toggle}) => {
                 <div className="stockmeister-mobile-icon"
                      onClick={toggle}>
                     {
-                        user?.result.imageUrl &&
-                        <LinkRouter to="/profile"
+                        !user?.result ? (
+                            <LinkRouter to="#"
+                                        className="stockmeister-placeholder-avatar">
+                                <div className="stockmeister-placeholder-avatar">
+                                </div>
+                            </LinkRouter>
+                        ) : (
+                            <>
+                                {
+                                    user?.result.imageUrl &&
+                                    <LinkRouter to="/profile"
+                                                className="stockmeister-link-route-avatar text-decoration-none">
+                                        <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
+                                    </LinkRouter>
+                                }
+                                {
+                                    !user?.result.imageUrl &&
+                                    <LinkRouter to="/profile"
                                     className="stockmeister-link-route-avatar text-decoration-none">
-                            <ImgAvatar className="rounded-pill" src={user?.result.imageUrl}/>
-                        </LinkRouter>
-                    }
-                    {
-                        !user?.result.imageUrl &&
-                        <LinkRouter to="/profile"
-                                    className="stockmeister-link-route-avatar text-decoration-none">
-                            <ImgAvatar className="rounded-pill" src={defaultAvatar}/>
-                        </LinkRouter>
+                                    <ImgAvatar className="rounded-pill" src={defaultAvatar}/>
+                                    </LinkRouter>
+                                }
+                            </>
+                        )
+
                     }
                     <div>
                         <i className="fas fa-bars stockmesiter-fa-bars"/>

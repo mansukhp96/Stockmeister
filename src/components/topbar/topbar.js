@@ -1,10 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './topbar.css'
 import {TopbarContainer} from './topbar-elements'
 import {Link as LinkScroll} from "react-scroll";
-import {Link as LinkRoute} from "react-router-dom";
+import {Link as LinkRoute, useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 const Topbar = ({expand, toggle}) => {
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const logout = () => {
+        dispatch({ type : "LOGOUT" });
+        history.push("/");
+        setUser(null);
+    }
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
     return(
         <TopbarContainer expand={expand}
                          onClick={toggle}>
@@ -49,17 +62,34 @@ const Topbar = ({expand, toggle}) => {
                                 className="stockmeister-topbar-link text-decoration-none">
                         Search
                     </LinkScroll>
-                    <LinkRoute to="/register"
-                               onClick={toggle}
-                               className="stockmeister-topbar-link text-decoration-none">
-                        Sign Up
-                    </LinkRoute>
+                    {
+                        !user?.result &&
+                        <LinkRoute to="/register"
+                                   onClick={toggle}
+                                   className="stockmeister-topbar-link text-decoration-none">
+                            Sign Up
+                        </LinkRoute>
+                    }
                 </div>
-                <div className="stockmeister-topbar-login">
-                    <LinkRoute to="/login" className="stockmeister-topbar-link-route-login text-decoration-none">
-                        Login
-                    </LinkRoute>
-                </div>
+                {
+                    !user?.result &&
+                    <div className="stockmeister-topbar-login">
+                        <LinkRoute to="/login"
+                                   className="stockmeister-topbar-link-route-login text-decoration-none">
+                            Login
+                        </LinkRoute>
+                    </div>
+                }
+                {
+                    user?.result &&
+                    <div className="stockmeister-topbar-login">
+                        <LinkRoute to="/login"
+                                   onClick={()=> { logout() }}
+                                   className="stockmeister-topbar-link-route-login text-decoration-none">
+                            Logout
+                        </LinkRoute>
+                    </div>
+                }
             </div>
         </TopbarContainer>
     )

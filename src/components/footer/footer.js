@@ -35,11 +35,11 @@ const Footer = () => {
                         </div>
                         <div className="stockmeister-links-items">
                             <h1 className="stockmeister-footer-title">
-                                Developers
+                                Contact Me
                             </h1>
                             <a href="/" className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">Ojas Thanawala</a>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">Vishwas Thakkar</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Hire Me!</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">LinkedIn</a>
                         </div>
                     </div>
                 </div>

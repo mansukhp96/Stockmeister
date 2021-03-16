@@ -4,7 +4,7 @@ import NavbarSimple from "../navbar/navbar-simple";
 import GoogleLogin from 'react-google-login';
 import {Link, useHistory} from "react-router-dom";
 import {useDispatch} from 'react-redux';
-import {login} from "../../services/auth-services";
+import {googleLogin, login} from "../../services/auth-services";
 
 //Initial states
 const loginFormInitialState = {
@@ -35,11 +35,9 @@ const Login = () => {
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
         const token = res?.tokenId;
-        console.log(res?.profileObj)
         
         try {
-            dispatch({ type : "AUTH", data : { result, token } });
-            history.push("/")
+            dispatch(googleLogin(result, token, history));
         }
         catch (error) {
             console.log(error)

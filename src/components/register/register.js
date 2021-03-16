@@ -3,8 +3,8 @@ import './register.css'
 import NavbarSimple from "../navbar/navbar-simple";
 import {Link, useHistory} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
-import {useDispatch, useSelector} from "react-redux";
-import { register }  from "../../services/auth-services";
+import {useDispatch} from "react-redux";
+import {googleLogin, register} from "../../services/auth-services";
 
 //Initial states
 const formInitialState = {
@@ -37,8 +37,7 @@ const Register = () => {
         const token = res?.tokenId;
 
         try {
-            dispatch({ type : "AUTH", data : { result, token } });
-            history.push('/')
+            dispatch(googleLogin(result, token, history));
         }
         catch (error) {
             console.log(error)
