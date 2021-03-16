@@ -4,7 +4,8 @@ import NavbarSimple from "../navbar/navbar-simple";
 import {Link, useHistory} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import {useDispatch} from "react-redux";
-import {googleLogin, register} from "../../services/auth-services";
+import * as api from "../../services/auth-service";
+import {useAlert} from "react-alert";
 
 //Initial states
 const formInitialState = {
@@ -12,6 +13,7 @@ const formInitialState = {
 };
 
 const Register = () => {
+    const alert = useAlert();
 
     //States
     const [formData, setFormData] = useState(formInitialState);
@@ -20,16 +22,45 @@ const Register = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const googleLogin = (result, token, history) => async (dispatch) => {
+        try {
+            //Google login the user
+            const { data } = await api.gglLogin({ token : token });
+            data.result.imageUrl = result.imageUrl;
+            dispatch({ type : "AUTH", data });
+            history.push("/");
+        }
+        catch (error) {
+            alert.show(error.response.data.message);
+            console.log(error);
+        }
+    }
+
+    const registerService = (formData, history) => async (dispatch) => {
+        try {
+            //register the user
+            const { data } = await api.register(formData);
+            console.log(data);
+            dispatch({ type : "AUTH", data });
+            history.push("/");
+        }
+        catch (error) {
+            alert.show(error.response.data.message);
+            console.log(error);
+        }
+    }
+
     //handlers
     const handleInput = (e) => {
         setFormData({ ...formData, [e.target.name] : e.target.value });
     }
 
     const handleSubmit = (e) => {
+        alert.removeAll();
         e.preventDefault();
 
         //sign up service
-        dispatch(register(formData, history));
+        dispatch(registerService(formData, history));
     };
 
     const googleSuccess = async (res) => {
