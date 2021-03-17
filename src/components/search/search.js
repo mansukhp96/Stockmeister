@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from "../navbar/navbar";
 
 export const Search = () => {
     return(
         <div>
+            Search - People, Stocks & Crypto
         </div>
     )
 }

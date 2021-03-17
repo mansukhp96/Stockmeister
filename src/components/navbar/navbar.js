@@ -45,8 +45,7 @@ const Navbar = ({toggle}) => {
                     <i className="fas fa-layer-group"/>
                     StockMeister
                 </LinkRouter>
-                <div className="stockmeister-mobile-icon"
-                     onClick={toggle}>
+                <div className="stockmeister-mobile-icon">
                     {
                         !user?.result ? (
                             <LinkRouter to="#"
@@ -74,22 +73,51 @@ const Navbar = ({toggle}) => {
                         )
 
                     }
-                    <div>
+                    <div onClick={toggle}>
                         <i className="fas fa-bars stockmesiter-fa-bars"/>
                     </div>
                 </div>
                 <ul className="stockmeister-nav-menu">
-                    <li className="stockmesiter-nav-item">
-                        <LinkScroll to="market"
-                                    smooth={true}
-                                    duration={600}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-130}
-                                    className="stockmeister-link-scroll text-decoration-none">
-                            <i className="fas fa-coins"/>
-                            &nbsp;Trade
-                        </LinkScroll>
+                    <li className={`stockmesiter-nav-item ${location.pathname === `/dashboard` ? `stockmesiter-nav-active` : ``}`}>
+                        {
+                            !user?.result && location.pathname === "/" &&
+                            <LinkScroll to="market"
+                                        smooth={true}
+                                        duration={600}
+                                        spy={true}
+                                        exact="true"
+                                        offset={-130}
+                                        className="stockmeister-link-scroll text-decoration-none">
+                                <i className="fas fa-coins"/>
+                                &nbsp;Trade
+                            </LinkScroll>
+                        }
+                        {
+                            !user?.result && location.pathname !== "/" &&
+                            <LinkRouter to="/register"
+                                        smooth={true}
+                                        duration={600}
+                                        spy={true}
+                                        exact="true"
+                                        offset={-130}
+                                        className="stockmeister-link-scroll text-decoration-none">
+                                <i className="fas fa-coins"/>
+                                &nbsp;Trade
+                            </LinkRouter>
+                        }
+                        {
+                            user?.result &&
+                            <LinkRouter to="/dashboard"
+                                        smooth={true}
+                                        duration={600}
+                                        spy={true}
+                                        exact="true"
+                                        offset={-130}
+                                        className={`stockmeister-link-scroll text-decoration-none ${location.pathname === `/dashboard` ? `stockmeister-link-scroll-active` : ``}`}>
+                                <i className="fas fa-coins"/>
+                                &nbsp;Trade
+                            </LinkRouter>
+                        }
                     </li>
                     <li className={`stockmesiter-nav-item ${location.pathname === `/news` ? `stockmesiter-nav-active` : ``}`}>
                         <LinkRouter to="/news"

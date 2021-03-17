@@ -1,11 +1,19 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './topbar.css'
 import {TopbarContainer} from './topbar-elements'
 import {Link as LinkScroll} from "react-scroll";
 import {Link as LinkRoute, useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {useLocation} from "react-router";
 
 const Topbar = ({expand, toggle}) => {
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const location = useLocation();
+
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [location]);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -15,8 +23,6 @@ const Topbar = ({expand, toggle}) => {
         history.push("/");
         setUser(null);
     }
-
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
 
     return(
         <TopbarContainer expand={expand}

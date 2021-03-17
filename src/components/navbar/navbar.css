@@ -75,17 +75,17 @@
 
 .stockmesiter-nav-item:hover {
     text-decoration: underline #f69d52;
-    text-underline-offset: 33px;
+    text-underline-offset: 2.05rem;
 }
 
 .stockmesiter-nav-item:active {
     text-decoration: underline #f69d52;
-    text-underline-offset: 33px;
+    text-underline-offset: 2.05rem;
 }
 
 .stockmesiter-nav-active {
     text-decoration: underline #f69d52;
-    text-underline-offset: 33px;
+    text-underline-offset: 2.05rem;
 }
 
 .stockmeister-link-scroll {
@@ -168,19 +168,6 @@
 
 .stockmeister-link-route-register:hover {
     color: #f69d52;
-}
-
-.stockmeister-nav-simple {
-    background: #000;
-    height: 80px;
-    margin-top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
 .stockmeister-link-route-avatar {

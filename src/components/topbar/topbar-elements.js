@@ -11,6 +11,6 @@ export const TopbarContainer = styled.aside`
     top: 0;
     left: 0;
     transition: 0.4s ease-in-out;
-    opacity: ${({expand}) => (expand ? '100%' : '0')};
+    opacity: ${({expand}) => (expand ? '98%' : '0')};
     top: ${({expand}) => (expand ? '0' : '-100%')};
 `;

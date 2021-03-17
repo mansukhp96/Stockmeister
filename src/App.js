@@ -11,6 +11,8 @@ import News from "./components/news/news";
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import React, {useState} from "react";
+import Dashboard from "./components/dashboard/dashboard";
+import Profile from "./components/profile/profile";
 
 
 const alertOptions = {
@@ -24,7 +26,6 @@ const alertOptions = {
 function App() {
 
     const [expand, setExpand] = useState(false)
-
     const toggleTopbar = () => {
         setExpand(!expand)
     }
@@ -35,6 +36,8 @@ function App() {
         <Navbar toggle={toggleTopbar}/>
           <Switch>
               <Route path="/" component={Home} exact={true}/>
+              <Route path="/dashboard" component={Dashboard} exact={true}/>
+              <Route path="/profile" component={Profile} exact={true}/>
               <Route path="/search" component={Search} exact={true}/>
               <Route path="/news" component={News} exact={true}/>
               <AlertProvider template={AlertTemplate} {...alertOptions}>

@@ -51,6 +51,7 @@ const Login = () => {
 
     //Handlers
     const handleInput = (e) => {
+        alert.removeAll();
         setLoginFormData({ ...loginFormData, [e.target.name] : e.target.value});
     }
 
