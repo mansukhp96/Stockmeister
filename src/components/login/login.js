@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import './login.css'
-import NavbarSimple from "../navbar/navbar-simple";
 import GoogleLogin from 'react-google-login';
 import {Link, useHistory} from "react-router-dom";
 import {useDispatch} from 'react-redux';
@@ -82,7 +81,6 @@ const Login = () => {
 
     return(
         <>
-            <NavbarSimple/>
             <div className="stockmeister-login-container">
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">

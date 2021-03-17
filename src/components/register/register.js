@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import './register.css'
-import NavbarSimple from "../navbar/navbar-simple";
 import {Link, useHistory} from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import {useDispatch} from "react-redux";
@@ -82,7 +81,6 @@ const Register = () => {
 
     return(
         <>
-            <NavbarSimple/>
             <div className="stockmeister-register-container">
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">

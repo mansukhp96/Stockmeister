@@ -1,6 +1,4 @@
-import React, {useState} from 'react'
-import Topbar from "../topbar/topbar";
-import Navbar from "../navbar/navbar";
+import React from 'react'
 import LandingFragment from "../landing-fragment/landing-fragment";
 import InfoFragment from "../info-fragment/info-fragment";
 import { InfoData2, InfoData1 } from '../info-fragment/info-data'
@@ -12,16 +10,8 @@ import CryptoMarket from "../market/crypto-market";
 
 const Home = () => {
 
-    const [expand, setExpand] = useState(false)
-
-    const toggleTopbar = () => {
-        setExpand(!expand)
-    }
-
     return(
         <div>
-            <Topbar expand={expand} toggle={toggleTopbar}/>
-            <Navbar toggle={toggleTopbar}/>
             <LandingFragment/>
             <InfoFragment {...InfoData2}/>
             <StockMarket/>

@@ -35,9 +35,9 @@ const Topbar = ({expand, toggle}) => {
                                 offset={-130}
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
-                        Market
+                        Trade
                     </LinkScroll>
-                    <LinkScroll to="personal"
+                    <LinkRoute to="/news"
                                 smooth={true}
                                 duration={600}
                                 spy={true}
@@ -46,17 +46,7 @@ const Topbar = ({expand, toggle}) => {
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         News
-                    </LinkScroll>
-                    <LinkScroll to="access"
-                                smooth={true}
-                                duration={600}
-                                spy={true}
-                                exact="true"
-                                offset={-79}
-                                onClick={toggle}
-                                className="stockmeister-topbar-link text-decoration-none">
-                        Trade
-                    </LinkScroll>
+                    </LinkRoute>
                     <LinkRoute to="/search"
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">

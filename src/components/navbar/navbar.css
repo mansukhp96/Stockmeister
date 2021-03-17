@@ -1,7 +1,7 @@
 .stockmeister-nav {
     background: #000;
     height: 80px;
-    margin-top: -80px;
+    /*margin-top: -80px;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +83,11 @@
     text-underline-offset: 33px;
 }
 
+.stockmesiter-nav-active {
+    text-decoration: underline #f69d52;
+    text-underline-offset: 33px;
+}
+
 .stockmeister-link-scroll {
     color: #fff;
     display: flex;
@@ -94,6 +99,10 @@
 }
 
 .stockmeister-link-scroll:hover {
+    color: #f69d52;
+}
+
+.stockmeister-link-scroll-active {
     color: #f69d52;
 }
 

@@ -87,37 +87,25 @@ const Navbar = ({toggle}) => {
                                     exact="true"
                                     offset={-130}
                                     className="stockmeister-link-scroll text-decoration-none">
-                            <i className="fas fa-poll"/>
-                            &nbsp;Market
-                        </LinkScroll>
-                    </li>
-                    <li className="stockmesiter-nav-item">
-                        <LinkScroll to="access"
-                                    smooth={true}
-                                    duration={600}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-79}
-                                    className="stockmeister-link-scroll text-decoration-none">
                             <i className="fas fa-coins"/>
                             &nbsp;Trade
                         </LinkScroll>
                     </li>
-                    <li className="stockmesiter-nav-item">
+                    <li className={`stockmesiter-nav-item ${location.pathname === `/news` ? `stockmesiter-nav-active` : ``}`}>
                         <LinkRouter to="/news"
                                     smooth={true}
                                     duration={600}
                                     spy={true}
                                     exact="true"
                                     offset={-79}
-                                    className="stockmeister-link-scroll text-decoration-none">
+                                    className={`stockmeister-link-scroll text-decoration-none ${location.pathname === `/news` ? `stockmeister-link-scroll-active` : ``}`}>
                             <i className="fas fa-globe-americas"/>
                             &nbsp;News
                         </LinkRouter>
                     </li>
-                    <li className="stockmesiter-nav-item">
+                    <li className={`stockmesiter-nav-item ${location.pathname === `/search` ? `stockmesiter-nav-active` : ``}`}>
                         <LinkRouter to="/search"
-                                    className="stockmeister-link-scroll text-decoration-none">
+                                    className={`stockmeister-link-scroll text-decoration-none ${location.pathname === `/search` ? `stockmeister-link-scroll-active` : ``}`}>
                             <i className="fas fa-search"/>
                             &nbsp;Search
                         </LinkRouter>
