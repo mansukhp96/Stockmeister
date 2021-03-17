@@ -92,18 +92,6 @@ const Navbar = ({toggle}) => {
                         </LinkScroll>
                     </li>
                     <li className="stockmesiter-nav-item">
-                        <LinkScroll to="personal"
-                                    smooth={true}
-                                    duration={600}
-                                    spy={true}
-                                    exact="true"
-                                    offset={-79}
-                                    className="stockmeister-link-scroll text-decoration-none">
-                            <i className="fas fa-globe-americas"/>
-                            &nbsp;News
-                        </LinkScroll>
-                    </li>
-                    <li className="stockmesiter-nav-item">
                         <LinkScroll to="access"
                                     smooth={true}
                                     duration={600}
@@ -116,11 +104,23 @@ const Navbar = ({toggle}) => {
                         </LinkScroll>
                     </li>
                     <li className="stockmesiter-nav-item">
-                        <LinkScroll to="search"
+                        <LinkRouter to="/news"
+                                    smooth={true}
+                                    duration={600}
+                                    spy={true}
+                                    exact="true"
+                                    offset={-79}
                                     className="stockmeister-link-scroll text-decoration-none">
-                            <i className="fas fa-search-dollar"/>
+                            <i className="fas fa-globe-americas"/>
+                            &nbsp;News
+                        </LinkRouter>
+                    </li>
+                    <li className="stockmesiter-nav-item">
+                        <LinkRouter to="/search"
+                                    className="stockmeister-link-scroll text-decoration-none">
+                            <i className="fas fa-search"/>
                             &nbsp;Search
-                        </LinkScroll>
+                        </LinkRouter>
                     </li>
                 </ul>
                 {

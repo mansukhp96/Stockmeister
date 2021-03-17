@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from "react-elastic-carousel";
-import './market.css'
+import './stock-market.css'
 import {Card} from "./card";
 
 export const StockMarket = () => {

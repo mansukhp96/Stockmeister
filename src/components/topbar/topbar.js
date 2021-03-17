@@ -57,11 +57,11 @@ const Topbar = ({expand, toggle}) => {
                                 className="stockmeister-topbar-link text-decoration-none">
                         Trade
                     </LinkScroll>
-                    <LinkScroll to="search"
+                    <LinkRoute to="/search"
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Search
-                    </LinkScroll>
+                    </LinkRoute>
                     {
                         !user?.result &&
                         <LinkRoute to="/register"

@@ -8,6 +8,7 @@ import ServicesFragment from "../services-fragment/services-fragment";
 import Footer from "../footer/footer";
 import CryptoFragment from "../crypto-fragment/crypto-fragment";
 import StockMarket from "../market/stock-market";
+import CryptoMarket from "../market/crypto-market";
 
 const Home = () => {
 
@@ -26,6 +27,7 @@ const Home = () => {
             <StockMarket/>
             <InfoFragment {...InfoData1}/>
             <CryptoFragment/>
+            <CryptoMarket/>
             <ServicesFragment/>
             <Footer/>
         </div>

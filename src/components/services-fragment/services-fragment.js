@@ -48,7 +48,7 @@ const ServicesFragment = () => {
                         Service4
                     </div>
                     <div className="stockmeister-services-card-subtext">
-                        Service4 some random text yet again for now
+                        Service4 some random text yet again
                     </div>
                 </div>
             </div>

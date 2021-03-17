@@ -1,0 +1,47 @@
+.stockmeister-crypto-market-container {
+    padding-top: 10px;
+    background: #000000;
+}
+
+.stockmeister-carousel {
+    height: 250px;
+    width: 200%;
+    display: flex;
+    max-width: 1100px;
+    margin-right: auto;
+    padding: 0 10px;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.rec.rec-arrow.rec.rec-arrow-left {
+    background: none;
+    box-shadow: none;
+}
+
+.rec.rec-arrow.rec.rec-arrow-left:hover {
+    background: #f69d52;
+    color: black;
+}
+
+.rec.rec-arrow.rec.rec-arrow-right {
+    background: none;
+    box-shadow: none;
+}
+
+.rec.rec-arrow.rec.rec-arrow-right:hover {
+    background: #f69d52;
+    color: black;
+}
+
+.stockmeister-stock-market-title {
+    color: #f69d52;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    cursor: default;
+}
