@@ -38,8 +38,8 @@ const Footer = () => {
                                 Contact Me
                             </h1>
                             <a href="/" className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">LinkedIn</a>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">Hire Me!</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Ojas Thanawala</a>
+                            <a href="/" className="stockmeister-footer-link text-decoration-none">Vishwas Thakkar</a>
                         </div>
                     </div>
                 </div>
