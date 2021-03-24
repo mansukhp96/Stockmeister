@@ -22,6 +22,7 @@
     text-transform: uppercase;
 }
 
-.stockmeister-card-value {
+.stockmeister-card-price {
     color: white;
+    font-size: 1rem;
 }

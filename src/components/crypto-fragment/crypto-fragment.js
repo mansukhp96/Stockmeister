@@ -2,7 +2,7 @@ import React from 'react'
 import './crypto-fragment.css'
 import Video from '../../videos/crypto.mp4'
 import {Link as LinkScroll} from 'react-scroll'
-import {VideoBackground} from "../crypto-fragment/crypto-fragment-elements";
+import {VideoBackground} from "./crypto-fragment-elements";
 
 const CryptoFragment = () => {
     return(
@@ -15,7 +15,7 @@ const CryptoFragment = () => {
                     "Vires in numeris."
                 </h1>
                 <p className="stockmeister-crypto-subheader">
-                    Introducing crypto trading
+                    Crypto trading launching soon...
                 </p>
                 <div className="stockmeister-explore-wrapper">
                     <LinkScroll to="services"

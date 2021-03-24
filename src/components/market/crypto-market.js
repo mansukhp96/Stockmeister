@@ -29,9 +29,6 @@ export const CryptoMarket = ({
             <div className="stockmeister-stock-market-title">
                 Top 100 Coins
             </div>
-            <div className="text-center card-subtitle text-muted">
-                (price change % 24hrs)
-            </div>
             {
                 cryptoCoins.length > 9 &&
                 <Carousel enableAutoPlay={true}
@@ -44,7 +41,8 @@ export const CryptoMarket = ({
                         cryptoCoins.map((c,i) =>
                             <Card key={i}
                                   symbol={c.symbol}
-                                  price={c.price_change_percentage_24h}/>
+                                  priceChange={c.price_change_percentage_24h}
+                                  value={c.current_price}/>
                         )
                     }
                 </Carousel>
