@@ -35,16 +35,17 @@ function App() {
         <Topbar expand={expand} toggle={toggleTopbar}/>
         <Navbar toggle={toggleTopbar}/>
           <Switch>
-              <Route path="/" component={Home} exact={true}/>
-              <Route path="/dashboard" component={Dashboard} exact={true}/>
-              <Route path="/profile" component={Profile} exact={true}/>
-              <Route path="/search" component={Search} exact={true}/>
-              <Route path="/news" component={News} exact={true}/>
-              <AlertProvider template={AlertTemplate} {...alertOptions}>
-                  <Route path="/login" component={Login} exact={true}/>
-                  <Route path="/register" component={Register} exact={true}/>
-              </AlertProvider>
+                  <AlertProvider template={AlertTemplate} {...alertOptions}>
+                      <Route path="/login" component={Login} exact={true}/>
+                      <Route path="/register" component={Register} exact={true}/>
+                          <Route path="/" component={Home} exact={true}/>
+                          <Route path="/dashboard" component={Dashboard} exact={true}/>
+                          <Route path="/profile" component={Profile} exact={true}/>
+                          <Route path="/search" component={Search} exact={true}/>
+                          <Route path="/news" component={News} exact={true}/>
+                  </AlertProvider>
           </Switch>
+
     </BrowserRouter>
   );
 }

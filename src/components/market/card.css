@@ -19,6 +19,7 @@
 
 .stockmeister-card-symbol {
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .stockmeister-card-value {

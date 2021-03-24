@@ -11,7 +11,7 @@ import CryptoMarket from "../market/crypto-market";
 const Home = () => {
 
     return(
-        <div>
+        <>
             <LandingFragment/>
             <InfoFragment {...InfoData2}/>
             <StockMarket/>
@@ -20,7 +20,7 @@ const Home = () => {
             <CryptoMarket/>
             <ServicesFragment/>
             <Footer/>
-        </div>
+        </>
     )
 }
 

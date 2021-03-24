@@ -1,14 +1,14 @@
 import React from 'react'
 import './card.css'
 
-export const Card = ({symbol}) => {
+export const Card = ({symbol, price}) => {
     return(
-        <div className="stockmeister-card shadow-sm">
+        <div className={`stockmeister-card shadow-sm ${price <= 0 ? `` : `bg-success`}`}>
             <div className="col stockmeister-card-symbol text-center">
                 {symbol}
             </div>
             <div className="col stockmeister-card-value text-center">
-                ^ 0.1%
+                {price}
             </div>
         </div>
     )
