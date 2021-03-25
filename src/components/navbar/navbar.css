@@ -73,17 +73,7 @@
     height: 80px;
 }
 
-.stockmesiter-nav-item:hover {
-    text-decoration: underline #f69d52;
-    text-underline-offset: 2.05rem;
-}
-
 .stockmesiter-nav-item:active {
-    text-decoration: underline #f69d52;
-    text-underline-offset: 2.05rem;
-}
-
-.stockmesiter-nav-active {
     text-decoration: underline #f69d52;
     text-underline-offset: 2.05rem;
 }
@@ -111,7 +101,7 @@
     align-items: center;
     list-style: none;
     text-align: center;
-    margin: -22px;
+    height: inherit;
 }
 
 @media screen and (max-width: 768px) {

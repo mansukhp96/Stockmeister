@@ -5,7 +5,7 @@ import Navbar from "./components/navbar/navbar";
 import Home from "./components/home/home";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
-import Search from "./components/search/search";
+import SearchMain from "./components/search/search-main";
 import News from "./components/news/news";
 
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
@@ -41,7 +41,10 @@ function App() {
                           <Route path="/" component={Home} exact={true}/>
                           <Route path="/dashboard" component={Dashboard} exact={true}/>
                           <Route path="/profile" component={Profile} exact={true}/>
-                          <Route path="/search" component={Search} exact={true}/>
+                          <Route path={[
+                              "/search/:section",
+                              "/search",]}
+                                 component={SearchMain}/>
                           <Route path="/news" component={News} exact={true}/>
                   </AlertProvider>
           </Switch>

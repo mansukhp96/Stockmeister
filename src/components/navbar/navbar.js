@@ -131,9 +131,9 @@ const Navbar = ({toggle}) => {
                             &nbsp;News
                         </LinkRouter>
                     </li>
-                    <li className={`stockmesiter-nav-item ${location.pathname === `/search` ? `stockmesiter-nav-active` : ``}`}>
-                        <LinkRouter to="/search"
-                                    className={`stockmeister-link-scroll text-decoration-none ${location.pathname === `/search` ? `stockmeister-link-scroll-active` : ``}`}>
+                    <li className={`stockmesiter-nav-item`}>
+                        <LinkRouter to="/search/crypto"
+                                    className={`stockmeister-link-scroll text-decoration-none ${location.pathname === `/search/stocks` || location.pathname === `/search/crypto` || location.pathname === `/search/people` ? `stockmeister-link-scroll-active` : ``}`}>
                             <i className="fas fa-search"/>
                             &nbsp;Search
                         </LinkRouter>

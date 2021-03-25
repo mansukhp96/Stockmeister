@@ -1,0 +1,37 @@
+.stockmeister-search-tabs-container {
+    width: auto;
+    position: sticky;
+    z-index: 3;
+    top: 80px;
+    background-color: #565a62;
+    text-align: center;
+    display: flex;
+}
+
+.stockmeister-search-tabs {
+    background-color: #565a62;
+}
+
+.stockmeister-search-tabs:hover {
+    transition: 0.2s ease-in-out;
+    background-color: #f69d52;
+}
+
+.stockmeister-search-tabs-active {
+    transition: 0.2s ease-in-out;
+    background-color: #f69d52;
+}
+
+.stockmeister-search-tabs-link {
+    color: #ffffff;
+}
+
+.stockmeister-search-tabs-link:hover {
+    transition: 0.2s ease-in-out;
+    color: #000000;
+}
+
+.stockmeister-search-tabs-link-active {
+    transition: 0.2s ease-in-out;
+    color: #000000;
+}
