@@ -5,13 +5,15 @@ import SearchCrypto from "./search-crypto";
 import {Link} from "react-router-dom";
 import {useParams} from "react-router";
 import "./search.css"
+import {fadeAnimate} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 export const SearchMain = () => {
 
     const {section} = useParams();
 
     return(
-        <>
+        <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-search-tabs-container">
                 <div className={`stockmeister-search-tabs col ${section === "stocks" ? `stockmeister-search-tabs-active` : ``}`}>
                     <Link className={`stockmeister-search-tabs-link nav-link font-weight-bold ${section === "stocks" ? `stockmeister-search-tabs-link-active` : ``}`}
@@ -32,7 +34,7 @@ export const SearchMain = () => {
                     </Link>
                 </div>
             </div>
-            <div className="col-12 center text-center">
+            <div className="stockmeister-search-content center text-center bg-light">
                 {
                     section === "stocks" &&
                         <SearchStocks/>
@@ -46,7 +48,7 @@ export const SearchMain = () => {
                         <SearchPeople/>
                 }
             </div>
-        </>
+        </motion.div>
     )
 }
 

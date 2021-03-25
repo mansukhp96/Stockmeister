@@ -1,10 +1,12 @@
 import React from 'react'
+import {fadeAnimate} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 const SearchStocks = () => {
     return(
-        <div>
+        <motion.div initial="out" animate="in" variants={fadeAnimate}>
             Search Stocks Section
-        </div>
+        </motion.div>
     )
 }
 

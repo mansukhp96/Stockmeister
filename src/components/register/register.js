@@ -5,6 +5,8 @@ import GoogleLogin from 'react-google-login';
 import {useDispatch} from "react-redux";
 import * as api from "../../services/auth-service";
 import {useAlert} from "react-alert";
+import {fadeAnimate} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 //Initial states
 const formInitialState = {
@@ -80,7 +82,7 @@ const Register = () => {
     }
 
     return(
-        <>
+        <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-register-container">
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">
@@ -182,7 +184,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </motion.div>
     )
 }
 

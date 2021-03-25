@@ -35,3 +35,9 @@
     transition: 0.2s ease-in-out;
     color: #000000;
 }
+
+.stockmeister-search-content {
+    margin: 15px;
+    border: 1px solid #bfbfbf;
+    border-radius: 20px;
+}

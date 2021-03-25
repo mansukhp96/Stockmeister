@@ -5,6 +5,8 @@ import {Link, useHistory} from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import { useAlert } from 'react-alert'
 import * as api from "../../services/auth-service";
+import {fadeAnimate} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 //Initial states
 const loginFormInitialState = {
@@ -81,7 +83,7 @@ const Login = () => {
     }
 
     return(
-        <>
+        <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-login-container">
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">
@@ -135,7 +137,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </motion.div>
     )
 }
 

@@ -8,11 +8,13 @@ import Register from "./components/register/register";
 import SearchMain from "./components/search/search-main";
 import News from "./components/news/news";
 
+import { AnimatePresence } from "framer-motion";
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import React, {useState} from "react";
 import Dashboard from "./components/dashboard/dashboard";
 import Profile from "./components/profile/profile";
+import CryptoDetails from "./components/details/crypto-details";
 
 
 const alertOptions = {
@@ -34,7 +36,8 @@ function App() {
     <BrowserRouter>
         <Topbar expand={expand} toggle={toggleTopbar}/>
         <Navbar toggle={toggleTopbar}/>
-          <Switch>
+            <AnimatePresence exitBeforeEnter={true}>
+              <Switch>
                   <AlertProvider template={AlertTemplate} {...alertOptions}>
                       <Route path="/login" component={Login} exact={true}/>
                       <Route path="/register" component={Register} exact={true}/>
@@ -44,11 +47,15 @@ function App() {
                           <Route path={[
                               "/search/:section",
                               "/search",]}
+                                 exact={true}
                                  component={SearchMain}/>
+                          <Route path="/search/crypto/details/:coin"
+                                 exact={true}
+                                 component={CryptoDetails}/>
                           <Route path="/news" component={News} exact={true}/>
                   </AlertProvider>
-          </Switch>
-
+              </Switch>
+            </AnimatePresence>
     </BrowserRouter>
   );
 }

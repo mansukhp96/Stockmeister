@@ -53,7 +53,7 @@ const Topbar = ({expand, toggle}) => {
                                 className="stockmeister-topbar-link text-decoration-none">
                         News
                     </LinkRoute>
-                    <LinkRoute to="/search"
+                    <LinkRoute to="/search/crypto"
                                 onClick={toggle}
                                 className="stockmeister-topbar-link text-decoration-none">
                         Search
