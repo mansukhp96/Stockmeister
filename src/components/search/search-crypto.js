@@ -51,7 +51,7 @@ const SearchCrypto = ({
                                                name={c.name}
                                                volume={c.total_volume}
                                                price={c.current_price}
-                                               priceChange={c.price_change_percentage_1h_in_currency}
+                                               priceChange={c.price_change_percentage_24h}
                                                marketcap={c.market_cap}/>
                             </Link>
 
@@ -72,7 +72,7 @@ const stpm = (state) => {
 const dtpm = (dispatch) => {
     return {
         findAllCoins : () => {
-            CryptoService.findTrending().then(allCoins => {
+            CryptoService.findAllCoins().then(allCoins => {
                 dispatch({ type : "FIND_ALL_COINS", allCoins : allCoins })
             })
         }
