@@ -26,6 +26,12 @@
     text-align: left;
 }
 
+@media screen and (max-width: 900px) {
+    .stockmeister-coin h1 {
+        display: none;
+    }
+}
+
 .stockmeister-coin img {
     height: 30px;
     width: 30px;
@@ -51,10 +57,23 @@
     width: 200px;
 }
 
+@media screen and (max-width: 700px) {
+    .stockmeister-coin-volume{
+        width: 1px;
+        display: none;
+    }
+}
+
 .stockmeister-coin-percent {
     width: 50px;
 }
 
 .stockmeister-coin-marketcap {
     width: 240px;
+}
+
+@media screen and (max-width: 700px) {
+    .stockmeister-coin-marketcap {
+        display: none;
+    }
 }

@@ -3,6 +3,8 @@ import CryptoService from "../../services/crypto-service";
 import {connect} from "react-redux";
 import CryptoCoinRow from "./crypto-coin-row";
 import "./search-crypto.css"
+import {Link} from "react-router-dom";
+import {useParams} from "react-router";
 
 const SearchCrypto = ({
                           cryptoCoins = [],
@@ -14,6 +16,8 @@ const SearchCrypto = ({
     useEffect(() => {
         findAllCoins()
     }, []);
+
+    const {section} = useParams();
 
     const handleChange = (e) => {
         setSearch(e.target.value);
@@ -36,14 +40,18 @@ const SearchCrypto = ({
             {
                 filterCoins.map(c => {
                     return(
-                        <CryptoCoinRow key={c.id}
-                                       symbol={c.symbol}
-                                       image={c.image}
-                                       name={c.name}
-                                       volume={c.total_volume}
-                                       price={c.current_price}
-                                       priceChange={c.price_change_percentage_1h_in_currency}
-                                       marketcap={c.market_cap}/>
+                        <Link key={c.id}
+                              className="text-decoration-none text-dark"
+                              to={`/search/${section}/details/${c.id}`}>
+                            <CryptoCoinRow symbol={c.symbol}
+                                           image={c.image}
+                                           name={c.name}
+                                           volume={c.total_volume}
+                                           price={c.current_price}
+                                           priceChange={c.price_change_percentage_1h_in_currency}
+                                           marketcap={c.market_cap}/>
+                        </Link>
+
                     )
                 })
             }
