@@ -6,7 +6,8 @@ const CryptoCoinRow = ({image, name, symbol, price, volume, priceChange, marketc
         <div className="stockmeister-coin-container">
             <div className="stockmeister-coin-row">
                 <div className="stockmeister-coin">
-                    <img src={image} alt=""/>
+                    <img src={image}
+                         alt=""/>
                     <h1>
                         {name}
                     </h1>
@@ -23,15 +24,15 @@ const CryptoCoinRow = ({image, name, symbol, price, volume, priceChange, marketc
                         {
                             priceChange < 0 ? (
                                 <p className="stockmeister-coin-percent text-danger">
-                                    {priceChange.toFixed(3)}%
+                                    {priceChange.toFixed(2)}%
                                 </p>
                             ) : (
                                 <p className="stockmeister-coin-percent text-success">
-                                    {priceChange.toFixed(3)}%
+                                    {priceChange.toFixed(2)}%
                                 </p>
                             )
                         }
-                        <p className="stockmeister-coin-marketcap">
+                        <p className="stockmeister-coin-marketcap text-right">
                             Mkt cap: {marketcap.toLocaleString()}
                         </p>
                     </div>

@@ -1,29 +1,54 @@
 .stockmeister-coin-container {
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
 
 .stockmeister-coin-row {
     display: flex;
-    flex-direction: row;
-    justify-items: start;
+    flex-direction: inherit;
+    justify-items: center;
     align-items: center;
     height: 80px;
     border-bottom: 2px solid #f69d52;
-    width: 900px;
+    width: 870px;
+}
+
+@media screen and (max-width: 900px) {
+    .stockmeister-coin-row {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        height: 80px;
+        border-bottom: 2px solid #f69d52;
+        width: 680px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .stockmeister-coin-row {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        height: 80px;
+        border-bottom: 2px solid #f69d52;
+        width: 280px;
+    }
 }
 
 .stockmeister-coin {
     display: flex;
-    align-items: center;
-    padding-right: 24px;
+    padding-right: 0;
+    padding-left: 0;
     min-width: 300px;
 }
 
 .stockmeister-coin h1 {
     font-size: 16px;
-    width: 300px;
-    text-align: left;
+    width: 250px;
+    text-align: center;
+    padding-top: 3px;
 }
 
 @media screen and (max-width: 900px) {
@@ -35,7 +60,7 @@
 .stockmeister-coin img {
     height: 30px;
     width: 30px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .stockmeister-coin-symbol {
@@ -50,21 +75,23 @@
 }
 
 .stockmeister-coin-price {
+    text-align: right;
     width: 120px;
 }
 
 .stockmeister-coin-volume {
+    text-align: center;
     width: 200px;
 }
 
 @media screen and (max-width: 700px) {
     .stockmeister-coin-volume{
-        width: 1px;
         display: none;
     }
 }
 
 .stockmeister-coin-percent {
+    text-align: center;
     width: 50px;
 }
 
