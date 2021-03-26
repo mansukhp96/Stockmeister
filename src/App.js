@@ -43,8 +43,8 @@ function App() {
 
   return (
     <BrowserRouter>
-        <Modal showModal={showModal}
-               toggleModal={openModal}/>
+            <Modal showModal={showModal}
+                   toggleModal={openModal}/>
             <Topbar expand={expand}
                     toggleTb={toggleTopbar}
                     toggleModal={openModal}/>

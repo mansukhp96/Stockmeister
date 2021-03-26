@@ -35,7 +35,7 @@ const Modal = ({ showModal, toggleModal }) => {
             {
                 showModal ? (
                         <div className="stockmesiter-modal-background">
-                            <animated.div style={animation}>
+                            {/*<animated.div style={animation}>*/}
                                 <div className="stockmeister-modal-wrapper">
                                     <ModalImg src={image}
                                               alt='login/signup'/>
@@ -52,7 +52,7 @@ const Modal = ({ showModal, toggleModal }) => {
                                     <i className="fas fa-times stockmesiter-modal-close-button"
                                        onClick={toggleModal}/>
                                 </div>
-                            </animated.div>
+                            {/*</animated.div>*/}
                         </div>
                 ) : (null)
             }
