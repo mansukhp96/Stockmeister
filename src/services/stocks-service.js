@@ -11,7 +11,7 @@ const findTrendingStocks = () => {
     return fetch(STOCKS_TRENDING_URL, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": YAHOO_KEY,
+            "x-rapidapi-key": "dd2c68c0b8msh7a436aa8ec273d1p13d278jsnf1e7c9c3ac8f",
             "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
         }
     }).then((response) => {
