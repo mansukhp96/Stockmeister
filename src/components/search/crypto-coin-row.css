@@ -64,14 +64,10 @@
 }
 
 .stockmeister-coin-symbol {
-    text-transform: uppercase;
-}
-
-.stockmeister-coin-data {
-    display: flex;
+    width: 80px;
     text-align: center;
-    justify-content: center;
-    width: 100%;
+    font-weight: bolder;
+    text-transform: uppercase;
 }
 
 .stockmeister-coin-price {

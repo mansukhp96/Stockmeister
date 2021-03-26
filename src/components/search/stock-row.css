@@ -33,7 +33,7 @@
         align-items: center;
         height: 80px;
         border-bottom: 2px solid #f69d52;
-        width: 280px;
+        width: 300px;
     }
 }
 
@@ -46,55 +46,30 @@
 
 .stockmeister-stock h1 {
     font-size: 16px;
-    width: 250px;
+    width: 300px;
     text-align: center;
     padding-top: 3px;
 }
 
-@media screen and (max-width: 900px) {
-    .stockmeister-stock h1 {
-        display: none;
-    }
-}
-
 .stockmeister-stock-symbol {
+    width: 150px;
+    text-align: center;
+    font-weight: bolder;
     text-transform: uppercase;
 }
 
-.stockmeister-stock-data {
-    display: flex;
+.stockmeister-stock-exchange {
     text-align: center;
-    justify-content: center;
-    width: 100%;
+    width: 150px;
 }
 
-.stockmeister-stock-price {
+.stockmeister-stock-currency {
     text-align: center;
-    width: 120px;
+    width: 100px;
 }
 
-.stockmeister-stock-volume {
-    text-align: center;
-    width: 200px;
-}
-
-@media screen and (max-width: 700px) {
-    .stockmeister-stock-volume{
-        display: none;
-    }
-}
-
-.stockmeister-stock-percent {
-    text-align: center;
-    width: 50px;
-}
-
-.stockmeister-stock-marketcap {
-    width: 240px;
-}
-
-@media screen and (max-width: 700px) {
-    .stockmeister-stock-marketcap {
+@media screen and (max-width: 600px) {
+    .stockmeister-stock-currency {
         display: none;
     }
 }

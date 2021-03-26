@@ -12,14 +12,12 @@ const StockRow = ({name, symbol, currency, exchange}) => {
                     <p className="stockmeister-stock-symbol">
                         {symbol}
                     </p>
-                    <div className="stockmeister-stock-data">
-                        <p className="stockmeister-stock-price">
-                            {exchange}
-                        </p>
-                        <p className="stockmeister-stock-volume">
-                            {currency}
-                        </p>
-                    </div>
+                    <p className="stockmeister-stock-exchange">
+                        {exchange}
+                    </p>
+                    <p className="stockmeister-stock-currency">
+                        {currency}
+                    </p>
                 </div>
             </div>
         </div>

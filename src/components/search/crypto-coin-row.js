@@ -14,7 +14,6 @@ const CryptoCoinRow = ({image, name, symbol, price, volume, priceChange, marketc
                     <p className="stockmeister-coin-symbol">
                         {symbol}
                     </p>
-                    <div className="stockmeister-coin-data">
                         <p className="stockmeister-coin-price">
                             ${price}
                         </p>
@@ -35,7 +34,6 @@ const CryptoCoinRow = ({image, name, symbol, price, volume, priceChange, marketc
                         <p className="stockmeister-coin-marketcap text-right">
                             Mkt cap: {marketcap.toLocaleString()}
                         </p>
-                    </div>
                 </div>
             </div>
         </div>
