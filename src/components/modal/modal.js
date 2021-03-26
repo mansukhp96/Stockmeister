@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import image from '../../images/modal.svg'
 import {Link} from "react-router-dom";
-import {useSpring, animated} from 'react-spring';
+import {dropAnimation} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 const ModalImg = styled.img`
     width: 110%;
@@ -22,20 +23,12 @@ const ModalImg = styled.img`
 
 const Modal = ({ showModal, toggleModal }) => {
 
-    const animation = useSpring({
-        config: {
-            duration: 250
-        },
-        opacity: showModal ? 1 : 0,
-        transform: showModal ? `translateY(0%)` : `translateY(-100%)`
-    })
-
     return (
         <>
             {
                 showModal ? (
                         <div className="stockmesiter-modal-background">
-                            {/*<animated.div style={animation}>*/}
+                            <motion.div initial="out" animate="in" exit="out" variants={dropAnimation}>
                                 <div className="stockmeister-modal-wrapper">
                                     <ModalImg src={image}
                                               alt='login/signup'/>
@@ -52,7 +45,7 @@ const Modal = ({ showModal, toggleModal }) => {
                                     <i className="fas fa-times stockmesiter-modal-close-button"
                                        onClick={toggleModal}/>
                                 </div>
-                            {/*</animated.div>*/}
+                            </motion.div>
                         </div>
                 ) : (null)
             }

@@ -9,7 +9,7 @@ const StockDetails = () => {
     const {symbol} = useParams();
 
     return(
-        <motion.div initial="out" animate="in" variants={fadeAnimate}>
+        <motion.div initial="out" animate="in" exit="out" variants={fadeAnimate}>
             <div className="stockmeister-search-tabs-container">
                 <Link className="col-1 stockmeister-details-back-container"
                       to={`/search/stocks`}>
