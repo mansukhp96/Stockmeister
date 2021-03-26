@@ -6,7 +6,7 @@ import {motion} from "framer-motion";
 
 const CryptoDetails = () => {
 
-    const {coin} = useParams();
+    const {symbol} = useParams();
 
     return(
         <motion.div initial="out" animate="in" variants={fadeAnimate}>
@@ -17,7 +17,7 @@ const CryptoDetails = () => {
                 </Link>
                 <div className={`stockmeister-search-tabs-active col-11`}>
                     <div className={`nav-link stockmeister-details-text`}>
-                        {coin.toUpperCase()}
+                        {symbol.toUpperCase()}
                     </div>
                 </div>
             </div>

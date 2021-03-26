@@ -4,6 +4,7 @@
 }
 
 .stockmeister-details-back-container {
+    background-color: #cb0101;
     padding-top: 4px;
 }
 
@@ -18,7 +19,18 @@
     height: auto;
     font-weight: bolder;
     padding-top: 8px;
-    margin-right: 100px;
+    text-align: center;
+    padding-right: 70px;
+}
+
+@media screen and (min-width: 700px) {
+    .stockmeister-details-text {
+        height: auto;
+        position: -ms-device-fixed;
+        font-weight: bolder;
+        padding-top: 8px;
+        padding-right: 105px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -27,6 +39,6 @@
         position: -ms-device-fixed;
         font-weight: bolder;
         padding-top: 8px;
-        margin-right: 180px;
+        padding-right: 190px;
     }
 }

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import CryptoService from "../../services/crypto-service";
+import CryptoService from "../../../services/crypto-service";
 import {connect} from "react-redux";
 import CryptoCoinRow from "./crypto-coin-row";
 import "./search-crypto.css"
 import {Link} from "react-router-dom";
 import {useParams} from "react-router";
-import {fadeAnimate} from "../../animations/animations";
+import {fadeAnimate} from "../../../animations/animations";
 import {motion} from "framer-motion";
 
 const SearchCrypto = ({

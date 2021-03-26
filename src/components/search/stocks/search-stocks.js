@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
-import {fadeAnimate} from "../../animations/animations";
+import React, {useEffect} from 'react'
+import {fadeAnimate} from "../../../animations/animations";
 import {motion} from "framer-motion";
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
-import StockService from "../../services/stocks-service";
+import StockService from "../../../services/stocks-service";
 import {connect} from "react-redux";
 import './search-stocks.css'
 import StockRow from "./stock-row";

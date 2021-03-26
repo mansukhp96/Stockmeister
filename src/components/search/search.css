@@ -1,7 +1,7 @@
 .stockmeister-search-tabs-container {
     width: auto;
     position: sticky;
-    z-index: 3;
+    z-index: 2;
     top: 80px;
     background-color: #565a62;
     text-align: center;

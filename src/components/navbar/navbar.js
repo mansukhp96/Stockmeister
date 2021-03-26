@@ -8,7 +8,7 @@ import decode from 'jwt-decode';
 import {animateScroll as scroll} from 'react-scroll'
 import {ImgAvatar} from "./navbar-elements";
 
-const Navbar = ({toggle}) => {
+const Navbar = ({toggleTb, toggleModal}) => {
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const location = useLocation();
@@ -73,7 +73,7 @@ const Navbar = ({toggle}) => {
                         )
 
                     }
-                    <div onClick={toggle}>
+                    <div onClick={toggleTb}>
                         <i className="fas fa-bars stockmesiter-fa-bars"/>
                     </div>
                 </div>
@@ -94,7 +94,8 @@ const Navbar = ({toggle}) => {
                         }
                         {
                             !user?.result && location.pathname !== "/" &&
-                            <LinkRouter to="/register"
+                            <LinkRouter to={`${location.pathname}`}
+                                        onClick={toggleModal}
                                         smooth={true}
                                         duration={600}
                                         spy={true}

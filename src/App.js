@@ -15,6 +15,9 @@ import React, {useState} from "react";
 import Dashboard from "./components/dashboard/dashboard";
 import Profile from "./components/profile/profile";
 import CryptoDetails from "./components/details/crypto-details";
+import StockDetails from "./components/details/stock-details";
+import Modal from "./components/modal/modal";
+import './components/modal/modal.css'
 
 
 const alertOptions = {
@@ -27,34 +30,48 @@ const alertOptions = {
 
 function App() {
 
-    const [expand, setExpand] = useState(false)
+    const [expand, setExpand] = useState(false);
+    const [showModal, setShowModal] =useState(false);
+
+    const openModal = () => {
+        setShowModal(!showModal);
+    }
+
     const toggleTopbar = () => {
-        setExpand(!expand)
+        setExpand(!expand);
     }
 
   return (
     <BrowserRouter>
-        <Topbar expand={expand} toggle={toggleTopbar}/>
-        <Navbar toggle={toggleTopbar}/>
+        <Modal showModal={showModal}
+               toggleModal={openModal}/>
+            <Topbar expand={expand}
+                    toggleTb={toggleTopbar}
+                    toggleModal={openModal}/>
+            <Navbar toggleTb={toggleTopbar}
+                    toggleModal={openModal}/>
             <AnimatePresence exitBeforeEnter={true}>
-              <Switch>
-                  <AlertProvider template={AlertTemplate} {...alertOptions}>
-                      <Route path="/login" component={Login} exact={true}/>
-                      <Route path="/register" component={Register} exact={true}/>
-                          <Route path="/" component={Home} exact={true}/>
-                          <Route path="/dashboard" component={Dashboard} exact={true}/>
-                          <Route path="/profile" component={Profile} exact={true}/>
-                          <Route path={[
-                              "/search/:section",
-                              "/search",]}
-                                 exact={true}
-                                 component={SearchMain}/>
-                          <Route path="/search/crypto/details/:coin"
-                                 exact={true}
-                                 component={CryptoDetails}/>
-                          <Route path="/news" component={News} exact={true}/>
-                  </AlertProvider>
-              </Switch>
+                <Switch>
+                    <AlertProvider template={AlertTemplate} {...alertOptions}>
+                        <Route path="/login" component={Login} exact={true}/>
+                        <Route path="/register" component={Register} exact={true}/>
+                        <Route path="/" component={Home} exact={true}/>
+                        <Route path="/dashboard" component={Dashboard} exact={true}/>
+                        <Route path="/profile" component={Profile} exact={true}/>
+                        <Route path={[
+                            "/search/:section",
+                            "/search",]}
+                               exact={true}
+                               component={SearchMain}/>
+                        <Route path="/search/crypto/details/:symbol"
+                               exact={true}
+                               component={CryptoDetails}/>
+                        <Route path="/search/stocks/details/:symbol"
+                               exact={true}
+                               component={StockDetails}/>
+                        <Route path="/news" component={News} exact={true}/>
+                    </AlertProvider>
+                </Switch>
             </AnimatePresence>
     </BrowserRouter>
   );

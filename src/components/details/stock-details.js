@@ -1,16 +1,30 @@
 import React from 'react';
+import {fadeAnimate} from "../../animations/animations";
+import {Link, useParams} from "react-router-dom";
+import {motion} from "framer-motion";
+import './details.css'
 
 const StockDetails = () => {
+
+    const {symbol} = useParams();
+
     return(
-        <>
+        <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-search-tabs-container">
-                <div className={`stockmeister-search-tabs-active col`}>
-                    <div className={`stockmeister-search-tabs-link-active nav-link font-weight-bold`}>
-                        Stocks
+                <Link className="col-1 stockmeister-details-back-container"
+                      to={`/search/stocks`}>
+                    <i className="fas fa-chevron-left stockmeister-details-back"/>
+                </Link>
+                <div className={`stockmeister-search-tabs-active col-11`}>
+                    <div className={`nav-link stockmeister-details-text`}>
+                        {symbol.toUpperCase()}
                     </div>
                 </div>
             </div>
-        </>
+            <div className="text-center">
+                Stock Details
+            </div>
+        </motion.div>
     )
 }
 

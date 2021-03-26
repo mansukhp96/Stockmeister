@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import SearchPeople from "./search-people";
-import SearchStocks from "./search-stocks";
-import SearchCrypto from "./search-crypto";
+import SearchPeople from "./people/search-people";
+import SearchStocks from "./stocks/search-stocks";
+import SearchCrypto from "./crypto/search-crypto";
 import {Link} from "react-router-dom";
 import {useParams} from "react-router";
 import "./search.css"
