@@ -3,7 +3,7 @@ const YAHOO_KEY = process.env.YAHOO_APIKEY
 
 const STOCKS_TRENDING_URL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US";
 const STOCKS_ALL_URL = "https://api.twelvedata.com/stocks?country=United%20States&type=Common Stock";
-const STOCKS_SEARCH_URL = "https://api.twelvedata.com/symbol_search?apikey=" + TWLDATA_KEY + "&symbol=";
+const STOCKS_SEARCH_URL = "https://api.twelvedata.com/symbol_search?outputsize=120apikey=" + TWLDATA_KEY + "&symbol=";
 //const STOCKS_SEARCH_URL = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&apikey=GRYS5WKLUO2DAHSE&keywords=";
 
 
