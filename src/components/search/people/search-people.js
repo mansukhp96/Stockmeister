@@ -28,7 +28,7 @@ const SearchPeople = () => {
             </div>
             {
                <Link to={`/search/${section}/details/userId`}>
-                    Go to person details
+                    Go to user details
                </Link>
             }
             {

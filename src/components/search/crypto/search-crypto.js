@@ -27,7 +27,8 @@ const SearchCrypto = ({
 
     const filterCoins = cryptoCoins.filter(c =>
             c.symbol.toLowerCase().includes(search.toLowerCase()) ||
-        c.name.toLowerCase().includes(search.toLowerCase())
+        c.name.toLowerCase().includes(search.toLowerCase()) ||
+        c.id.toLowerCase().includes(search.toLowerCase())
     )
 
     return(
