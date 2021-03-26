@@ -55,7 +55,7 @@ export const StockMarket = ({
 
 const stpm = (state) => {
     return {
-        stocks: state.stocksReducer.stocks
+        stocks: state.stocksReducer.trendStocks
     }
 }
 

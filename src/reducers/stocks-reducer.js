@@ -1,5 +1,6 @@
 const initialState = {
-    stocks : []
+    trendStocks : [],
+    matchingStocks : []
 }
 
 const stocksReducer = (state = initialState, action) => {
@@ -7,9 +8,16 @@ const stocksReducer = (state = initialState, action) => {
 
         case "FIND_TRENDING_STOCKS":
             return {
-                stocks: action.trendingStocks
+                trendStocks: action.trendingStocks
             }
-
+        // case "FIND_ALL_STOCKS":
+        //     return {
+        //         stocks: action.allStocks
+        //     }
+        case "FIND_MATCHING_STOCKS":
+            return {
+                matchingStocks: action.matchStocks
+            }
         default:
             return state;
     }

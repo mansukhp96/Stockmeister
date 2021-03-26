@@ -1,0 +1,70 @@
+.stockmeister-stock-section {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    color: #010101;
+}
+
+.stockmeister-stock-search {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stockmeister-stock-text {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.stockmeister-stock-input {
+    padding-left: 16px;
+    width: 800px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid #ffffff;
+    background-image: linear-gradient(
+            108deg,
+            rgb(255, 196, 142) 0%,
+            rgb(255, 196, 142) 100%
+    );
+}
+
+@media screen and (max-width: 900px) {
+    .stockmeister-stock-input {
+        padding-left: 16px;
+        width: 600px;
+        height: 50px;
+        display: inline-flex;
+        border-radius: 100px;
+        border: 1px solid #ffffff;
+        background-image: linear-gradient(
+                108deg,
+                rgb(255, 196, 142) 0%,
+                rgb(255, 196, 142) 100%
+        );
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .stockmeister-stock-input {
+        padding-left: 16px;
+        width: 300px;
+        height: 50px;
+        display: inline-flex;
+        border-radius: 100px;
+        border: 1px solid #ffffff;
+        background-image: linear-gradient(
+                108deg,
+                rgb(255, 196, 142) 0%,
+                rgb(255, 196, 142) 100%
+        );
+    }
+}
+
+.stockmeister-stock-input::placeholder {
+    color: #353131;
+}

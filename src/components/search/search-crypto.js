@@ -26,6 +26,7 @@ const SearchCrypto = ({
     }
 
     const filterCoins = cryptoCoins.filter(c =>
+            c.symbol.toLowerCase().includes(search.toLowerCase()) ||
         c.name.toLowerCase().includes(search.toLowerCase())
     )
 
@@ -45,14 +46,14 @@ const SearchCrypto = ({
                         return(
                             <Link key={c.id}
                                   className="text-decoration-none text-dark"
-                                  to={`/search/${section}/details/${c.name}`}>
-                                <CryptoCoinRow symbol={c.symbol}
-                                               image={c.image}
-                                               name={c.name}
-                                               volume={c.total_volume}
-                                               price={c.current_price}
-                                               priceChange={c.price_change_percentage_24h}
-                                               marketcap={c.market_cap}/>
+                                  to={`/search/${section}/details/${c.id}`}>
+                                    <CryptoCoinRow symbol={c.symbol}
+                                                   image={c.image}
+                                                   name={c.name}
+                                                   volume={c.total_volume}
+                                                   price={c.current_price}
+                                                   priceChange={c.price_change_percentage_24h}
+                                                   marketcap={c.market_cap}/>
                             </Link>
 
                         )
