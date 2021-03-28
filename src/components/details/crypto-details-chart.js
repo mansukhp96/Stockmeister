@@ -3,14 +3,13 @@ import Chartjs from 'chart.js'
 import {historyChartOptions} from "../chart-configs/chart-configs";
 import {useParams} from "react-router";
 
-const HistoryChart = () => {
+const HistoryChart = ({data}) => {
 
     const {symbol} = useParams()
 
     const chartRef = useRef();
 
     useEffect(() => {
-        console.log(symbol)
         if(chartRef && chartRef.current) {
             const chartInstance = new Chartjs(chartRef.current, {
                 type: 'line',
@@ -34,7 +33,7 @@ const HistoryChart = () => {
     },[]);
 
     return (
-        <div className="bg-light rounded border mt-5 p-4">
+        <div className="bg-light rounded mt-3 p-1">
             <div></div>
             <div>
                 <canvas ref={chartRef} id="stockmeister-crypto-history-chart" width={250} height={250}/>

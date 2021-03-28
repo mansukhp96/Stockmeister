@@ -1,14 +1,10 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Carousel from "react-elastic-carousel";
 import './crypto-market.css'
 import {Card} from "./card";
-import CryptoService from '../../services/crypto-service'
-import {connect} from "react-redux";
+import api from "../../api/crypto-api";
 
-export const CryptoMarket = ({
-                                 cryptoCoins = [],
-                                 findTrending = () => { alert("fetching trending coins") }
-}) => {
+export const CryptoMarket = () => {
 
     const breakPoints = [
         { width : 500, itemsToShow: 2 },
@@ -18,21 +14,26 @@ export const CryptoMarket = ({
         { width : 900, itemsToShow: 6 }
     ]
 
+    const [trendingCoins, setTrendingCoins] = useState([]);
+
     useEffect(() => {
-        findTrending()
+        const fetchTrending = async () => {
+            return await api.get("markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false");
+        }
+        fetchTrending().then(response => setTrendingCoins(response.data))
     }, []);
 
     return(
         <div id="market"
              className="stockmeister-crypto-market-container">
             <div className="stockmeister-stock-market-title">
-                Top {cryptoCoins.length} Coins
+                Top {trendingCoins.length} Coins
             </div>
             <div className="text-center text-light small">
                 Current price and 24hr change %
             </div>
             {
-                cryptoCoins.length > 9 &&
+                trendingCoins.length > 9 &&
                 <Carousel enableAutoPlay={true}
                           disableArrowsOnEnd={false}
                           autoPlaySpeed={2500}
@@ -40,7 +41,7 @@ export const CryptoMarket = ({
                           breakPoints={breakPoints}
                           className="stockmeister-carousel">
                     {
-                        cryptoCoins.map((c,i) =>
+                        trendingCoins.map((c,i) =>
                             <Card key={i}
                                   symbol={c.symbol}
                                   priceChange={c.price_change_percentage_24h}
@@ -53,20 +54,4 @@ export const CryptoMarket = ({
     )
 }
 
-const stpm = (state) => {
-    return {
-        cryptoCoins : state.cryptoReducer.cryptoCoins
-    }
-}
-
-const dtpm = (dispatch) => {
-    return {
-        findTrending : () => {
-            CryptoService.findTrending().then(trendingCoins => {
-                dispatch({ type : "FIND_TRENDING_COINS", trendingCoins : trendingCoins })
-            })
-        }
-    }
-}
-
-export default connect(stpm, dtpm)(CryptoMarket)
+export default CryptoMarket
