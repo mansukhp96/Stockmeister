@@ -1,14 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Carousel from "react-elastic-carousel";
 import './stock-market.css'
 import {Card} from "./card";
-import StockService from '../../services/stocks-service';
-import {connect} from "react-redux";
+import api from '../../api/yahoo-stocks-api';
 
-export const StockMarket = ({
-                                stocks=[],
-                                findTrending = () => { alert("fetching trending stocks") }
-}) => {
+const YAHOO_KEY = process.env.YAHOO_APIKEY
+
+export const StockMarket = () => {
 
     const breakPoints = [
         { width : 500, itemsToShow: 2 },
@@ -18,8 +16,19 @@ export const StockMarket = ({
         { width : 900, itemsToShow: 6 }
     ]
 
+    const [trendingStocks, setTrendingStocks] = useState([]);
+
     useEffect(() => {
-        // findTrending()
+        const fetchTrending = async () => {
+            return await api.get("get-trending-tickers?region=US",{
+                headers : {
+                    "x-rapidapi-key": "dd2c68c0b8msh7a436aa8ec273d1p13d278jsnf1e7c9c3ac8f",
+                    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+                }
+            })
+        }
+        // fetchTrending().then(response =>
+        //     setTrendingStocks(response.data.finance.result[0].quotes))
     }, []);
 
     return(
@@ -32,7 +41,7 @@ export const StockMarket = ({
                 Current price and 24hr change %
             </div>
             {
-                stocks.length > 9 &&
+                trendingStocks.length > 9 &&
                 <Carousel enableAutoPlay={true}
                           disableArrowsOnEnd={false}
                           autoPlaySpeed={3500}
@@ -40,7 +49,7 @@ export const StockMarket = ({
                           breakPoints={breakPoints}
                           className="stockmeister-carousel">
                     {
-                        stocks.map((s,i) =>
+                        trendingStocks.map((s,i) =>
                             <Card key={i}
                                   symbol={s.symbol}
                                   value={s.regularMarketPrice}
@@ -53,21 +62,4 @@ export const StockMarket = ({
     )
 }
 
-const stpm = (state) => {
-    return {
-        stocks: state.stocksReducer.trendStocks
-    }
-}
-
-const dtpm = (dispatch) => {
-    return {
-        findTrending : () => {
-            StockService.findTrendingStocks().then((trendingStocks) => {
-                console.log(trendingStocks.finance.result[0].quotes)
-                dispatch({ type : "FIND_TRENDING_STOCKS", trendingStocks : trendingStocks.finance.result[0].quotes })
-            })
-        }
-    }
-}
-
-export default connect(stpm, dtpm)(StockMarket);
+export default StockMarket;

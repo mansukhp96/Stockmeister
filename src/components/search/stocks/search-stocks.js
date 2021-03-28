@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {fadeAnimate} from "../../../animations/animations";
 import {motion} from "framer-motion";
 import {useParams} from "react-router";
@@ -10,13 +10,8 @@ import StockRow from "./stock-row";
 
 const SearchStocks = ({
                           stocks=[],
-                          findAllStocks = () => { alert("Getting all stocks") },
                           findMatchingStocks = (keyword) => { alert("Searching...")}
 }) => {
-
-    useEffect(() => {
-        // findAllStocks()
-    }, []);
 
     const {section} = useParams();
 
