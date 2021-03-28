@@ -1,10 +1,11 @@
 .stockmeister-details-back {
     color: #ffffff;
-    font-size: 26px;
+    font-size: 25px;
+    margin-right: 1px;
 }
 
 .stockmeister-details-back-container {
-    background-color: #cb0101;
+    background-color: #980000;
     padding-top: 4px;
 }
 
@@ -12,7 +13,6 @@
     padding-top: 4px;
     background-color: #cb0101;
     transition: 0.2s all ease-in-out;
-    padding-left: 1px;
 }
 
 .stockmeister-details-text {
@@ -20,7 +20,6 @@
     font-weight: bolder;
     padding-top: 8px;
     text-align: center;
-    padding-right: 70px;
 }
 
 @media screen and (min-width: 700px) {

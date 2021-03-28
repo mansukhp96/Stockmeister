@@ -6,7 +6,7 @@ import './details.css'
 
 const StockDetails = () => {
 
-    const {symbol} = useParams();
+    const {id} = useParams();
 
     return(
         <motion.div initial="out" animate="in" exit="out" variants={fadeAnimate}>
@@ -17,7 +17,7 @@ const StockDetails = () => {
                 </Link>
                 <div className={`stockmeister-search-tabs-active col-11`}>
                     <div className={`nav-link stockmeister-details-text`}>
-                        {symbol.toUpperCase()}
+                        {id.toUpperCase()}
                     </div>
                 </div>
             </div>

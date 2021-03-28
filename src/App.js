@@ -63,10 +63,10 @@ function App() {
                             "/search",]}
                                exact={true}
                                component={SearchMain}/>
-                        <Route path="/search/crypto/details/:symbol"
+                        <Route path="/search/crypto/details/:id"
                                exact={true}
                                component={CryptoDetails}/>
-                        <Route path="/search/stocks/details/:symbol"
+                        <Route path="/search/stocks/details/:id"
                                exact={true}
                                component={StockDetails}/>
                         <Route path="/news" component={News} exact={true}/>

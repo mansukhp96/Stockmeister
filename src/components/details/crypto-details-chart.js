@@ -5,26 +5,19 @@ import {useParams} from "react-router";
 
 const HistoryChart = ({data}) => {
 
-    const {symbol} = useParams()
+    const {id} = useParams();
 
     const chartRef = useRef();
 
     useEffect(() => {
-        if(chartRef && chartRef.current) {
-            const chartInstance = new Chartjs(chartRef.current, {
+        if(chartRef && chartRef.current && data.details) {
+            new Chartjs(chartRef.current, {
                 type: 'line',
                 data: {
                     datasets: [{
-                    label: symbol.toUpperCase() + ' (USD)',
-                    data: [
-                        {x: 1, y: 65},
-                        {x: 2, y:6},
-                        {x: 3, y: 71},
-                        {x: 4, y: 40}],
-                    backgroundColor: "rgba(120, 950, 94, 0.6)",
-                    borderColor: "rgba(174, 305, 194, 0.4)",
-                    pointRadius: 0,
-                    borderWidth: 2
+                    label: id.toUpperCase() + ' (USD)',
+                    data: data.day,
+                    backgroundColor: "rgba(68, 190, 6, 0.75)",
                 }]
             },
             options: historyChartOptions
@@ -33,10 +26,24 @@ const HistoryChart = ({data}) => {
     },[]);
 
     return (
-        <div className="bg-light rounded mt-3 p-1">
-            <div></div>
-            <div>
-                <canvas ref={chartRef} id="stockmeister-crypto-history-chart" width={250} height={250}/>
+        <div className="stockmesiter-coin-chart-container bg-light rounded mt-3">
+            <div className="stockmeister-coin-chart-price">
+                ${data.details.current_price}
+            </div>
+            {
+                data.details.price_change_percentage_24h >= 0 &&
+                <div className="stockmeister-coin-chart-percent text-success">
+                    +{data.details.price_change_percentage_24h}% (24Hrs)
+                </div>
+            }
+            {
+                data.details.price_change_percentage_24h <= 0 &&
+                <div className="stockmeister-coin-chart-percent text-danger">
+                    {data.details.price_change_percentage_24h}% (24Hrs)
+                </div>
+            }
+            <div className="stockmeister-coin-chart-card">
+                <canvas ref={chartRef} className="stockmeister-crypto-history-chart" width={250} height={372}/>
             </div>
         </div>
     )

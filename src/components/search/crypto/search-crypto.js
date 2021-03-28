@@ -14,9 +14,12 @@ const SearchCrypto = ({
 }) => {
 
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        findAllCoins()
+        setLoading(true);
+        findAllCoins();
+        setLoading(false);
     }, []);
 
     const {section} = useParams();
@@ -43,6 +46,7 @@ const SearchCrypto = ({
                     </form>
                 </div>
                 {
+                    !loading &&
                     filterCoins.map(c => {
                         return(
                             <Link key={c.id}

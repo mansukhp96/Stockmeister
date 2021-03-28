@@ -1,12 +1,51 @@
 .stockmeister-crypto-details-chart {
-    margin: 15px;
-    padding-bottom: 40px;
+    margin: 25px;
+    padding-bottom: 60px;
+    height: 470px;
     border: 1px solid #bfbfbf;
     border-radius: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+@media screen and (max-width: 1500px) {
+    .stockmeister-crypto-details-chart {
+        margin: 25px;
+        padding-bottom: 60px;
+        height: 470px;
+        border: 1px solid #bfbfbf;
+        border-radius: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .stockmeister-crypto-details-chart {
+        margin: 25px;
+        padding-bottom: 60px;
+        height: 470px;
+        border: 1px solid #bfbfbf;
+        border-radius: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .stockmeister-crypto-details-chart {
+        margin: 25px;
+        padding-bottom: 60px;
+        height: 470px;
+        border: 1px solid #bfbfbf;
+        border-radius: 20px;
+        padding-left: 1px;
+        padding-right: 3px;
+    }
 }
 
 .stockmeister-crypto-details-data {
-    margin: 15px;
+    margin: 25px;
     padding-bottom: 40px;
     border: 1px solid #bfbfbf;
     border-radius: 20px;
@@ -17,4 +56,37 @@
     padding-bottom: 40px;
     border: 1px solid #bfbfbf;
     border-radius: 20px;
+}
+
+.stockmeister-coin-chart-card {
+
+}
+
+@media screen and (max-width: 950px) {
+    .stockmeister-coin-chart-card {
+
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .stockmeister-coin-chart-card {
+
+    }
+}
+
+.stockmesiter-coin-chart-container {
+
+}
+
+.stockmeister-coin-chart-price {
+    font-weight: bolder;
+    text-align: left;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.stockmeister-coin-chart-percent {
+    font-weight: bold;
+    text-align: left;
+    font-size: 15px;
 }
