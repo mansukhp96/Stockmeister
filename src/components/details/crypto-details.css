@@ -46,7 +46,7 @@
 
 .stockmeister-crypto-details-data {
     margin: 25px;
-    padding-bottom: 40px;
+    padding-top: 5px;
     border: 1px solid #bfbfbf;
     border-radius: 20px;
 }
@@ -89,4 +89,56 @@
     font-weight: bold;
     text-align: left;
     font-size: 15px;
+}
+
+.stockmeister-coin-details-head {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.stockmeister-coin-details-value {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.stockmeister-coin-details-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    grid-gap: 17px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .stockmeister-coin-details-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-coin-details-wrapper {
+        grid-template-columns: 1fr 1fr;
+        padding: 5px 20px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .stockmeister-coin-details-wrapper {
+        grid-template-columns: 1fr;
+        padding: 5px 20px;
+    }
+}
+
+.stockmeister-coin-details-card-wrapper {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }

@@ -26,26 +26,37 @@ const HistoryChart = ({data}) => {
     },[]);
 
     return (
-        <div className="stockmesiter-coin-chart-container bg-light rounded mt-3">
-            <div className="stockmeister-coin-chart-price">
-                ${data.details.current_price}
-            </div>
+        <>
             {
-                data.details.price_change_percentage_24h >= 0 &&
-                <div className="stockmeister-coin-chart-percent text-success">
-                    +{data.details.price_change_percentage_24h}% (24Hrs)
+                data &&
+                <div className="stockmesiter-coin-chart-container bg-light rounded mt-3">
+                    <div className="stockmeister-coin-chart-price">
+                        ${data.details.current_price}
+                    </div>
+                    {
+                        data.details.price_change_percentage_24h >= 0 &&
+                        <div className="stockmeister-coin-chart-percent text-success">
+                            +{data.details.price_change_percentage_24h}% (24Hrs)
+                        </div>
+                    }
+                    {
+                        data.details.price_change_percentage_24h <= 0 &&
+                        <div className="stockmeister-coin-chart-percent text-danger">
+                            {data.details.price_change_percentage_24h}% (24Hrs)
+                        </div>
+                    }
+                    <div className="stockmeister-coin-chart-card">
+                        <canvas ref={chartRef} className="stockmeister-crypto-history-chart" width={250} height={372}/>
+                    </div>
                 </div>
             }
             {
-                data.details.price_change_percentage_24h <= 0 &&
-                <div className="stockmeister-coin-chart-percent text-danger">
-                    {data.details.price_change_percentage_24h}% (24Hrs)
+                !data &&
+                <div className="text-sm-center small">
+                    Loading chart...
                 </div>
             }
-            <div className="stockmeister-coin-chart-card">
-                <canvas ref={chartRef} className="stockmeister-crypto-history-chart" width={250} height={372}/>
-            </div>
-        </div>
+        </>
     )
 }
 

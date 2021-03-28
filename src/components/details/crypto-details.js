@@ -6,6 +6,7 @@ import {fadeAnimate} from "../../animations/animations";
 import {motion} from "framer-motion";
 import HistoryChart from "./crypto-details-chart";
 import api from '../../api/crypto-api';
+import CoinCard from "./crypto-details-card";
 
 const CryptoDetails = () => {
 
@@ -71,7 +72,10 @@ const CryptoDetails = () => {
                 }
             </div>
             <div className="stockmeister-crypto-details-data text-center bg-light">
-                Cryptocurrency Coin Data
+                {
+                    !loading &&
+                    <CoinCard data={coinData}/>
+                }
             </div>
         </motion.div>
     )
