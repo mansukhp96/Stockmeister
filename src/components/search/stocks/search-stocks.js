@@ -3,23 +3,23 @@ import {fadeAnimate} from "../../../animations/animations";
 import {motion} from "framer-motion";
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
-import StockService from "../../../services/stocks-service";
-import {connect} from "react-redux";
 import './search-stocks.css'
+import api from '../../../api/twelvedata-stocks-api';
 import StockRow from "./stock-row";
 
-const SearchStocks = ({
-                          stocks=[],
-                          findMatchingStocks = (keyword) => { alert("Searching...")}
-}) => {
+const SearchStocks = () => {
 
+    const [ matchingStocks, setMatchingStocks ] = useState([]);
     const {section} = useParams();
 
     const handleChange = (e) => {
-        findMatchingStocks(e.target.value);
+        const fetchMatching = async () => {
+            return await api.get("&symbol=" + e.target.value);
+        }
+        fetchMatching().then(response => setMatchingStocks(response.data.data))
     }
 
-    const filterStocks = stocks.filter(s =>
+    const filterStocks = matchingStocks.filter(s =>
         (s.country.toLowerCase().includes("united states")
         && s.instrument_type.toLowerCase().includes("common stock"))
     )
@@ -61,26 +61,4 @@ const SearchStocks = ({
     )
 }
 
-const stpm = (state) => {
-    return {
-        stocks: state.stocksReducer.matchingStocks
-    }
-}
-
-const dtpm = (dispatch) => {
-    return {
-        findAllStocks : () => {
-            StockService.findAllStocks().then((response) => {
-                dispatch( { type : "FIND_ALL_STOCKS", allStocks : response.data } )
-            })
-        },
-        findMatchingStocks : (keyword) => {
-            StockService.findMatchingStocks(keyword).then((matchStocks) => {
-                console.log(matchStocks.data)
-                dispatch({ type : "FIND_MATCHING_STOCKS", matchStocks : matchStocks.data })
-            })
-        }
-    }
-}
-
-export default connect(stpm, dtpm)(SearchStocks)
+export default SearchStocks
