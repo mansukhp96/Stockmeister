@@ -54,7 +54,18 @@ const CoinCard = ({data}) => {
                                 Total Supply
                             </div>
                             <div className="stockmeister-coin-details-value">
-                                {data.details.total_supply}
+                                {
+                                    !data.details.total_supply &&
+                                    <>
+                                        -NA-
+                                    </>
+                                }
+                                {
+                                    data.details.total_supply &&
+                                    <>
+                                        {data.details.total_supply}
+                                    </>
+                                }
                             </div>
                         </div>
                         <div className="stockmeister-coin-details-card-wrapper">

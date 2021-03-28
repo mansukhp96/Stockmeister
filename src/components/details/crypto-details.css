@@ -125,7 +125,7 @@
         padding: 5px 20px;
     }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 491px) {
     .stockmeister-coin-details-wrapper {
         grid-template-columns: 1fr;
         padding: 5px 20px;
