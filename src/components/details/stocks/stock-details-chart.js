@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import Chartjs from 'chart.js'
-import {historyChartOptions} from "../chart-configs/chart-configs";
+import {historyChartOptions} from "../../chart-configs/chart-configs";
 import {useParams} from "react-router";
 
-const HistoryChart = ({data}) => {
+const StockHistoryChart = ({data}) => {
 
     const {id} = useParams();
 
@@ -15,13 +15,13 @@ const HistoryChart = ({data}) => {
                 type: 'line',
                 data: {
                     datasets: [{
-                    label: id.toUpperCase() + ' (USD)',
-                    data: data.day,
-                    backgroundColor: "rgba(68, 190, 6, 0.75)",
-                }]
-            },
-            options: historyChartOptions
-        });
+                        label: id.toUpperCase() + ' (USD)',
+                        data: data.day,
+                        backgroundColor: "rgba(68, 190, 6, 0.75)",
+                    }]
+                },
+                options: historyChartOptions
+            });
         }
     },[]);
 
@@ -31,18 +31,18 @@ const HistoryChart = ({data}) => {
                 data &&
                 <div className="stockmesiter-coin-chart-container bg-light rounded mt-3">
                     <div className="stockmeister-coin-chart-price">
-                        ${data.details.current_price}
+                        ${data.details.open}
                     </div>
                     {
-                        data.details.price_change_percentage_24h >= 0 &&
+                        data.details.percent_change >= 0 &&
                         <div className="stockmeister-coin-chart-percent text-success">
-                            +{data.details.price_change_percentage_24h}% (24Hrs)
+                            +{data.details.percent_change}% (24Hrs)
                         </div>
                     }
                     {
-                        data.details.price_change_percentage_24h <= 0 &&
+                        data.details.percent_change <= 0 &&
                         <div className="stockmeister-coin-chart-percent text-danger">
-                            {data.details.price_change_percentage_24h}% (24Hrs)
+                            {data.details.percent_change}% (24Hrs)
                         </div>
                     }
                     <div className="stockmeister-coin-chart-card">
@@ -60,4 +60,4 @@ const HistoryChart = ({data}) => {
     )
 }
 
-export default HistoryChart;
+export default StockHistoryChart;

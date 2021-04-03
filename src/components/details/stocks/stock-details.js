@@ -1,48 +1,46 @@
 import React, {useEffect, useState} from 'react';
-import './details.css'
-import './crypto-details.css'
+import {fadeAnimate} from "../../../animations/animations";
 import {Link, useParams} from "react-router-dom";
-import {fadeAnimate} from "../../animations/animations";
 import {motion} from "framer-motion";
-import HistoryChart from "./crypto-details-chart";
-import api from '../../api/crypto-api';
-import CoinCard from "./crypto-details-card";
+import '../details.css'
+import api from "../../../api/twelvedata-stock-timeseries-api";
+import StockHistoryChart from "./stock-details-chart";
+import StockCard from "./stock-details-card";
 
-const CryptoDetails = () => {
+const StockDetails = () => {
 
     const {id} = useParams();
-
-    const [coinData, setCoinData] = useState({});
+    const [stockData, setStockData] = useState({});
     const [loading, setLoading] = useState(false);
 
     const formatData = (data) => {
         return data.map(x => {
             return {
-                t : x[0],
-                y : x[1].toFixed(2)
+                t : x.datetime,
+                y : x.open
             }
         })
     }
 
     useEffect(() => {
-            const fetchData = async () => {
+        const fetchData = async () => {
 
-                setLoading(true);
-                const [dayDat, weekDat, yearDat, coinDetails] = await Promise.all([
-                    api.get(id + "/market_chart?vs_currency=usd&days=1"),
-                    api.get(id + "/market_chart?vs_currency=usd&days=7"),
-                    api.get(id + "/market_chart?vs_currency=usd&days=365"),
-                    api.get("markets?vs_currency=usd&ids=" + id + "&order=market_cap_desc&per_page=100&page=1&sparkline=false")
-                ])
+            setLoading(true);
+            const [dayDat, weekDat, monthDat, stockDetails] = await Promise.all([
+                api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=1min&symbol=" + id),
+                api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=4h&symbol=" + id),
+                api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=1week&symbol=" + id),
+                api.get("quote?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&symbol=" + id)
+            ])
 
-                setCoinData({
-                    day : formatData(dayDat.data.prices),
-                    week : formatData(weekDat.data.prices),
-                    year : formatData(yearDat.data.prices),
-                    details : coinDetails.data[0]
-                });
-            }
-            fetchData();
+            setStockData({
+                day : formatData(dayDat.data.values),
+                week : formatData(weekDat.data.values),
+                year : formatData(monthDat.data.values),
+                details : stockDetails.data
+            });
+        }
+        fetchData();
         setLoading(false);
     },[]);
 
@@ -50,7 +48,7 @@ const CryptoDetails = () => {
         <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-search-tabs-container">
                 <Link className="col-1 stockmeister-details-back-container"
-                      to={`/search/crypto`}>
+                      to={`/search/stocks`}>
                     <i className="fas fa-chevron-left stockmeister-details-back"/>
                 </Link>
                 <div className={`stockmeister-search-tabs-active col-11`}>
@@ -67,18 +65,18 @@ const CryptoDetails = () => {
                     </div>
                 }
                 {
-                    !loading && coinData.details &&
-                    <HistoryChart data={coinData}/>
+                    !loading && stockData.details &&
+                    <StockHistoryChart data={stockData}/>
                 }
             </div>
             <div className="stockmeister-crypto-details-data text-center bg-light">
                 {
                     !loading &&
-                    <CoinCard data={coinData}/>
+                    <StockCard data={stockData}/>
                 }
             </div>
         </motion.div>
     )
 }
 
-export default CryptoDetails;
+export default StockDetails;

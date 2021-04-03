@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import './search-stocks.css'
-import api from '../../../api/twelvedata-stocks-api';
+import api from '../../../api/twelvedata-stocks-search-api';
 import StockRow from "./stock-row";
 
 const SearchStocks = () => {

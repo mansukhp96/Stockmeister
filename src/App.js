@@ -14,8 +14,8 @@ import AlertTemplate from 'react-alert-template-basic';
 import React, {useState} from "react";
 import Dashboard from "./components/dashboard/dashboard";
 import Profile from "./components/profile/profile";
-import CryptoDetails from "./components/details/crypto-details";
-import StockDetails from "./components/details/stock-details";
+import CryptoDetails from "./components/details/crypto/crypto-details";
+import StockDetails from "./components/details/stocks/stock-details";
 import Modal from "./components/modal/modal";
 import './components/modal/modal.css'
 

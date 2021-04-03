@@ -1,5 +1,5 @@
 import React from 'react';
-import './crypto-details.css'
+import '../chart-card-details.css'
 
 const CoinCard = ({data}) => {
 
