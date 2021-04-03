@@ -3,7 +3,7 @@ import {fadeAnimate} from "../../../animations/animations";
 import {Link, useParams} from "react-router-dom";
 import {motion} from "framer-motion";
 import '../details.css'
-import api from "../../../api/twelvedata-stock-timeseries-api";
+import api from "../../../api/twelvedata-api";
 import StockHistoryChart from "./stock-details-chart";
 import StockCard from "./stock-details-card";
 

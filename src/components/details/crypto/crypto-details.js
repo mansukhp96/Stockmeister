@@ -5,7 +5,7 @@ import {Link, useParams} from "react-router-dom";
 import {fadeAnimate} from "../../../animations/animations";
 import {motion} from "framer-motion";
 import CoinHistoryChart from "./crypto-details-chart";
-import api from '../../../api/crypto-api';
+import api from '../../../api/coingecko-api';
 import CoinCard from "./crypto-details-card";
 
 const CryptoDetails = () => {

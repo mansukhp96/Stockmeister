@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Carousel from "react-elastic-carousel";
 import './crypto-market.css'
 import {Card} from "./card";
-import api from "../../api/crypto-api";
+import api from "../../api/coingecko-api";
 
 export const CryptoMarket = () => {
 

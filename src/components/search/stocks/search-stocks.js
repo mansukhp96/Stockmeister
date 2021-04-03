@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import './search-stocks.css'
-import api from '../../../api/twelvedata-stocks-search-api';
+import api from '../../../api/twelvedata-api';
 import StockRow from "./stock-row";
 
 const SearchStocks = () => {
@@ -14,7 +14,7 @@ const SearchStocks = () => {
 
     const handleChange = (e) => {
         const fetchMatching = async () => {
-            return await api.get("&symbol=" + e.target.value);
+            return await api.get("symbol_search?outputsize=120apikey=" + process.env.TWLDATA_KEY +" &symbol=" + e.target.value);
         }
         fetchMatching().then(response => setMatchingStocks(response.data.data))
     }
