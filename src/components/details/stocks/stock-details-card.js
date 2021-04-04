@@ -7,7 +7,7 @@ const StockCard = ({data}) => {
         <>
             {
                 data.details &&
-                <div className="row">
+                <div className="row stockmeister-coin-details-card-container">
                     <div className="stockmeister-coin-details-wrapper">
                         <div className="stockmeister-coin-details-card-wrapper">
                             <div className="stockmeister-coin-details-head">
@@ -59,7 +59,7 @@ const StockCard = ({data}) => {
                         </div>
                         <div className="stockmeister-coin-details-card-wrapper">
                             <div className="stockmeister-coin-details-head">
-                                Change (24Hrs)
+                                Price Change (24Hrs)
                             </div>
                             <div className="stockmeister-coin-details-value">
                                 ${data.details.change}
@@ -67,7 +67,7 @@ const StockCard = ({data}) => {
                         </div>
                         <div className="stockmeister-coin-details-card-wrapper">
                             <div className="stockmeister-coin-details-head">
-                                Change %
+                                Price Change percentage
                             </div>
                             <div className="stockmeister-coin-details-value">
                                 {data.details.percent_change}%

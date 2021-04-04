@@ -18,6 +18,7 @@ import CryptoDetails from "./components/details/crypto/crypto-details";
 import StockDetails from "./components/details/stocks/stock-details";
 import Modal from "./components/modal/modal";
 import './components/modal/modal.css'
+import PeopleDetails from "./components/details/people/people-details";
 
 
 const alertOptions = {
@@ -69,6 +70,9 @@ function App() {
                         <Route path="/search/stocks/details/:id"
                                exact={true}
                                component={StockDetails}/>
+                        <Route path="/search/people/details/:id"
+                               exact={true}
+                               component={PeopleDetails}/>
                         <Route path="/news" component={News} exact={true}/>
                     </AlertProvider>
                 </Switch>

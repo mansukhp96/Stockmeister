@@ -35,7 +35,7 @@ const Footer = () => {
                         </div>
                         <div className="stockmeister-links-items">
                             <h1 className="stockmeister-footer-title">
-                                Contact Me
+                                Contact Us
                             </h1>
                             <a href="/" className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
                             <a href="/" className="stockmeister-footer-link text-decoration-none">Ojas Thanawala</a>
