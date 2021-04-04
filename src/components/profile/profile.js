@@ -4,7 +4,7 @@ import Footer from "../footer/footer";
 export const Profile = () => {
     return(
         <>
-            Trader / Portfolio Manager profile
+            {/*Re-Using People Details page*/}
             <Footer/>
         </>
     )

@@ -63,7 +63,7 @@ function App() {
                             "/search/:section",
                             "/search",]}
                                exact={true}
-                               component={SearchMain}/>
+                            render={() => (<SearchMain toggleModal={openModal}/>)}/>
                         <Route path="/search/crypto/details/:id"
                                exact={true}
                                component={CryptoDetails}/>

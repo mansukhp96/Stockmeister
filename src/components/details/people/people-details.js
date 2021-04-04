@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {fadeAnimate} from "../../../animations/animations";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
@@ -17,15 +17,15 @@ const PeopleDetails = () => {
                 </Link>
                 <div className={`stockmeister-search-tabs-active col-11`}>
                     <div className={`nav-link stockmeister-details-text`}>
-                        {id.toUpperCase()}
+                        User Details
                     </div>
                 </div>
             </div>
             <div className="stockmeister-crypto-details-chart text-center bg-light">
-                Person details
+                General Info
             </div>
             <div className="stockmeister-crypto-details-data text-center bg-light">
-                Person details
+                Personal Details
             </div>
         </motion.div>
     )

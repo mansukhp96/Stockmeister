@@ -8,7 +8,7 @@ import "./search.css"
 import {fadeAnimate} from "../../animations/animations";
 import {motion} from "framer-motion";
 
-export const SearchMain = () => {
+export const SearchMain = ({toggleModal}) => {
 
     const {section} = useParams();
 
@@ -45,7 +45,7 @@ export const SearchMain = () => {
                 }
                 {
                     section === "people" &&
-                        <SearchPeople/>
+                        <SearchPeople modal={toggleModal}/>
                 }
             </div>
         </motion.div>
