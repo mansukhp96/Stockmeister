@@ -102,7 +102,7 @@
 }
 
 .stockmeister-coin-details-wrapper {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

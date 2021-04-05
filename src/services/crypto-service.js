@@ -7,7 +7,7 @@ const findAllCoins = () => {
 }
 
 const api = {
-    findAllCoins,
+    findAllCoins
 }
 
 export default api;

@@ -26,17 +26,13 @@ const StockDetails = () => {
         const fetchData = async () => {
 
             setLoading(true);
-            const [dayDat, weekDat, monthDat, stockDetails] = await Promise.all([
+            const [dayDat, stockDetails] = await Promise.all([
                 api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=1min&symbol=" + id),
-                api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=4h&symbol=" + id),
-                api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=1week&symbol=" + id),
                 api.get("quote?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&symbol=" + id)
             ])
 
             setStockData({
                 day : formatData(dayDat.data.values),
-                week : formatData(weekDat.data.values),
-                year : formatData(monthDat.data.values),
                 details : stockDetails.data
             });
         }

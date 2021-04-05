@@ -75,7 +75,7 @@ const SearchPeople = ({modal}) => {
                 </div>
             </div>
             {
-                (loading || filterUsers.length <= 0) &&
+                filterUsers.length <= 0 &&
                 <div className="text-muted small">
                     No users found
                 </div>

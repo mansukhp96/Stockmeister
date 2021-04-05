@@ -7,7 +7,7 @@ const CoinCard = ({data}) => {
         <>
             {
                 data.details &&
-                <div className="row stockmeister-coin-details-card-container">
+                <div className="row">
                     <div className="stockmeister-coin-details-wrapper">
                         <div className="stockmeister-coin-details-card-wrapper">
                             <div className="stockmeister-coin-details-head">
@@ -38,7 +38,7 @@ const CoinCard = ({data}) => {
                                 24Hr Mkt Cap Change
                             </div>
                             <div className="stockmeister-coin-details-value">
-                                {data.details.market_cap_change_percentage_24h}%
+                                {data.details.market_cap_change_percentage_24h.toFixed(3)}%
                             </div>
                         </div>
                         <div className="stockmeister-coin-details-card-wrapper">
@@ -63,7 +63,7 @@ const CoinCard = ({data}) => {
                                 {
                                     data.details.total_supply &&
                                     <>
-                                        {data.details.total_supply}
+                                        {data.details.total_supply.toFixed(3)}
                                     </>
                                 }
                             </div>
@@ -81,7 +81,7 @@ const CoinCard = ({data}) => {
                                 ATH Change
                             </div>
                             <div className="stockmeister-coin-details-value">
-                                {data.details.ath_change_percentage}%
+                                {data.details.ath_change_percentage.toFixed(3)}%
                             </div>
                         </div>
                     </div>

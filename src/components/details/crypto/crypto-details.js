@@ -28,17 +28,13 @@ const CryptoDetails = () => {
             const fetchData = async () => {
 
                 setLoading(true);
-                const [dayDat, weekDat, yearDat, coinDetails] = await Promise.all([
+                const [dayDat, coinDetails] = await Promise.all([
                     api.get(id + "/market_chart?vs_currency=usd&days=1"),
-                    api.get(id + "/market_chart?vs_currency=usd&days=7"),
-                    api.get(id + "/market_chart?vs_currency=usd&days=365"),
-                    api.get("markets?vs_currency=usd&ids=" + id + "&order=market_cap_desc&per_page=100&page=1&sparkline=false")
+                    api.get("markets?vs_currency=usd&ids=" + id + "&sparkline=false")
                 ])
 
                 setCoinData({
                     day : formatData(dayDat.data.prices),
-                    week : formatData(weekDat.data.prices),
-                    year : formatData(yearDat.data.prices),
                     details : coinDetails.data[0]
                 });
             }
