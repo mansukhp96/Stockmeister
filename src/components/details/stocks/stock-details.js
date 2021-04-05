@@ -30,7 +30,6 @@ const StockDetails = () => {
                 api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=1min&symbol=" + id),
                 api.get("quote?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&symbol=" + id)
             ])
-            console.log(dayDat.data.values)
 
             setStockData({
                 day : formatData(dayDat.data.values),

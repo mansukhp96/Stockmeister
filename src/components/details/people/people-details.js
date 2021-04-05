@@ -18,7 +18,6 @@ const PeopleDetails = () => {
         const fetchUserInfo = async () => {
             setLoading(true);
             const userInf = await api.getUserInfo(id);
-            console.log(userInf.data)
             setUserInfo(userInf.data);
         }
         fetchUserInfo();
