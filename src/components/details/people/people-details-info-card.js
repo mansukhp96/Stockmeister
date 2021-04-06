@@ -34,6 +34,33 @@ const PeopleInfocard = ({data}) => {
                         </div>
                         <div className="stockmeister-user-info-card-wrapper">
                             <div className="stockmeister-coin-details-head">
+                                Username
+                            </div>
+                            <div className="stockmeister-coin-details-value">
+                                {data.username}
+                            </div>
+                        </div>
+                        <div className="stockmeister-user-info-card-wrapper">
+                            <div className="stockmeister-coin-details-head">
+                                Gender
+                            </div>
+                            <div className="stockmeister-coin-details-value">
+                                {data.gender}
+                            </div>
+                        </div>
+                        <div className="stockmeister-user-info-card-wrapper">
+                            <div className="stockmeister-coin-details-head">
+                                Joined On
+                            </div>
+                            {
+                                data.joined_on &&
+                                <div className="stockmeister-coin-details-value">
+                                    {data.joined_on.substring(0, data.joined_on.lastIndexOf("T"))}
+                                </div>
+                            }
+                        </div>
+                        <div className="stockmeister-user-info-card-wrapper">
+                            <div className="stockmeister-coin-details-head">
                                 Stock Interests
                             </div>
                             {
