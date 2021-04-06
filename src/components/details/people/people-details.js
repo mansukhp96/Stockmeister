@@ -22,9 +22,9 @@ const PeopleDetails = () => {
         }
         fetchUserInfo();
         setLoading(false);
-    },[]);
+    }, []);
 
-    return(
+    return (
         <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-search-tabs-container">
                 <Link className="col-1 stockmeister-details-back-container"
@@ -40,9 +40,12 @@ const PeopleDetails = () => {
                     }
                 </div>
             </div>
-            <div className="stockmeister-user-info bg-light">
-                <PeopleInfocard data={userInfo}/>
-            </div>
+            {
+                !loading &&
+                <div className="stockmeister-user-info bg-light">
+                    <PeopleInfocard data={userInfo}/>
+                </div>
+            }
             {
                 user &&
                 <div className="stockmeister-user-info bg-light">

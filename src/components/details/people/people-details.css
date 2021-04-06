@@ -30,7 +30,8 @@
 }
 
 .stockmeister-user-info-card-wrapper {
-    background: #fff;
+    background: #ffffff;
+    border: #ffd6b8 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

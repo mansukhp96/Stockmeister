@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './info-fragment.css'
 import {Link as LinkScroll} from 'react-scroll'
+import {Link as LinkRoute} from "react-router-dom";
 
 import {InfoContainer, InfoHeader, InfoRow, InfoText, Img} from "./info-fragment-elements";
 
-const InfoFragment = ({lightBg, id, imgStart, title, lightText, header, darkText, subtext, buttonLabel, img, alt}) => {
+const InfoFragment = ({routeLink, lightBg, id, imgStart, title, lightText, header, darkText, subtext, buttonLabel, img, alt}) => {
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
     return(
         <InfoContainer id={id}
                        lightBg={lightBg}>
@@ -21,17 +25,29 @@ const InfoFragment = ({lightBg, id, imgStart, title, lightText, header, darkText
                             <InfoText darkText={darkText}>
                                 {subtext}
                             </InfoText>
-                            <div className="stockmesiter-info-btn-wrapper">
-                                <LinkScroll to="services"
-                                            smooth={true}
-                                            duration={600}
-                                            spy={true}
-                                            exact="true"
-                                            offset={-79}
-                                            className="btn btn-outline-warning stockmeister-info-getstarted-button text-decoration-none">
-                                    {buttonLabel}
-                                </LinkScroll>
-                            </div>
+                            {
+                                !user &&
+                                <div className="stockmesiter-info-btn-wrapper">
+                                    <LinkScroll to="services"
+                                                smooth={true}
+                                                duration={600}
+                                                spy={true}
+                                                exact="true"
+                                                offset={-79}
+                                                className="btn btn-outline-warning stockmeister-info-getstarted-button text-decoration-none">
+                                        {buttonLabel}
+                                    </LinkScroll>
+                                </div>
+                            }
+                            {
+                                user &&
+                                <div className="stockmesiter-info-btn-wrapper">
+                                    <LinkRoute to={routeLink}
+                                                className="btn btn-outline-warning stockmeister-info-getstarted-button text-decoration-none">
+                                        {buttonLabel}
+                                    </LinkRoute>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className="stockmeister-info-column2">

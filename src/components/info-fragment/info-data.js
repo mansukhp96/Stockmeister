@@ -12,7 +12,8 @@ export const InfoData1 = {
     alt: 'globe',
     dark: false,
     primary: true,
-    darkText: false
+    darkText: false,
+    routeLink : "/news"
 };
 
 export const InfoData2 = {
@@ -29,6 +30,25 @@ export const InfoData2 = {
     alt: 'globe',
     dark: false,
     primary: true,
-    darkText: true
+    darkText: true,
+    routeLink : "/news"
+};
+
+export const InfoData3 = {
+    id: 'connect',
+    lightBg: false,
+    lightText: true,
+    lightTextDesc: true,
+    title: 'Peers.',
+    header: 'Connect with People',
+    subtext: 'Interact with like-minded traders and portfolio managers',
+    buttonLabel: 'Search People',
+    imgStart: false,
+    img: require('../../images/dummy6.svg').default,
+    alt: 'globe',
+    dark: false,
+    primary: true,
+    darkText: false,
+    routeLink : "/search/people"
 };
 
