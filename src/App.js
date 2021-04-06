@@ -22,10 +22,10 @@ import PeopleDetails from "./components/details/people/people-details";
 
 
 const alertOptions = {
-    position: positions.BOTTOM_CENTER,
+    position: positions.TOP_CENTER,
     timeout: 1500,
-    offset: '30px',
-    type : 'error',
+    offset: '100px',
+    type : 'info',
     transition: transitions.FADE
 }
 

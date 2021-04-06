@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import Footer from "../footer/footer";
+import "@pathofdev/react-tag-input/build/index.css";
 import './profile.css';
 import {fadeAnimate} from "../../animations/animations";
 import {motion} from "framer-motion";
 import {useAlert} from "react-alert";
 import {useDispatch} from "react-redux";
+import ReactTagInput from "@pathofdev/react-tag-input";
 import * as api from "../../services/people-service";
 
 export const Profile = ({ loggedUser = null }) => {
@@ -13,7 +15,9 @@ export const Profile = ({ loggedUser = null }) => {
     const dispatch = useDispatch();
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const [isDisabled, setIsDisabled] = useState(true);
     const [updateForm, setUpdateForm] = useState(user.result);
+    // const [tagz, setTagz] = React.useState(updateForm.interests);
 
     useEffect(() => {
 
@@ -26,18 +30,26 @@ export const Profile = ({ loggedUser = null }) => {
             dispatch({ type : "AUTH", data });
         }
         catch (error) {
-            // alert.show(error.response.data.message);
+            alert.show("Update Failed!");
             console.log(error);
         }
     }
 
     const handleInput = (e) => {
+        setIsDisabled(false);
         setUpdateForm({ ...updateForm, [e.target.name] : e.target.value });
+    }
+
+    const handleTags = (newTags) => {
+        setIsDisabled(false);
+        setUpdateForm({ ...updateForm, interests : newTags });
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateService(updateForm));
+        alert.show("Profile Updated!");
+        setIsDisabled(true);
     }
 
     return (
@@ -80,7 +92,11 @@ export const Profile = ({ loggedUser = null }) => {
                                    className="form-control border-warning"/>
                         </div>
                         <div>
-                            <label>Phone Number</label>
+                            <label>
+                                <i className="fas fa-user-lock"/>
+                                &nbsp;
+                                Phone Number
+                            </label>
                             <input type="text"
                                    name="phoneNumber"
                                    value={updateForm.phoneNumber}
@@ -88,7 +104,11 @@ export const Profile = ({ loggedUser = null }) => {
                                    className="form-control border-warning shadow-sm"/>
                         </div>
                         <div>
-                            <label>Location</label>
+                            <label>
+                                <i className="fas fa-user-lock"/>
+                                &nbsp;
+                                Location
+                            </label>
                             <input type="text"
                                    name="address"
                                    onChange={handleInput}
@@ -99,12 +119,21 @@ export const Profile = ({ loggedUser = null }) => {
                     <div className="stockmeister-profile-info-wrapper2">
                         <div>
                             <label>Interests</label>
-                            <input type="text"
-                                   name="interests"
-                                   className="form-control border-warning shadow-sm"/>
+                            <ReactTagInput tags={updateForm.interests}
+                                           className="react-tag-input__tag"
+                                           placeholder="Type stock symbol and press enter"
+                                           editable={true}
+                                           readOnly={false}
+                                           removeOnBackspace={true}
+                                           onChange={handleTags}/>
+
                         </div>
                         <div>
-                            <label>Bank Account Details</label>
+                            <label>
+                                <i className="fas fa-user-lock"/>
+                                &nbsp;
+                                Bank Account Details
+                            </label>
                             <input type="text"
                                    name="bankAccount"
                                    onChange={handleInput}
@@ -112,9 +141,11 @@ export const Profile = ({ loggedUser = null }) => {
                                    className="form-control border-warning shadow-sm"/>
                         </div>
                     </div>
-                    <div className="stockmeister-profile-info-wrapper-head">
+
+                    <div className={`stockmeister-profile-info-wrapper-head`}>
                         <button type="submit"
-                                className="btn-lg btn-block btn-success shadow-sm">
+                                disabled={isDisabled}
+                                className={`  btn-lg btn-block ${isDisabled ? `btn-secondary` : `btn-success`}   shadow-sm`}>
                             Update Profile
                         </button>
                     </div>

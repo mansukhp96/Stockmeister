@@ -78,3 +78,43 @@
     grid-gap: 17px;
     padding: 10px 30px 20px;
 }
+
+.react-tag-input {
+    border: #f6c208 1px solid;
+    height: 45px;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 1000px) {
+    .react-tag-input {
+        border: #f6c208 1px solid;
+        height: 45px;
+        border-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .react-tag-input {
+        border: #f6c208 1px solid;
+        height: 100px;
+        border-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 491px) {
+    .react-tag-input {
+        border: #f6c208 1px solid;
+        height: 150px;
+        border-radius: 4px;
+    }
+}
+
+.react-tag-input__tag {
+    background: #f69d52;
+    height: 34px;
+}
+
+.react-tag-input__tag__remove {
+    background: #f69d52;
+}
+
