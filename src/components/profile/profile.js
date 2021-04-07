@@ -10,6 +10,8 @@ import ReactTagInput from "@pathofdev/react-tag-input";
 import * as api from "../../services/people-service";
 import {useHistory} from "react-router-dom";
 
+const stockChecker = require('stock-ticker-symbol');
+
 export const Profile = ({ loggedUser = null }) => {
 
     const alert = useAlert();
@@ -17,6 +19,8 @@ export const Profile = ({ loggedUser = null }) => {
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [isDisabled, setIsDisabled] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [valid, setValid] = useState(false);
     const [updateForm, setUpdateForm] = useState(user.result);
     const history = useHistory();
 
@@ -54,9 +58,22 @@ export const Profile = ({ loggedUser = null }) => {
     }
 
     const handleTags = (newTags) => {
-        newTags = newTags.map(function(x){ return x.toUpperCase(); })
-        setIsDisabled(false);
-        setUpdateForm({ ...updateForm, interests : newTags });
+        setValid(false);
+        if(!loading) {
+            newTags = newTags.map(function(x){ return x.toUpperCase(); })
+            setIsDisabled(false);
+            setUpdateForm({ ...updateForm, interests : newTags });
+        }
+    }
+
+    const handleValidation = (symbol) => {
+        if(stockChecker.lookup(symbol) !== null) {
+            return true
+        }
+        else {
+            alert.show("Invalid Stock Symbol!");
+            return false;
+        }
     }
 
     const handleDelete = () => {
@@ -145,6 +162,7 @@ export const Profile = ({ loggedUser = null }) => {
                                            editable={true}
                                            readOnly={false}
                                            removeOnBackspace={true}
+                                           validator={handleValidation}
                                            onChange={handleTags}/>
 
                         </div>
