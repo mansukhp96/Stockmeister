@@ -1,0 +1,116 @@
+.stockmeister-news-container {
+    margin: 25px;
+    padding-bottom: 40px;
+    border: 1px solid #bfbfbf;
+    border-radius: 20px;
+}
+
+.stockmeister-news-section {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    color: #010101;
+}
+
+.stockmeister-news-search {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stockmeister-news-input {
+    padding-left: 16px;
+    width: 800px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid #ffffff;
+    background-image: linear-gradient(
+            108deg,
+            rgb(255, 196, 142) 0%,
+            rgb(255, 196, 142) 100%
+    );
+}
+
+@media screen and (max-width: 900px) {
+    .stockmeister-news-input {
+        padding-left: 16px;
+        width: 600px;
+        height: 50px;
+        display: inline-flex;
+        border-radius: 100px;
+        border: 1px solid #ffffff;
+        background-image: linear-gradient(
+                108deg,
+                rgb(255, 196, 142) 0%,
+                rgb(255, 196, 142) 100%
+        );
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .stockmeister-news-input {
+        padding-left: 16px;
+        width: 300px;
+        height: 50px;
+        display: inline-flex;
+        border-radius: 100px;
+        border: 1px solid #ffffff;
+        background-image: linear-gradient(
+                108deg,
+                rgb(255, 196, 142) 0%,
+                rgb(255, 196, 142) 100%
+        );
+    }
+}
+
+.stockmeister-news-input::placeholder {
+    color: #353131;
+}
+
+.stockmeister-form-search > .react-tag-input {
+    border: #f9fafb 1px solid;
+    background: #f9fafb;
+    height: 45px;
+}
+
+@media screen and (max-width: 1000px) {
+    .stockmeister-form-search > .react-tag-input {
+        border: #f9fafb 1px solid;
+        background: #f9fafb;
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-form-search > .react-tag-input {
+        border: #f9fafb 1px solid;
+        width: 300px;
+        background: #f9fafb;
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 491px) {
+    .stockmeister-form-search > .react-tag-input {
+        border: #f9fafb 1px solid;
+        height: 80px;
+    }
+}
+
+.stockmeister-form-search > .react-tag-input > .react-tag-input__tag {
+    background: #f69d52;
+    height: 30px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 1000;
+}
+
+.stockmeister-form-search > .react-tag-input  .react-tag-input__tag__remove {
+    background: #f69d52;
+    height: 30px;
+    border-radius: 100px;
+}

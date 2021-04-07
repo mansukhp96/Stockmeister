@@ -1,3 +1,4 @@
+import "@pathofdev/react-tag-input/build/index.css";
 import './App.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Topbar from "./components/topbar/topbar";
@@ -54,9 +55,10 @@ function App() {
             <AnimatePresence exitBeforeEnter={true}>
                 <Switch>
                     <AlertProvider template={AlertTemplate} {...alertOptions}>
+                        <Route path="/" component={Home} exact={true}/>
+                        <Route path="/news" component={News} exact={true}/>
                         <Route path="/login" component={Login} exact={true}/>
                         <Route path="/register" component={Register} exact={true}/>
-                        <Route path="/" component={Home} exact={true}/>
                         <Route path="/dashboard" component={Dashboard} exact={true}/>
                         <Route path="/profile" component={Profile} exact={true}/>
                         <Route path={[
@@ -73,7 +75,6 @@ function App() {
                         <Route path="/search/people/details/:id"
                                exact={true}
                                component={PeopleDetails}/>
-                        <Route path="/news" component={News} exact={true}/>
                     </AlertProvider>
                 </Switch>
             </AnimatePresence>

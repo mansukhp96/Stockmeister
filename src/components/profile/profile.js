@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import Footer from "../footer/footer";
-import "@pathofdev/react-tag-input/build/index.css";
-import './profile.css';
 import {fadeAnimate} from "../../animations/animations";
 import {motion} from "framer-motion";
 import {useAlert} from "react-alert";
@@ -9,10 +7,14 @@ import {useDispatch} from "react-redux";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import * as api from "../../services/people-service";
 import {useHistory} from "react-router-dom";
+import './profile.css';
+import {useLocation} from "react-router";
 
 const stockChecker = require('stock-ticker-symbol');
 
 export const Profile = ({ loggedUser = null }) => {
+
+    const location = useLocation();
 
     const alert = useAlert();
     const dispatch = useDispatch();
