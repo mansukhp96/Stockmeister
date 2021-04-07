@@ -8,6 +8,7 @@ import {useAlert} from "react-alert";
 import {useDispatch} from "react-redux";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import * as api from "../../services/people-service";
+import {useHistory} from "react-router-dom";
 
 export const Profile = ({ loggedUser = null }) => {
 
@@ -17,7 +18,7 @@ export const Profile = ({ loggedUser = null }) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [isDisabled, setIsDisabled] = useState(true);
     const [updateForm, setUpdateForm] = useState(user.result);
-    // const [tagz, setTagz] = React.useState(updateForm.interests);
+    const history = useHistory();
 
     useEffect(() => {
 
@@ -25,12 +26,24 @@ export const Profile = ({ loggedUser = null }) => {
 
     const updateService = (updateForm) => async (dispatch) => {
         try {
-            //login the user
             const { data } = await api.updateUser(user.result._id, updateForm);
             dispatch({ type : "AUTH", data });
         }
         catch (error) {
             alert.show("Update Failed!");
+            console.log(error);
+        }
+    }
+
+    const deleteService = (id, history) => async (dispatch) => {
+        try {
+            await api.deleteUser(user.result._id, history);
+            dispatch({ type : "LOGOUT"});
+            setUser(null);
+            window.location.reload(false);
+        }
+        catch (error) {
+            alert.show("Delete Failed!");
             console.log(error);
         }
     }
@@ -41,8 +54,15 @@ export const Profile = ({ loggedUser = null }) => {
     }
 
     const handleTags = (newTags) => {
+        newTags = newTags.map(function(x){ return x.toUpperCase(); })
         setIsDisabled(false);
         setUpdateForm({ ...updateForm, interests : newTags });
+    }
+
+    const handleDelete = () => {
+        dispatch(deleteService(user.result._id, history));
+        alert.show("Account has been deleted");
+        history.push("/");
     }
 
     const handleSubmit = (e) => {
@@ -145,8 +165,12 @@ export const Profile = ({ loggedUser = null }) => {
                     <div className={`stockmeister-profile-info-wrapper-head`}>
                         <button type="submit"
                                 disabled={isDisabled}
-                                className={`  btn-lg btn-block ${isDisabled ? `btn-secondary` : `btn-success`}   shadow-sm`}>
+                                className={`  btn btn-block ${isDisabled ? `btn-secondary` : `btn-success`}   shadow-sm`}>
                             Update Profile
+                        </button>
+                        <button onClick={handleDelete}
+                                className={`btn btn-outline-danger btn-block shadow-sm`}>
+                            Delete Account
                         </button>
                     </div>
                 </form>

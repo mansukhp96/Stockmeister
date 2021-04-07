@@ -112,9 +112,12 @@
 .react-tag-input__tag {
     background: #f69d52;
     height: 34px;
+    font-size: 15px;
+    font-weight: 1000;
 }
 
 .react-tag-input__tag__remove {
     background: #f69d52;
+    height: 34px;
 }
 
