@@ -32,9 +32,8 @@ const SearchPeople = ({modal}) => {
     if(users.length > 0 && !user) {
         filterUsers = users.filter(u =>
             (u.first_name.toLowerCase().includes(search.toLowerCase()) ||
-            u.last_name.toLowerCase().includes(search.toLowerCase()) ||
-            u.email.toLowerCase().includes(search.toLowerCase())
-        ))
+            u.last_name.toLowerCase().includes(search.toLowerCase()))
+        )
     }
     else if (users.length > 0 && user) {
         filterUsers = users.filter(u =>

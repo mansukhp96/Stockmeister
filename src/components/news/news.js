@@ -5,24 +5,44 @@ import NewsCard from "./news-card";
 import api from '../../api/news-api';
 import ReactTagInput from "@pathofdev/react-tag-input";
 import './news.css'
-import PeopleCard from "../search/people/search-people-card";
 
 export const News = () => {
 
+    const topTags = () => {
+        if(user) {
+            return user.result.interests.slice(0, 3).map(t => {
+                return t;
+            })
+        }
+        else
+            return null
+    }
+
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [loading, setLoading] = useState(false);
-    const [tz, setTz] = useState(
-        user.result.interests.slice(0, 5).map(t => {
-        return t;
-    }));
+    const [tz, setTz] = useState(topTags);
     const [newsData, setNewsData] = useState({});
 
     useEffect(() => {
         setLoading(true);
-        const fetchNews = async () => {
-            return await api.get("everything?q=AAPL&sortBy=popularity&apiKey=6a0d61dbbce2425e850071cafa4a3149&pageSize=10");
+        const fetchNewsLoggedIn = async () => {
+            const [one, two, three] = await Promise.all([
+                api.get("everything?q=" + tz[0] + "&from=2021-04-14&sortBy=popularity&apiKey=6a0d61dbbce2425e850071cafa4a3149&pageSize=10"),
+                api.get("everything?q=" + tz[1] + "&from=2021-04-14&sortBy=popularity&apiKey=6a0d61dbbce2425e850071cafa4a3149&pageSize=10"),
+                api.get("everything?q=" + tz[2] + "&from=2021-04-14&sortBy=popularity&apiKey=6a0d61dbbce2425e850071cafa4a3149&pageSize=10")
+            ])
+
+            setNewsData(one.data.articles.concat(two.data.articles).concat(three.data.articles));
         }
-        fetchNews().then(response => setNewsData(response.data.articles));
+        const fetchTopNews = async () => {
+            return await api.get("top-headlines?country=us&apiKey=6a0d61dbbce2425e850071cafa4a3149");
+        }
+        if(user) {
+            fetchNewsLoggedIn();
+        }
+        else {
+            fetchTopNews().then(response => setNewsData(response.data.articles));
+        }
         setLoading(false);
     },[]);
 
@@ -54,7 +74,7 @@ export const News = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col stockmeister-people-card-container">
+                    <div className="stockmeister-news-card-container">
                         {
                             !loading && newsData.length > 0 &&
                             newsData.map((n,i) =>

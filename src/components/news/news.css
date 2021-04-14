@@ -114,3 +114,34 @@
     height: 30px;
     border-radius: 100px;
 }
+
+.stockmeister-news-card-container {
+    max-width: 900px;
+    margin: 0 40px;
+    display: grid;
+    align-content: center;
+    grid-template-columns: 1fr;
+    grid-gap: 17px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .stockmeister-news-card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stockmeister-news-card-container {
+        grid-template-columns: 1fr;
+        padding: 5px 20px;
+    }
+}
+@media screen and (max-width: 491px) {
+    .stockmeister-news-card-container {
+        grid-template-columns: 1fr;
+        padding: 5px 20px;
+    }
+}
