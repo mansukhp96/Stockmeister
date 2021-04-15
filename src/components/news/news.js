@@ -56,11 +56,11 @@ export const News = () => {
                 <div className="stockmeister-news-section">
                     <div className="stockmeister-news-search">
                         <form className="stockmeister-form-search">
-                            <div className="p-1">
-                                <input type="text"
-                                       placeholder="Search"
-                                       className="stockmeister-news-input form-control"/>
-                            </div>
+                            {/*<div className="p-1">*/}
+                            {/*    <input type="text"*/}
+                            {/*           placeholder="Search"*/}
+                            {/*           className="stockmeister-news-input form-control"/>*/}
+                            {/*</div>*/}
                             {
                                 user &&
                                 <ReactTagInput tags={tz}

@@ -22,7 +22,7 @@ const PeopleDetails = () => {
         }
         fetchUserInfo();
         setLoading(false);
-    }, []);
+    }, [id]);
 
     return (
         <motion.div initial="out" animate="in" variants={fadeAnimate}>

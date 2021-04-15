@@ -86,6 +86,7 @@ export const Profile = ({ loggedUser = null }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(updateForm);
         dispatch(updateService(updateForm));
         alert.show("Profile Updated!");
         setIsDisabled(true);
