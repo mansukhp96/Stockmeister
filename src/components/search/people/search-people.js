@@ -40,7 +40,7 @@ const SearchPeople = ({modal}) => {
             u._id !== user.result._id &&
             (u.first_name.toLowerCase().includes(search.toLowerCase()) ||
                 u.last_name.toLowerCase().includes(search.toLowerCase()) ||
-                u.email.toLowerCase().includes(search.toLowerCase())
+                u.username.toLowerCase().includes(search.toLowerCase())
             ))
     }
     else {

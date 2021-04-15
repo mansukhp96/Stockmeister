@@ -20,7 +20,9 @@ import StockDetails from "./components/details/stocks/stock-details";
 import Modal from "./components/modal/modal";
 import './components/modal/modal.css'
 import PeopleDetails from "./components/details/people/people-details";
-
+import InterestsModal from "./components/modal/interests-modal";
+import * as api from "./services/people-service";
+import FollowerModal from "./components/modal/follower-modal";
 
 const alertOptions = {
     position: positions.TOP_CENTER,
@@ -34,9 +36,33 @@ function App() {
 
     const [expand, setExpand] = useState(false);
     const [showModal, setShowModal] =useState(false);
+    const [showInterestsModal, setShowInterestsModal] =useState(false);
+    const [showFollowerModal, setShowFollowerModal] =useState(false);
+    const [userInterests, setUserInterests] =useState({});
+    const [userFollowers, setUserFollowers] =useState({});
 
     const openModal = () => {
         setShowModal(!showModal);
+    }
+
+    const fetchUserInfo = async (id) => {
+        const res = await api.getUserInfo(id);
+        setUserInterests({
+                interests : res.data.interests
+        });
+        setUserFollowers({
+            followers : res.data.followers
+        });
+    }
+
+    const openInterestsModal = (id) => {
+        fetchUserInfo(id);
+        setShowInterestsModal(!showInterestsModal);
+    }
+
+    const openFollowerModal = (id) => {
+        fetchUserInfo(id);
+        setShowFollowerModal(!showFollowerModal);
     }
 
     const toggleTopbar = () => {
@@ -47,6 +73,12 @@ function App() {
     <BrowserRouter>
             <Modal showModal={showModal}
                    toggleModal={openModal}/>
+            <InterestsModal showInterestsModal={showInterestsModal}
+                            InterestsData={userInterests}
+                            toggleInterestsModal={openInterestsModal}/>
+            <FollowerModal showFollowerModal={showFollowerModal}
+                           toggleFollowerModal={openFollowerModal}
+                           FollowerData={userFollowers}/>
             <Topbar expand={expand}
                     toggleTb={toggleTopbar}
                     toggleModal={openModal}/>
@@ -66,15 +98,16 @@ function App() {
                             "/search",]}
                                exact={true}
                             render={() => (<SearchMain toggleModal={openModal}/>)}/>
+                        <Route path="/search/people/details/:id"
+                               exact={true}
+                               render={() => (<PeopleDetails toggleFollowerModal={openFollowerModal}
+                                                             toggleInterestsModal={openInterestsModal}/>)}/>
                         <Route path="/search/crypto/details/:id"
                                exact={true}
                                component={CryptoDetails}/>
                         <Route path="/search/stocks/details/:id"
                                exact={true}
                                component={StockDetails}/>
-                        <Route path="/search/people/details/:id"
-                               exact={true}
-                               component={PeopleDetails}/>
                     </AlertProvider>
                 </Switch>
             </AnimatePresence>

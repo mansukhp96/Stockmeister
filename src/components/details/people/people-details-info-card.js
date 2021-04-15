@@ -1,7 +1,20 @@
 import React from 'react';
 import './people-details.css';
 
-const PeopleInfocard = ({data}) => {
+const PeopleInfocard = ({data, interestsModal, followerModal}) => {
+
+    const handleInterestsModal = () => {
+        interestsModal(data._id);
+    }
+
+    const handleFollowersModal = () => {
+        followerModal(data._id);
+    }
+
+    const handleFollowingModal = () => {
+
+    }
+
     return(
         <>
             {
@@ -59,7 +72,8 @@ const PeopleInfocard = ({data}) => {
                                 </div>
                             }
                         </div>
-                        <div className="stockmeister-user-info-card-wrapper">
+                        <div onClick={handleInterestsModal}
+                             className="stockmeister-user-info-card-wrapper">
                             <div className="stockmeister-coin-details-head">
                                 Stock Interests
                             </div>
@@ -70,7 +84,8 @@ const PeopleInfocard = ({data}) => {
                                 </div>
                             }
                         </div>
-                        <div className="stockmeister-user-info-card-wrapper">
+                        <div onClick={handleFollowersModal}
+                             className="stockmeister-user-info-card-wrapper">
                             <div className="stockmeister-coin-details-head">
                                 Followers
                             </div>
@@ -81,7 +96,8 @@ const PeopleInfocard = ({data}) => {
                                 </div>
                             }
                         </div>
-                        <div className="stockmeister-user-info-card-wrapper">
+                        <div onClick={handleFollowingModal}
+                             className="stockmeister-user-info-card-wrapper">
                             <div className="stockmeister-coin-details-head">
                                 Following
                             </div>

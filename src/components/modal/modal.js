@@ -4,6 +4,7 @@ import image from '../../images/modal.svg'
 import {Link} from "react-router-dom";
 import {dropAnimation} from "../../animations/animations";
 import {motion} from "framer-motion";
+import './modal.css';
 
 const ModalImg = styled.img`
     width: 110%;

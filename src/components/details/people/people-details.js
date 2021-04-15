@@ -7,7 +7,7 @@ import * as api from '../../../services/people-service';
 import PeopleInfocard from "./people-details-info-card";
 import './people-details.css';
 
-const PeopleDetails = () => {
+const PeopleDetails = ({toggleInterestsModal, toggleFollowerModal}) => {
 
     const {id} = useParams();
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -43,7 +43,9 @@ const PeopleDetails = () => {
             {
                 !loading &&
                 <div className="stockmeister-user-info bg-light">
-                    <PeopleInfocard data={userInfo}/>
+                    <PeopleInfocard data={userInfo}
+                                    followerModal={toggleFollowerModal}
+                                    interestsModal={toggleInterestsModal}/>
                 </div>
             }
             {
