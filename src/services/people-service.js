@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PeopleService = axios.create({ baseURL : "http://localhost:5000" });
+const PeopleService = axios.create({ baseURL : process.env.REACT_APP_STOCKMEISTER_SERVER });
 
 export const findAllUsers = () => PeopleService.get('/api/users/all');
 export const getUserInfo = (id) => PeopleService.get('/api/users/info/'+ id);
