@@ -1,20 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {dropAnimation} from "../../animations/animations";
 import {motion} from "framer-motion";
 import './list-modal.css';
 import {Link} from "react-router-dom";
-import * as api from '../../services/people-service';
 
-const FollowerModal = ({ showFollowerModal, toggleFollowerModal, FollowerData }) => {
+const FollowerModal = ({ showFollowerModal, toggleFollowerModal, followersUnames, followersIds }) => {
 
     return (
         <>
             {
                 showFollowerModal ? (
-                    <div className="stockmesiter-modal-background">
+                    <div className="stockmesiter-user-modal-background">
                         <motion.div initial="out" animate="in" exit="out" variants={dropAnimation}>
-                            <div className="stockmeister-modal-wrapper">
-                                <div className="col stockmeister-modal-content">
+                            <div className="stockmeister-user-modal-wrapper">
+                                <div className="col stockmeister-user-modal-content">
                                     <table className="table table-hover text-center">
                                         <thead className="thead-dark">
                                         <tr>
@@ -23,27 +22,26 @@ const FollowerModal = ({ showFollowerModal, toggleFollowerModal, FollowerData })
                                         </thead>
                                         <tbody>
                                         {
-                                            FollowerData.followers &&
-                                            FollowerData.followers.map((f, i) =>
-                                                {
-                                                    return(
-                                                        <tr key={i}>
+                                            followersUnames && followersIds &&
+                                            followersUnames.map((follower, i) => {
+                                                const followerId = followersIds[i];
+                                                return(
+                                                        <tr>
                                                             <td>
                                                                 <Link onClick={toggleFollowerModal}
-                                                                      to={`/search/people/details/${f}`}>
-                                                                    {f}
+                                                                      to={`/search/people/details/${followerId}`}>
+                                                                {follower}
                                                                 </Link>
                                                             </td>
                                                         </tr>
-                                                    )
-                                                }
-                                            )
+                                                )
+                                            })
                                         }
                                         {}
                                         </tbody>
                                     </table>
                                 </div>
-                                <i className="fas fa-times stockmesiter-modal-close-button"
+                                <i className="fas fa-times stockmesiter-user-modal-close-button"
                                    onClick={toggleFollowerModal}/>
                             </div>
                         </motion.div>

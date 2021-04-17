@@ -21,7 +21,6 @@ import Modal from "./components/modal/modal";
 import './components/modal/modal.css'
 import PeopleDetails from "./components/details/people/people-details";
 import InterestsModal from "./components/modal/interests-modal";
-import * as api from "./services/people-service";
 import FollowerModal from "./components/modal/follower-modal";
 
 const alertOptions = {
@@ -40,28 +39,20 @@ function App() {
     const [showFollowerModal, setShowFollowerModal] =useState(false);
     const [userInterests, setUserInterests] =useState({});
     const [userFollowers, setUserFollowers] =useState({});
+    const [userFollowersIds, setUserFollowersIds] =useState({});
 
     const openModal = () => {
         setShowModal(!showModal);
     }
 
-    const fetchUserInfo = async (id) => {
-        const res = await api.getUserInfo(id);
-        setUserInterests({
-                interests : res.data.interests
-        });
-        setUserFollowers({
-            followers : res.data.followers
-        });
-    }
-
-    const openInterestsModal = (id) => {
-        fetchUserInfo(id);
+    const openInterestsModal = (interests) => {
+        setUserInterests(interests);
         setShowInterestsModal(!showInterestsModal);
     }
 
-    const openFollowerModal = (id) => {
-        fetchUserInfo(id);
+    const openFollowerModal = (followers, followersIds) => {
+        setUserFollowers(followers);
+        setUserFollowersIds(followersIds);
         setShowFollowerModal(!showFollowerModal);
     }
 
@@ -78,7 +69,8 @@ function App() {
                             toggleInterestsModal={openInterestsModal}/>
             <FollowerModal showFollowerModal={showFollowerModal}
                            toggleFollowerModal={openFollowerModal}
-                           FollowerData={userFollowers}/>
+                           followersIds={userFollowersIds}
+                           followersUnames={userFollowers}/>
             <Topbar expand={expand}
                     toggleTb={toggleTopbar}
                     toggleModal={openModal}/>

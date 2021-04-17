@@ -1,14 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './people-details.css';
+import * as api from '../../../services/people-service';
+import {useParams} from "react-router-dom";
 
 const PeopleInfocard = ({data, interestsModal, followerModal}) => {
 
+    const {id} = useParams();
+
+    const [followers, setFollowers] = useState([]);
+
+    const fetchFollowersForId = async () => {
+        await api.getUserFollowers(id)
+            .then(response => setFollowers(response.data));
+    }
+
+    useEffect(() => {
+        fetchFollowersForId();
+    },[id]);
+
     const handleInterestsModal = () => {
-        interestsModal(data._id);
+        interestsModal(data.interests);
     }
 
     const handleFollowersModal = () => {
-        followerModal(data._id);
+        followerModal(followers, data.followers);
     }
 
     const handleFollowingModal = () => {

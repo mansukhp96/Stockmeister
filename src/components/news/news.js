@@ -44,7 +44,7 @@ export const News = () => {
             fetchTopNews().then(response => setNewsData(response.data.articles));
         }
         setLoading(false);
-    },[]);
+    },[tz]);
 
     const handleTags = (newTags) => {
         setTz(newTags.map(x => x));
