@@ -46,6 +46,54 @@
     }
 }
 
+.stockmeister-roles {
+    background: #010101;
+    max-width: 400px;
+    justify-content: center;
+    height: 0;
+    width: 100%;
+    z-index: 1;
+    display: grid;
+    margin: 0 auto;
+    padding: 35px 32px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.stockmeister-roles-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    height: inherit;
+}
+
+.stockmeister-link-route-roles {
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 60px;
+    white-space: nowrap;
+    padding: 9px 40px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 1000;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.stockmeister-link-route-roles:hover {
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+.stockmeister-link-route-roles-active {
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
 .stockmeister-form {
     background: #010101;
     max-width: 400px;

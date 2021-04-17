@@ -12,9 +12,15 @@ const PeopleCard = ({userData, modal}) => {
     const alert = useAlert();
     const dispatch = useDispatch();
     const {section} = useParams();
-    const [confirmFollow, setConfirmFollow] = useState(false);
-    const [confirmUnfollow, setConfirmUnfollow] = useState(false);
+
+    const [request, setRequest] = useState(false);
+    const [confirmRequest, setConfirmRequest] = useState(false);
+
     const [follow, setFollow] = useState(false);
+    const [confirmFollow, setConfirmFollow] = useState(false);
+
+    const [confirmUnfollow, setConfirmUnfollow] = useState(false);
+
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [currentUser, setCurrentUser] = useState({});
     const [otherUser, setOtherUser] = useState({});
@@ -42,9 +48,15 @@ const PeopleCard = ({userData, modal}) => {
         }
     },[]);
 
+    const handleRequest = () => {
+        if(!user) {
+            modal();
+        }
+    }
+
     const handleFollow = () => {
         if(!user) {
-            modal()
+            modal();
         }
         else {
             setCurrentUser({
@@ -151,6 +163,18 @@ const PeopleCard = ({userData, modal}) => {
                     <h5 className="card-title text-dark font-weight-bolder">
                         {userData.username}
                     </h5>
+                    {
+                        userData.accountType !== "manager" &&
+                        <h6 className="text-muted small font-weight-bolder">
+                            (Trader)
+                        </h6>
+                    }
+                    {
+                        userData.accountType === "manager" &&
+                        <h6 className="text-muted small font-weight-bolder">
+                            (Manager)
+                        </h6>
+                    }
                 </div>
             </Link>
             <img src={avatar1}
@@ -159,44 +183,57 @@ const PeopleCard = ({userData, modal}) => {
             <div className="card-body">
                 <p className="card-text">
                     {
-                        confirmFollow &&
-                        <>
-                            <Link onClick={handleFollowSubmit}
-                                  className="btn btn-sm btn-success float-left">
-                                confirm
-                            </Link>
-                            <button onClick={handleFollowCancel}
-                                    className="btn btn-sm btn-danger float-right">
-                                cancel
-                            </button>
-                        </>
-                    }
-                    {
-                        !follow && !confirmFollow &&
-                        <button onClick={handleFollow}
-                                className="btn btn-block btn-dark">
-                            Follow
+                        userData.accountType === "manager" &&
+                        <button
+                            onClick={handleRequest}
+                            className="btn btn-block btn-outline-primary">
+                            Request
                         </button>
                     }
                     {
-                        confirmUnfollow &&
+                        currentUser.accountType !== "manager" &&
                         <>
-                            <Link onClick={handleUnfollowSubmit}
-                                  className="btn btn-sm btn-success float-left">
-                                confirm
-                            </Link>
-                            <button onClick={handleUnfollowCancel}
-                                    className="btn btn-sm btn-danger float-right">
-                                cancel
-                            </button>
+                            {
+                                confirmFollow && userData.accountType !== "manager" &&
+                                <>
+                                    <Link onClick={handleFollowSubmit}
+                                          className="btn btn-sm btn-success float-left">
+                                        confirm
+                                    </Link>
+                                    <button onClick={handleFollowCancel}
+                                            className="btn btn-sm btn-danger float-right">
+                                        cancel
+                                    </button>
+                                </>
+                            }
+                            {
+                                !follow && !confirmFollow && userData.accountType !== "manager" &&
+                                <button onClick={handleFollow}
+                                        className="btn btn-block btn-dark">
+                                    Follow
+                                </button>
+                            }
+                            {
+                                confirmUnfollow && userData.accountType !== "manager" &&
+                                <>
+                                    <Link onClick={handleUnfollowSubmit}
+                                          className="btn btn-sm btn-success float-left">
+                                        confirm
+                                    </Link>
+                                    <button onClick={handleUnfollowCancel}
+                                            className="btn btn-sm btn-danger float-right">
+                                        cancel
+                                    </button>
+                                </>
+                            }
+                            {
+                                follow && !confirmUnfollow && userData.accountType !== "manager" &&
+                                <button onClick={handleUnfollow}
+                                        className="btn btn-block btn-danger">
+                                    Unfollow
+                                </button>
+                            }
                         </>
-                    }
-                    {
-                        follow && !confirmUnfollow &&
-                        <button onClick={handleUnfollow}
-                                className="btn btn-block btn-danger">
-                            Unfollow
-                        </button>
                     }
                 </p>
             </div>

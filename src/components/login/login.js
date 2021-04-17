@@ -18,6 +18,8 @@ const Login = () => {
 
     //States
     const [loginFormData, setLoginFormData] = useState(loginFormInitialState);
+    const [trader, setTrader] = useState(true);
+    const [manager, setManager] = useState(false);
 
     //Constants
     const dispatch = useDispatch();
@@ -40,7 +42,10 @@ const Login = () => {
 
         try {
             //Google login the user
-            const { data } = await api.gglLogin({ token : token });
+            const { data } = await api.gglLogin({
+                token : token,
+                accountType : result.accountType
+            });
             data.result.imageUrl = result.imageUrl;
             dispatch({ type : "AUTH", data });
             history.push("/");
@@ -55,6 +60,12 @@ const Login = () => {
     const handleInput = (e) => {
         alert.removeAll();
         setLoginFormData({ ...loginFormData, [e.target.name] : e.target.value});
+        if(trader) {
+            setLoginFormData({ ...loginFormData, accountType : "trader"});
+        }
+        else {
+            setLoginFormData({ ...loginFormData, accountType : "manager"});
+        }
     }
 
     const handleSubmit = (e) => {
@@ -66,10 +77,16 @@ const Login = () => {
     }
 
     const googleSuccess = async (res) => {
-        const result = res?.profileObj;
+        let result = res?.profileObj;
         const token = res?.tokenId;
         
         try {
+            if(trader) {
+                result = { ...result, accountType : "trader" }
+            }
+            else {
+                result = { ...result, accountType: "manager" }
+            }
             dispatch(googleLogin(result, token, history));
         }
         catch (error) {
@@ -78,8 +95,9 @@ const Login = () => {
     }
 
     const googleFailure = (error) => {
-        console.log(error)
-        console.log("Google sign up unsuccessful")
+        console.log(error);
+        console.log("Google sign up unsuccessful");
+        alert.show("Google login failed");
     }
 
     return(
@@ -87,6 +105,27 @@ const Login = () => {
             <div className="stockmeister-login-container">
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">
+                        <div className="stockmeister-roles">
+                            <ul className="stockmeister-roles-menu">
+                                <li className="stockmeister-roles-nav">
+                                    <Link onClick={() => {
+                                        setTrader(true)
+                                        setManager(false)}}
+                                          className={`stockmeister-link-route-roles ${trader ? `stockmeister-link-route-roles-active` : ``} text-decoration-none`}>
+                                        Trader
+                                    </Link>
+                                </li>
+                                <li className="stockmeister-roles-nav">
+                                    <Link onClick={() => {
+                                        setTrader(false)
+                                        setManager(true)}}
+                                          className={`stockmeister-link-route-roles ${manager ? `stockmeister-link-route-roles-active` : ``} text-decoration-none`}>
+                                        Manager
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <br/>
                         <form className="stockmeister-form"
                               onSubmit={handleSubmit}
                               action="#">

@@ -18,6 +18,8 @@ const Register = () => {
 
     //States
     const [formData, setFormData] = useState(formInitialState);
+    const [trader, setTrader] = useState(true);
+    const [manager, setManager] = useState(false);
 
     //Constants
     const dispatch = useDispatch();
@@ -86,6 +88,27 @@ const Register = () => {
             <div className="stockmeister-register-container">
                 <div className="stockmeister-form-wrapper">
                     <div className="stockmeister-form-content">
+                        <div className="stockmeister-roles">
+                            <ul className="stockmeister-roles-menu">
+                                <li className="stockmeister-roles-nav">
+                                    <Link onClick={() => {
+                                        setTrader(true)
+                                        setManager(false)}}
+                                          className={`stockmeister-link-route-roles ${trader ? `stockmeister-link-route-roles-active` : ``} text-decoration-none`}>
+                                        Trader
+                                    </Link>
+                                </li>
+                                <li className="stockmeister-roles-nav">
+                                    <Link onClick={() => {
+                                        setTrader(false)
+                                        setManager(true)}}
+                                          className={`stockmeister-link-route-roles ${manager ? `stockmeister-link-route-roles-active` : ``} text-decoration-none`}>
+                                        Manager
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <br/>
                         <form className="stockmeister-form"
                               onSubmit={handleSubmit}
                               action="#">
@@ -134,29 +157,6 @@ const Register = () => {
                                    name="rePassword"
                                    type="password"
                                    required={true}/>
-                            <div className="row">
-                                <div className="col-5 stockmeister-checkbox-stocks text-center">
-                                    <input type="radio"
-                                           name="stockmeister-user-type"
-                                           id="stocks-checkbox"
-                                           className="stockmeister-checkbox"/>
-                                    <label htmlFor="stocks-checkbox"
-                                           className="stockmeister-checkbox">
-                                        &nbsp;Trader
-                                    </label>
-                                </div>
-                                <div className="col-7 stockmeister-checkbox-stocks text-left">
-                                    <input type="radio"
-                                           name="stockmeister-user-type"
-                                           id="crypto-checkbox"
-                                           className="stockmeister-checkbox"
-                                           required={true}/>
-                                    <label htmlFor="crypto-checkbox"
-                                           className="stockmeister-checkbox">
-                                        &nbsp;Portfolio&nbsp;Manager
-                                    </label>
-                                </div>
-                            </div>
                             <button type="submit"
                                     className="stockmeister-register-btn">
                                 SIGN UP

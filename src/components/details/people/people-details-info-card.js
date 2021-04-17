@@ -3,19 +3,26 @@ import './people-details.css';
 import * as api from '../../../services/people-service';
 import {useParams} from "react-router-dom";
 
-const PeopleInfocard = ({data, interestsModal, followerModal}) => {
+const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) => {
 
     const {id} = useParams();
 
     const [followers, setFollowers] = useState([]);
+    const [following, setFollowing] = useState([]);
 
     const fetchFollowersForId = async () => {
         await api.getUserFollowers(id)
             .then(response => setFollowers(response.data));
     }
 
+    const fetchFollowingForId = async () => {
+        await api.getUserFollowing(id)
+            .then(response => setFollowing(response.data));
+    }
+
     useEffect(() => {
         fetchFollowersForId();
+        fetchFollowingForId();
     },[id]);
 
     const handleInterestsModal = () => {
@@ -27,7 +34,7 @@ const PeopleInfocard = ({data, interestsModal, followerModal}) => {
     }
 
     const handleFollowingModal = () => {
-
+        followingModal(following, data.following);
     }
 
     return(
@@ -99,30 +106,64 @@ const PeopleInfocard = ({data, interestsModal, followerModal}) => {
                                 </div>
                             }
                         </div>
-                        <div onClick={handleFollowersModal}
-                             className="stockmeister-user-info-card-wrapper">
-                            <div className="stockmeister-coin-details-head">
-                                Followers
-                            </div>
-                            {
-                                data.followers &&
-                                <div className="stockmeister-coin-details-value">
-                                    {data.followers.length}
+                        {
+                            data.accountType !== "manager" &&
+                            <>
+                                <div onClick={handleFollowersModal}
+                                     className="stockmeister-user-info-card-wrapper">
+                                    <div className="stockmeister-coin-details-head">
+                                        Followers
+                                    </div>
+                                    {
+                                        data.followers &&
+                                        <div className="stockmeister-coin-details-value">
+                                            {data.followers.length}
+                                        </div>
+                                    }
                                 </div>
-                            }
-                        </div>
-                        <div onClick={handleFollowingModal}
-                             className="stockmeister-user-info-card-wrapper">
-                            <div className="stockmeister-coin-details-head">
-                                Following
-                            </div>
-                            {
-                                data.following &&
-                                <div className="stockmeister-coin-details-value">
-                                    {data.following.length}
+                                <div onClick={handleFollowingModal}
+                                     className="stockmeister-user-info-card-wrapper">
+                                    <div className="stockmeister-coin-details-head">
+                                        Following
+                                    </div>
+                                    {
+                                        data.following &&
+                                        <div className="stockmeister-coin-details-value">
+                                            {data.following.length}
+                                        </div>
+                                    }
                                 </div>
-                            }
-                        </div>
+                            </>
+                        }
+                        {
+                            data.accountType === "manager" &&
+                            <>
+                                <div onClick={handleFollowersModal}
+                                     className="stockmeister-user-info-card-wrapper">
+                                    <div className="stockmeister-coin-details-head">
+                                        Clients
+                                    </div>
+                                    {
+                                        data.clients &&
+                                        <div className="stockmeister-coin-details-value">
+                                            {data.clients.length}
+                                        </div>
+                                    }
+                                </div>
+                                <div onClick={handleFollowingModal}
+                                     className="stockmeister-user-info-card-wrapper">
+                                    <div className="stockmeister-coin-details-head">
+                                        Services
+                                    </div>
+                                    {
+                                        data.following &&
+                                        <div className="stockmeister-coin-details-value">
+                                            Portfolio Management
+                                        </div>
+                                    }
+                                </div>
+                            </>
+                        }
                     </div>
                 </div>
             }

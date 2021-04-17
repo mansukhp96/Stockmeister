@@ -120,6 +120,7 @@ export const Profile = ({ loggedUser = null }) => {
                         <div>
                             <label>Account Type</label>
                             <input type="text"
+                                   value={updateForm.accountType.toUpperCase()}
                                    className="form-control border-warning shadow-sm"
                                    disabled={true}/>
                         </div>

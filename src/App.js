@@ -22,6 +22,7 @@ import './components/modal/modal.css'
 import PeopleDetails from "./components/details/people/people-details";
 import InterestsModal from "./components/modal/interests-modal";
 import FollowerModal from "./components/modal/follower-modal";
+import FollowingModal from "./components/modal/following-modal";
 
 const alertOptions = {
     position: positions.TOP_CENTER,
@@ -37,9 +38,12 @@ function App() {
     const [showModal, setShowModal] =useState(false);
     const [showInterestsModal, setShowInterestsModal] =useState(false);
     const [showFollowerModal, setShowFollowerModal] =useState(false);
+    const [showFollowingModal, setShowFollowingModal] =useState(false);
     const [userInterests, setUserInterests] =useState({});
     const [userFollowers, setUserFollowers] =useState({});
+    const [userFollowing, setUserFollowing] =useState({});
     const [userFollowersIds, setUserFollowersIds] =useState({});
+    const [userFollowingIds, setUserFollowingIds] =useState({});
 
     const openModal = () => {
         setShowModal(!showModal);
@@ -54,6 +58,12 @@ function App() {
         setUserFollowers(followers);
         setUserFollowersIds(followersIds);
         setShowFollowerModal(!showFollowerModal);
+    }
+
+    const openFollowingModal = (following, followingIds) => {
+        setUserFollowing(following);
+        setUserFollowingIds(followingIds);
+        setShowFollowingModal(!showFollowingModal);
     }
 
     const toggleTopbar = () => {
@@ -71,6 +81,10 @@ function App() {
                            toggleFollowerModal={openFollowerModal}
                            followersIds={userFollowersIds}
                            followersUnames={userFollowers}/>
+            <FollowingModal showFollowingModal={showFollowingModal}
+                           toggleFollowingModal={openFollowingModal}
+                           followingIds={userFollowingIds}
+                           followingUnames={userFollowing}/>
             <Topbar expand={expand}
                     toggleTb={toggleTopbar}
                     toggleModal={openModal}/>
@@ -93,6 +107,7 @@ function App() {
                         <Route path="/search/people/details/:id"
                                exact={true}
                                render={() => (<PeopleDetails toggleFollowerModal={openFollowerModal}
+                                                             toggleFollowingModal={openFollowingModal}
                                                              toggleInterestsModal={openInterestsModal}/>)}/>
                         <Route path="/search/crypto/details/:id"
                                exact={true}
