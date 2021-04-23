@@ -25,10 +25,10 @@ const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const loginService = (loginFormData, history) => async (dispatch) => {
+    const loginService = (result, history) => async (dispatch) => {
         try {
             //login the user
-            const { data } = await api.login(loginFormData);
+            const { data } = await api.login(result);
             dispatch({ type : "AUTH", data });
             history.push("/");
         }
@@ -60,20 +60,21 @@ const Login = () => {
     const handleInput = (e) => {
         alert.removeAll();
         setLoginFormData({ ...loginFormData, [e.target.name] : e.target.value});
-        if(trader) {
-            setLoginFormData({ ...loginFormData, accountType : "trader"});
-        }
-        else {
-            setLoginFormData({ ...loginFormData, accountType : "manager"});
-        }
     }
 
     const handleSubmit = (e) => {
         alert.removeAll();
         e.preventDefault();
+        let result = loginFormData;
+        if(trader) {
+            result = { ...loginFormData, accountType : "trader"};
+        }
+        else {
+            result = { ...loginFormData, accountType : "manager"};
+        }
 
         //Login service
-        dispatch(loginService(loginFormData, history));
+        dispatch(loginService(result, history));
     }
 
     const googleSuccess = async (res) => {

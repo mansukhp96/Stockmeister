@@ -28,7 +28,10 @@ const Register = () => {
     const googleLogin = (result, token, history) => async (dispatch) => {
         try {
             //Google login the user
-            const { data } = await api.gglLogin({ token : token });
+            const { data } = await api.gglLogin({
+                token : token,
+                accountType : result.accountType
+            });
             data.result.imageUrl = result.imageUrl;
             dispatch({ type : "AUTH", data });
             history.push("/");
@@ -55,22 +58,36 @@ const Register = () => {
 
     //handlers
     const handleInput = (e) => {
+        alert.removeAll();
         setFormData({ ...formData, [e.target.name] : e.target.value });
     }
 
     const handleSubmit = (e) => {
         alert.removeAll();
         e.preventDefault();
+        let result = formData;
+        if(trader) {
+            result = { ...formData, accountType : "trader"};
+        }
+        else {
+            result = { ...formData, accountType : "manager"};
+        }
 
         //sign up service
-        dispatch(registerService(formData, history));
+        dispatch(registerService(result, history));
     };
 
     const googleSuccess = async (res) => {
-        const result = res?.profileObj;
+        let result = res?.profileObj;
         const token = res?.tokenId;
 
         try {
+            if(trader) {
+                result = { ...result, accountType : "trader" }
+            }
+            else {
+                result = { ...result, accountType: "manager" }
+            }
             dispatch(googleLogin(result, token, history));
         }
         catch (error) {
@@ -79,8 +96,9 @@ const Register = () => {
     }
 
     const googleFailure = (error) => {
-        console.log(error)
-        console.log("Google sign up unsuccessful")
+        console.log(error);
+        console.log("Google sign up unsuccessful");
+        alert.show("Google login failed");
     }
 
     return(

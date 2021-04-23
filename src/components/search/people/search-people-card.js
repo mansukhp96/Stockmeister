@@ -24,6 +24,7 @@ const PeopleCard = ({userData, modal}) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [currentUser, setCurrentUser] = useState({});
     const [otherUser, setOtherUser] = useState({});
+    const [hide, setHide] = useState(false);
 
     const fetchCurrentUser = async () => {
         const response =  await api.getUserInfo(user.result._id);
@@ -38,12 +39,17 @@ const PeopleCard = ({userData, modal}) => {
         if(user) {
             fetchCurrentUser();
             fetchOtherUser();
-            if(user.result.following.includes(userData._id)
-                || userData.followers.includes(user.result._id)) {
-                setFollow(true);
+            if (user.result.accountType !== "manager" && user.result.following.length > 0) {
+                if(user.result.following.includes(userData._id)
+                    && userData.followers.includes(user.result._id)) {
+                    setFollow(true);
+                }
+                else {
+                    setFollow(false);
+                }
             }
-            else {
-                setFollow(false);
+            else if (user.result.accountType === "manager") {
+                setHide(true);
             }
         }
     },[]);
@@ -183,15 +189,20 @@ const PeopleCard = ({userData, modal}) => {
             <div className="card-body">
                 <p className="card-text">
                     {
-                        userData.accountType === "manager" &&
-                        <button
-                            onClick={handleRequest}
-                            className="btn btn-block btn-outline-primary">
-                            Request
-                        </button>
+                        currentUser.accountType !== "manager" && !hide &&
+                        <>
+                            {
+                                userData.accountType === "manager" &&
+                                <button
+                                    onClick={handleRequest}
+                                    className="btn btn-block btn-outline-primary">
+                                    Request
+                                </button>
+                            }
+                        </>
                     }
                     {
-                        currentUser.accountType !== "manager" &&
+                        currentUser.accountType !== "manager" && !hide &&
                         <>
                             {
                                 confirmFollow && userData.accountType !== "manager" &&
