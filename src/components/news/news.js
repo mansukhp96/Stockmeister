@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {fadeAnimate} from "../../animations/animations";
 import {motion} from "framer-motion";
 import NewsCard from "./news-card";
-import api from '../../api/news-api';
+// import api from '../../api/news-api';
+import api from '../../api/newscatcher-api';
 import ReactTagInput from "@pathofdev/react-tag-input";
 import './news.css'
 
@@ -35,7 +36,14 @@ export const News = () => {
             setNewsData(one.data.articles.concat(two.data.articles).concat(three.data.articles));
         }
         const fetchTopNews = async () => {
-            return await api.get("top-headlines?country=us&apiKey=6a0d61dbbce2425e850071cafa4a3149");
+            //return await api.get("top-headlines?country=us&apiKey=6a0d61dbbce2425e850071cafa4a3149");
+            return await api.get("search_free?q=finance&lang=en&media=True",{
+                headers : {
+                    "x-rapidapi-key": "dd2c68c0b8msh7a436aa8ec273d1p13d278jsnf1e7c9c3ac8f",
+                    "x-rapidapi-host": "newscatcher.p.rapidapi.com",
+                    "useQueryString": true
+                }
+            })
         }
         if(user) {
             fetchNewsLoggedIn();
@@ -79,7 +87,7 @@ export const News = () => {
                             !loading && newsData.length > 0 &&
                             newsData.map((n,i) =>
                                 <NewsCard key={i}
-                                            data={n}/>
+                                          data={n}/>
                             )
                         }
                     </div>

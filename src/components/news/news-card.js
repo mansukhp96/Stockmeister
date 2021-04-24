@@ -6,7 +6,7 @@ const NewsCard = ({data}) => {
     return(
         <>
             <div className="card border-warning shadow">
-                <Link to={data.url}
+                <Link to={data.link}
                       className="list-unstyled text-decoration-none">
                     <div className="card-header">
                         <h5 className="card-title text-dark font-weight-bolder">
@@ -14,18 +14,18 @@ const NewsCard = ({data}) => {
                         </h5>
                     </div>
                 </Link>
-                <img src={data.urlToImage}
+                <img src={data.media}
                      className="card-img-top"
                      alt="No User Image"/>
                 <div className="card-body">
                     <p className="card-text">
-                        {data.description}
+                        {data.summary}
                     </p>
                 </div>
                 <div className="card-footer">
                     <p className="card-text">
                         <small className="text-muted">
-                            Source: {data.author} - {data.publishedAt}
+                            Published: {data.published_date}
                         </small>
                     </p>
                 </div>

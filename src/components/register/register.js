@@ -98,7 +98,6 @@ const Register = () => {
     const googleFailure = (error) => {
         console.log(error);
         console.log("Google sign up unsuccessful");
-        alert.show("Google login failed");
     }
 
     return(
