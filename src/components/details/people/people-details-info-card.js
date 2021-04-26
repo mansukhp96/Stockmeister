@@ -3,12 +3,13 @@ import './people-details.css';
 import * as api from '../../../services/people-service';
 import {useParams} from "react-router-dom";
 
-const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) => {
+const PeopleInfocard = ({data, interestsModal, followerModal, followingModal, clientsModal}) => {
 
     const {id} = useParams();
 
     const [followers, setFollowers] = useState([]);
     const [following, setFollowing] = useState([]);
+    const [clients, setClients] = useState([]);
 
     const fetchFollowersForId = async () => {
         await api.getUserFollowers(id)
@@ -20,9 +21,15 @@ const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) =
             .then(response => setFollowing(response.data));
     }
 
+    const fetchClientsForId = async () => {
+        await api.getManagerClients(id)
+            .then(response => setClients(response.data));
+    }
+
     useEffect(() => {
         fetchFollowersForId();
         fetchFollowingForId();
+        fetchClientsForId();
     },[id]);
 
     const handleInterestsModal = () => {
@@ -35,6 +42,10 @@ const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) =
 
     const handleFollowingModal = () => {
         followingModal(following, data.following);
+    }
+
+    const handleClientsModal = () => {
+        clientsModal(clients, data.clients);
     }
 
     return(
@@ -75,14 +86,28 @@ const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) =
                                 {data.username}
                             </div>
                         </div>
-                        <div className="stockmeister-user-info-card-wrapper">
-                            <div className="stockmeister-coin-details-head">
-                                Gender
+                        {
+                            data.accountType === "trader" &&
+                            <div className="stockmeister-user-info-card-wrapper">
+                                <div className="stockmeister-coin-details-head">
+                                    Gender
+                                </div>
+                                <div className="stockmeister-coin-details-value">
+                                    {data.gender}
+                                </div>
                             </div>
-                            <div className="stockmeister-coin-details-value">
-                                {data.gender}
+                        }
+                        {
+                            data.accountType === "manager" &&
+                            <div className="stockmeister-user-info-card-wrapper">
+                                <div className="stockmeister-coin-details-head">
+                                    Experience
+                                </div>
+                                <div className="stockmeister-coin-details-value">
+                                    {data.experience}
+                                </div>
                             </div>
-                        </div>
+                        }
                         <div className="stockmeister-user-info-card-wrapper">
                             <div className="stockmeister-coin-details-head">
                                 Joined On
@@ -138,7 +163,7 @@ const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) =
                         {
                             data.accountType === "manager" &&
                             <>
-                                <div onClick={handleFollowersModal}
+                                <div onClick={handleClientsModal}
                                      className="stockmeister-user-info-card-wrapper">
                                     <div className="stockmeister-coin-details-head">
                                         Clients
@@ -156,7 +181,6 @@ const PeopleInfocard = ({data, interestsModal, followerModal, followingModal}) =
                                         Services
                                     </div>
                                     {
-                                        data.following &&
                                         <div className="stockmeister-coin-details-value">
                                             Portfolio Management
                                         </div>

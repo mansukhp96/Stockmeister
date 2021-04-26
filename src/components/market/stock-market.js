@@ -27,8 +27,8 @@ export const StockMarket = () => {
                 }
             })
         }
-        // fetchTrending().then(response =>
-        //     setTrendingStocks(response.data.finance.result[0].quotes))
+        fetchTrending().then(response =>
+            setTrendingStocks(response.data.finance.result[0].quotes))
     }, []);
 
     return(

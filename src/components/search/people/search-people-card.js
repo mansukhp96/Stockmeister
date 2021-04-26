@@ -15,6 +15,7 @@ const PeopleCard = ({userData, modal}) => {
 
     const [request, setRequest] = useState(false);
     const [confirmRequest, setConfirmRequest] = useState(false);
+    const [confirmWithdraw, setConfirmWithdraw] = useState(false);
 
     const [follow, setFollow] = useState(false);
     const [confirmFollow, setConfirmFollow] = useState(false);
@@ -39,13 +40,15 @@ const PeopleCard = ({userData, modal}) => {
         if(user) {
             fetchCurrentUser();
             fetchOtherUser();
-            if (user.result.accountType !== "manager" && user.result.following.length > 0) {
+            if (user.result.accountType !== "manager") {
                 if(user.result.following.includes(userData._id)
                     && userData.followers.includes(user.result._id)) {
                     setFollow(true);
                 }
-                else {
-                    setFollow(false);
+                if(user.result.manager === userData._id
+                    && userData.clients.includes(user.result._id)) {
+                    console.log("here")
+                    setRequest(true);
                 }
             }
             else if (user.result.accountType === "manager") {
@@ -57,6 +60,20 @@ const PeopleCard = ({userData, modal}) => {
     const handleRequest = () => {
         if(!user) {
             modal();
+        }
+        else {
+            if(currentUser.manager) {
+                alert.show("Withdraw current manager first");
+            }
+            else {
+                setCurrentUser({
+                    ...currentUser, manager : otherUser._id
+                });
+                setOtherUser({
+                    ...otherUser, clients : [ ...otherUser.clients, currentUser._id ]
+                });
+                setConfirmRequest(true);
+            }
         }
     }
 
@@ -73,6 +90,21 @@ const PeopleCard = ({userData, modal}) => {
             });
             setConfirmFollow(true);
         }
+    }
+
+    const handleWithdraw = () => {
+        setCurrentUser({
+            ...currentUser, manager : null
+        });
+
+        setOtherUser({
+            ...otherUser, clients :
+                otherUser.clients.filter(f => {
+                    return f !== currentUser._id
+                })
+        });
+
+        setConfirmWithdraw(true);
     }
 
     const handleUnfollow = () => {
@@ -93,12 +125,33 @@ const PeopleCard = ({userData, modal}) => {
         setConfirmUnfollow(true);
     }
 
+    const updateCurrManagerService = (curr, other) => async (dispatch) => {
+        try {
+            const { data } = await api.updateTrader(curr._id, other);
+            dispatch({ type : "AUTH", data });
+        }
+        catch (error) {
+            alert.show("Request failed");
+            console.log(error);
+        }
+    }
+
+    const updateOtherClientsService = (curr, other) => async (dispatch) => {
+        try {
+            await api.updateManager(other._id, curr);
+        }
+        catch (error) {
+            alert.show("Request failed!");
+            console.log(error);
+        }
+    }
+
     const updateOtherFollowerService = (curr, other) => async (dispatch) => {
         try {
             await api.updateFollower(other._id, curr);
         }
         catch (error) {
-            alert.show("Update Failed!");
+            alert.show("Follow Failed!");
             console.log(error);
         }
     }
@@ -114,6 +167,14 @@ const PeopleCard = ({userData, modal}) => {
         }
     }
 
+    const handleRequestSubmit = (e) => {
+        e.preventDefault();
+        dispatch(updateCurrManagerService(currentUser, otherUser));
+        dispatch(updateOtherClientsService(currentUser, otherUser));
+        setConfirmRequest(false);
+        setRequest(true);
+    }
+
     const handleFollowSubmit = (e) => {
         e.preventDefault();
         dispatch(updateCurrFollowingService(currentUser, otherUser));
@@ -122,6 +183,16 @@ const PeopleCard = ({userData, modal}) => {
         setFollow(true);
     }
 
+    const removeCurrManagerService = (curr, other) => async (dispatch) => {
+        try {
+            const { data } = await api.removeTrader(curr._id, other);
+            dispatch({ type : "AUTH", data });
+        }
+        catch (error) {
+            alert.show("Withdraw failed!");
+            console.log(error);
+        }
+    }
 
     const removeCurrUnfollowingService = (curr, other) => async (dispatch) => {
         try {
@@ -129,7 +200,17 @@ const PeopleCard = ({userData, modal}) => {
             dispatch({ type : "AUTH", data });
         }
         catch (error) {
-            alert.show("Follow failed!");
+            alert.show("Unfollow failed!");
+            console.log(error);
+        }
+    }
+
+    const removeOtherClientsService = (curr, other) => async (dispatch) => {
+        try {
+            await api.removeManager(other._id, curr);
+        }
+        catch (error) {
+            alert.show("Withdraw Failed!");
             console.log(error);
         }
     }
@@ -142,6 +223,14 @@ const PeopleCard = ({userData, modal}) => {
             alert.show("Update Failed!");
             console.log(error);
         }
+    }
+
+    const handleWithdrawSubmit = (e) => {
+        e.preventDefault();
+        dispatch(removeCurrManagerService(currentUser, otherUser));
+        dispatch(removeOtherClientsService(currentUser, otherUser));
+        setConfirmWithdraw(false);
+        setRequest(false);
     }
 
     const handleUnfollowSubmit = (e) => {
@@ -159,6 +248,14 @@ const PeopleCard = ({userData, modal}) => {
 
     const handleUnfollowCancel = () => {
         setConfirmUnfollow(false);
+    }
+
+    const handleRequestCancel = () => {
+        setConfirmRequest(false);
+    }
+
+    const handleWithdrawCancel = () => {
+        setConfirmWithdraw(false);
     }
 
     return(
@@ -192,11 +289,46 @@ const PeopleCard = ({userData, modal}) => {
                         currentUser.accountType !== "manager" && !hide &&
                         <>
                             {
+                                confirmRequest && userData.accountType === "manager" &&
+                                <>
+                                    <Link onClick={handleRequestSubmit}
+                                          className="btn btn-sm btn-success float-left">
+                                        confirm
+                                    </Link>
+                                    <button onClick={handleRequestCancel}
+                                            className="btn btn-sm btn-danger float-right">
+                                        cancel
+                                    </button>
+                                </>
+                            }
+                            {
+                                !request &&
+                                !confirmRequest &&
                                 userData.accountType === "manager" &&
                                 <button
                                     onClick={handleRequest}
                                     className="btn btn-block btn-outline-primary">
                                     Request
+                                </button>
+                            }
+                            {
+                                confirmWithdraw && userData.accountType === "manager" &&
+                                <>
+                                    <Link onClick={handleWithdrawSubmit}
+                                          className="btn btn-sm btn-success float-left">
+                                        confirm
+                                    </Link>
+                                    <button onClick={handleWithdrawCancel}
+                                            className="btn btn-sm btn-danger float-right">
+                                        cancel
+                                    </button>
+                                </>
+                            }
+                            {
+                                request && !confirmWithdraw && userData.accountType === "manager" &&
+                                <button onClick={handleWithdraw}
+                                        className="btn btn-block btn-outline-danger">
+                                    Withdraw
                                 </button>
                             }
                         </>

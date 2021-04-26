@@ -23,6 +23,7 @@ import PeopleDetails from "./components/details/people/people-details";
 import InterestsModal from "./components/modal/interests-modal";
 import FollowerModal from "./components/modal/follower-modal";
 import FollowingModal from "./components/modal/following-modal";
+import ClientsModal from "./components/modal/clients-modal";
 
 const alertOptions = {
     position: positions.TOP_CENTER,
@@ -36,14 +37,28 @@ function App() {
 
     const [expand, setExpand] = useState(false);
     const [showModal, setShowModal] =useState(false);
+
     const [showInterestsModal, setShowInterestsModal] =useState(false);
+
     const [showFollowerModal, setShowFollowerModal] =useState(false);
+
     const [showFollowingModal, setShowFollowingModal] =useState(false);
+
+    const [showClientsModal, setShowClientsModal] = useState(false);
+
     const [userInterests, setUserInterests] =useState({});
+
     const [userFollowers, setUserFollowers] =useState({});
+
     const [userFollowing, setUserFollowing] =useState({});
+
+    const [managerClients, setManagerClients] = useState({});
+
     const [userFollowersIds, setUserFollowersIds] =useState({});
+
     const [userFollowingIds, setUserFollowingIds] =useState({});
+
+    const [managerClientIds, setManagerClientIds] = useState({});
 
     const openModal = () => {
         setShowModal(!showModal);
@@ -66,6 +81,14 @@ function App() {
         setShowFollowingModal(!showFollowingModal);
     }
 
+    const openClientsModal = (clients, clientIds) => {
+        setManagerClients(clients);
+        setManagerClientIds(clientIds);
+        console.log(clients);
+        console.log(clientIds);
+        setShowClientsModal(!showClientsModal);
+    }
+
     const toggleTopbar = () => {
         setExpand(!expand);
     }
@@ -85,6 +108,10 @@ function App() {
                            toggleFollowingModal={openFollowingModal}
                            followingIds={userFollowingIds}
                            followingUnames={userFollowing}/>
+        <ClientsModal showClientsModal={showClientsModal}
+                        toggleClientsModal={openClientsModal}
+                        clientIds={managerClientIds}
+                        clientUnames={managerClients}/>
             <Topbar expand={expand}
                     toggleTb={toggleTopbar}
                     toggleModal={openModal}/>
@@ -107,6 +134,7 @@ function App() {
                         <Route path="/search/people/details/:id"
                                exact={true}
                                render={() => (<PeopleDetails toggleFollowerModal={openFollowerModal}
+                                                             toggleClientsModal={openClientsModal}
                                                              toggleFollowingModal={openFollowingModal}
                                                              toggleInterestsModal={openInterestsModal}/>)}/>
                         <Route path="/search/crypto/details/:id"

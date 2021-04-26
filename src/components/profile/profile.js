@@ -24,15 +24,16 @@ export const Profile = ({ loggedUser = null }) => {
     const [loading, setLoading] = useState(false);
     const [valid, setValid] = useState(false);
     const [updateForm, setUpdateForm] = useState(user.result);
+    const [trader, setTrader] = useState(true);
     const history = useHistory();
 
     useEffect(() => {
 
     },[])
 
-    const updateService = (updateForm) => async (dispatch) => {
+    const updateService = (result) => async (dispatch) => {
         try {
-            const { data } = await api.updateUser(user.result._id, updateForm);
+            const { data } = await api.updateUser(user.result._id, result);
             dispatch({ type : "AUTH", data });
         }
         catch (error) {
@@ -41,9 +42,9 @@ export const Profile = ({ loggedUser = null }) => {
         }
     }
 
-    const deleteService = (id, history) => async (dispatch) => {
+    const deleteService = (id, account, history) => async (dispatch) => {
         try {
-            await api.deleteUser(user.result._id, history);
+            await api.deleteUser(user.result._id, account, history);
             dispatch({ type : "LOGOUT"});
             setUser(null);
             window.location.reload(false);
@@ -56,6 +57,12 @@ export const Profile = ({ loggedUser = null }) => {
 
     const handleInput = (e) => {
         setIsDisabled(false);
+        if(user.result.accountType === "manager") {
+            setTrader(false);
+        }
+        else {
+            setTrader(true);
+        }
         setUpdateForm({ ...updateForm, [e.target.name] : e.target.value });
     }
 
@@ -79,15 +86,30 @@ export const Profile = ({ loggedUser = null }) => {
     }
 
     const handleDelete = () => {
-        dispatch(deleteService(user.result._id, history));
-        alert.show("Account has been deleted");
+        let account = "";
+
+        if(user.result.accountType === "trader") {
+            account = { account : "trader" };
+        }
+        else {
+            account = { account : "manager" };
+        }
+        dispatch(deleteService(user.result._id, account, history));
         history.push("/");
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(updateForm);
-        dispatch(updateService(updateForm));
+        let result = updateForm;
+
+        if(trader) {
+            result = { ...updateForm, accountType : "trader" };
+        }
+        else {
+            result = { ...updateForm, accountType : "manager" };
+        }
+
+        dispatch(updateService(result));
         alert.show("Profile Updated!");
         setIsDisabled(true);
     }
@@ -124,14 +146,28 @@ export const Profile = ({ loggedUser = null }) => {
                                    className="form-control border-warning shadow-sm"
                                    disabled={true}/>
                         </div>
-                        <div>
-                            <label>Gender</label>
-                            <input type="text"
-                                   name="gender"
-                                   value={updateForm.gender}
-                                   onChange={handleInput}
-                                   className="form-control border-warning"/>
-                        </div>
+                        {
+                            user.result.accountType === "trader" &&
+                            <div>
+                                <label>Gender</label>
+                                <input type="text"
+                                       name="gender"
+                                       value={updateForm.gender}
+                                       onChange={handleInput}
+                                       className="form-control border-warning"/>
+                            </div>
+                        }
+                        {
+                            user.result.accountType === "manager" &&
+                            <div>
+                                <label>Experience</label>
+                                <input type="text"
+                                       name="experience"
+                                       value={updateForm.experience}
+                                       onChange={handleInput}
+                                       className="form-control border-warning"/>
+                            </div>
+                        }
                         <div>
                             <label>
                                 <i className="fas fa-user-lock"/>
@@ -170,18 +206,21 @@ export const Profile = ({ loggedUser = null }) => {
                                            onChange={handleTags}/>
 
                         </div>
-                        <div>
-                            <label>
-                                <i className="fas fa-user-lock"/>
-                                &nbsp;
-                                Bank Account Details
-                            </label>
-                            <input type="text"
-                                   name="bankAccount"
-                                   onChange={handleInput}
-                                   value={updateForm.bankAccount}
-                                   className="form-control border-warning shadow-sm"/>
-                        </div>
+                        {
+                            user.result.accountType === "trader" &&
+                            <div>
+                                <label>
+                                    <i className="fas fa-user-lock"/>
+                                    &nbsp;
+                                    Bank Account Details
+                                </label>
+                                <input type="text"
+                                       name="bankAccount"
+                                       onChange={handleInput}
+                                       value={updateForm.bankAccount}
+                                       className="form-control border-warning shadow-sm"/>
+                            </div>
+                        }
                     </div>
 
                     <div className={`stockmeister-profile-info-wrapper-head`}>
