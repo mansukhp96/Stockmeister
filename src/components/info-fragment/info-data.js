@@ -39,7 +39,7 @@ export const InfoData3 = {
     lightBg: false,
     lightText: true,
     lightTextDesc: true,
-    title: 'Peers.',
+    title: 'Socialize.',
     header: 'Connect with People',
     subtext: 'Interact with like-minded traders and portfolio managers',
     buttonLabel: 'Search People',

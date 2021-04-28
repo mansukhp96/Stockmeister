@@ -6,10 +6,12 @@ import '../details.css'
 import api from "../../../api/twelvedata-api";
 import StockHistoryChart from "./stock-details-chart";
 import StockCard from "./stock-details-card";
+import {useHistory} from "react-router";
 
 const StockDetails = () => {
 
     const {id} = useParams();
+    const history = useHistory();
     const [stockData, setStockData] = useState({});
     const [loading, setLoading] = useState(false);
 
@@ -44,7 +46,9 @@ const StockDetails = () => {
         <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-search-tabs-container">
                 <Link className="col-1 stockmeister-details-back-container"
-                      to={`/search/stocks`}>
+                      onClick={() => {
+                          history.goBack()
+                      }}>
                     <i className="fas fa-chevron-left stockmeister-details-back"/>
                 </Link>
                 <div className={`stockmeister-search-tabs-active col-11`}>

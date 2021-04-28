@@ -26,21 +26,27 @@ const DashboardStocks = ({data}) => {
                     }
                     {
                         data.two.symbol &&
-                        <DashboardStockRow symbol={data.two.symbol}
-                                           exchange={data.two.exchange}
-                                           price={data.two.open}
-                                           volume={data.two.volume}
-                                           percent_change={data.two.percent_change}
-                                           name={data.two.name}/>
+                        <Link className="text-decoration-none text-dark"
+                              to={`/search/stocks/details/${data.two.symbol}`}>
+                            <DashboardStockRow symbol={data.two.symbol}
+                                               exchange={data.two.exchange}
+                                               price={data.two.open}
+                                               volume={data.two.volume}
+                                               percent_change={data.two.percent_change}
+                                               name={data.two.name}/>
+                        </Link>
                     }
                     {
                         data.three.symbol &&
-                        <DashboardStockRow symbol={data.three.symbol}
-                                           exchange={data.three.exchange}
-                                           price={data.three.open}
-                                           volume={data.three.volume}
-                                           percent_change={data.three.percent_change}
-                                           name={data.three.name}/>
+                        <Link className="text-decoration-none text-dark"
+                              to={`/search/stocks/details/${data.three.symbol}`}>
+                            <DashboardStockRow symbol={data.three.symbol}
+                                               exchange={data.three.exchange}
+                                               price={data.three.open}
+                                               volume={data.three.volume}
+                                               percent_change={data.three.percent_change}
+                                               name={data.three.name}/>
+                        </Link>
                     }
                 </>
             }

@@ -45,7 +45,7 @@ const ServicesFragment = () => {
                 <div className="stockmeister-services-card">
                     <ServicesImg src={Img6}/>
                     <div className="stockmeister-services-card-header">
-                        Expert Insights
+                        Expert Advice
                     </div>
                     <div className="stockmeister-services-card-subtext">
                         Personalized finance strategies and advice
