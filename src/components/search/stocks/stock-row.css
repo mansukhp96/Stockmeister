@@ -51,6 +51,10 @@
     padding-top: 3px;
 }
 
+.stockmeister-stock-volume {
+    width: 100px;
+}
+
 .stockmeister-stock-symbol {
     width: 150px;
     text-align: center;

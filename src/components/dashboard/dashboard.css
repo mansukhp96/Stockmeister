@@ -1,0 +1,89 @@
+.stockmeister-dashboard-graph-container {
+    margin: 25px;
+    padding-bottom: 60px;
+    height: 470px;
+    border: 1px solid #bfbfbf;
+    border-radius: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+@media screen and (max-width: 1500px) {
+    .stockmeister-dashboard-graph-container {
+        margin: 25px;
+        padding-bottom: 60px;
+        height: 470px;
+        border: 1px solid #bfbfbf;
+        border-radius: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .stockmeister-dashboard-graph-container {
+        margin: 25px;
+        padding-bottom: 60px;
+        height: 470px;
+        border: 1px solid #bfbfbf;
+        border-radius: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .stockmeister-dashboard-graph-container {
+        margin: 25px;
+        padding-bottom: 60px;
+        height: 470px;
+        border: 1px solid #bfbfbf;
+        border-radius: 20px;
+        padding-left: 1px;
+        padding-right: 3px;
+    }
+}
+
+.stockmeister-dashboard-chart-price {
+    font-weight: bolder;
+    text-align: left;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.stockmeister-dashboard-chart-percent {
+    font-weight: bold;
+    text-align: left;
+    font-size: 15px;
+}
+
+.stockmeister-dashboard-stocks-container {
+    margin: 25px;
+    padding-bottom: 40px;
+    border: 1px solid #bfbfbf;
+    border-radius: 20px;
+}
+
+.stockmeister-dashboard-watch-container {
+    margin: 25px;
+    padding-bottom: 40px;
+    border: 1px solid #bfbfbf;
+    border-radius: 20px;
+}
+
+.stockmeister-watchlist-header {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    font-weight: 1000;
+    text-align: left;
+    font-size: 26px;
+}
+
+.stockmeister-dashboard-stocks-header {
+    padding-top: 10px;
+    padding-left: 25px;
+    font-weight: 1000;
+    text-align: left;
+    font-size: 26px;
+}

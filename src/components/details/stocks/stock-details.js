@@ -29,7 +29,7 @@ const StockDetails = () => {
             const [dayDat, stockDetails] = await Promise.all([
                 api.get("time_series?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&interval=1min&symbol=" + id),
                 api.get("quote?apikey=" + process.env.REACT_APP_TWLDATA_APIKEY + "&symbol=" + id)
-            ])
+            ]);
 
             setStockData({
                 day : formatData(dayDat.data.values),

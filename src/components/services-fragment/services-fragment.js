@@ -27,10 +27,10 @@ const ServicesFragment = () => {
                 <div className="stockmeister-services-card">
                     <ServicesImg src={Img4}/>
                     <div className="stockmeister-services-card-header">
-                        Service2
+                        Socialize
                     </div>
                     <div className="stockmeister-services-card-subtext">
-                        Service2 some random text for now again
+                        Keep in touch with your peers
                     </div>
                 </div>
                 <div className="stockmeister-services-card">
@@ -45,10 +45,10 @@ const ServicesFragment = () => {
                 <div className="stockmeister-services-card">
                     <ServicesImg src={Img6}/>
                     <div className="stockmeister-services-card-header">
-                        Service4
+                        Expert Insights
                     </div>
                     <div className="stockmeister-services-card-subtext">
-                        Service4 some random text yet again
+                        Personalized finance strategies and advice
                     </div>
                 </div>
             </div>
