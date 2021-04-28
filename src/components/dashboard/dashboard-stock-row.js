@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './dashboard-stock-row.css';
 
 const DashboardStockRow = ({symbol, name, price, volume, percent_change, exchange}) => {
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
+    useEffect(() => {
+
+    },[]);
+
     return(
         <div className="stockmeister-stock-container">
             <div className="stockmeister-stock-row">
@@ -30,21 +37,29 @@ const DashboardStockRow = ({symbol, name, price, volume, percent_change, exchang
                         {percent_change}%
                     </p>
                     }
-                    <p className="stockmeister-stock-actions">
-                        <button onClick={(e) => {
-                            e.preventDefault();
-                        }}
-                                className="btn btn-sm btn-outline-primary">
-                            BUY
-                        </button>
-                        &nbsp;
-                        <button onClick={(e) => {
-                            e.preventDefault();
-                        }}
-                                className="btn btn-sm btn-outline-success">
-                            SELL
-                        </button>
-                    </p>
+                    {
+                        user.results &&
+                        <>
+                            {
+                                user.results.accountType === "trader" &&
+                                <p className="stockmeister-stock-actions">
+                                    <button onClick={(e) => {
+                                        e.preventDefault();
+                                    }}
+                                            className="btn btn-sm btn-outline-primary">
+                                        BUY
+                                    </button>
+                                    &nbsp;
+                                    <button onClick={(e) => {
+                                        e.preventDefault();
+                                    }}
+                                            className="btn btn-sm btn-outline-success">
+                                        SELL
+                                    </button>
+                                </p>
+                            }
+                        </>
+                    }
                 </div>
             </div>
         </div>
