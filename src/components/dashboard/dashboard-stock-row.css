@@ -1,11 +1,11 @@
-.stockmeister-stock {
+.stockmeister-dashboard-stock {
     display: flex;
     padding-right: 0;
     padding-left: 0;
     min-width: 200px;
 }
 
-.stockmeister-stock h1 {
+.stockmeister-dashboard-stock h1 {
     font-size: 16px;
     width: 200px;
     text-align: center;
@@ -13,23 +13,23 @@
 }
 
 @media screen and (max-width: 700px) {
-    .stockmeister-stock h1 {
+    .stockmeister-dashboard-stock h1 {
         display: none;
     }
 }
 
-.stockmeister-stock-volume {
+.stockmeister-dashboard-stock-volume {
     width: 150px;
 }
 
 @media screen and (max-width: 900px) {
-    .stockmeister-stock-volume {
+    .stockmeister-dashboard-stock-volume {
         display: none;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .stockmeister-stock-volume {
+    .stockmeister-dashboard-stock-volume {
         display: none;
     }
 }
@@ -45,34 +45,34 @@
     }
 }
 
-.stockmeister-stock-percent_change {
+.stockmeister-dashboard-stock-percent_change {
     width: 100px;
 }
 
 @media screen and (max-width: 700px) {
-    .stockmeister-stock-percent_change {
+    .stockmeister-dashboard-stock-percent_change {
         display: none;
     }
 }
 
-.stockmeister-stock-actions {
+.stockmeister-dashboard-stock-actions {
     width: 110px;
 }
 
 @media screen and (max-width: 700px) {
-    .stockmeister-stock-actions {
+    .stockmeister-dashboard-stock-actions {
         display: flex;
         padding-left: 15px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .stockmeister-stock-actions {
+    .stockmeister-dashboard-stock-actions {
         width: 120px;
     }
 }
 
-.stockmeister-stock-symbol {
+.stockmeister-dashboard-stock-symbol {
     width: 150px;
     text-align: center;
     font-weight: bolder;
@@ -80,7 +80,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .stockmeister-stock-symbol {
+    .stockmeister-dashboard-stock-symbol {
         width: 80px;
         text-align: center;
         font-weight: bolder;

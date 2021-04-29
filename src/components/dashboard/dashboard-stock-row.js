@@ -12,34 +12,34 @@ const DashboardStockRow = ({symbol, name, price, volume, percent_change, exchang
     return(
         <div className="stockmeister-stock-container">
             <div className="stockmeister-stock-row">
-                <div className="stockmeister-stock">
+                <div className="stockmeister-dashboard-stock">
                     <h1>
                         {name}
                     </h1>
-                    <p className="stockmeister-stock-symbol">
+                    <p className="stockmeister-dashboard-stock-symbol">
                         {symbol}
                     </p>
-                    <p className="stockmeister-stock-price">
+                    <p className="stockmeister-dashboard-stock-price">
                         ${price}
                     </p>
-                    <p className="stockmeister-stock-volume">
+                    <p className="stockmeister-dashboard-stock-volume">
                         {volume}
                     </p>
                     {
                         percent_change >= 0 &&
-                        <p className="stockmeister-stock-percent_change text-success">
+                        <p className="stockmeister-dashboard-stock-percent_change text-success">
                             +{percent_change}%
                         </p>
                     }
                     {
                         percent_change < 0 &&
-                        <p className="stockmeister-stock-percent_change text-danger">
+                        <p className="stockmeister-dashboard-stock-percent_change text-danger">
                             {percent_change}%
                         </p>
                     }
 
                     {
-                        <p className="stockmeister-stock-actions">
+                        <p className="stockmeister-dashboard-stock-actions">
                             <button onClick={(e) => {
                                 e.preventDefault();
                             }}

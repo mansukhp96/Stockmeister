@@ -4,6 +4,8 @@ import api from '../../api/twelvedata-api';
 import Footer from "../footer/footer";
 import DashboardChart from "./dashboard-chart";
 import DashboardStocks from "./dashboard-stocks";
+import {fadeAnimate} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 export const Dashboard = () => {
 
@@ -41,7 +43,7 @@ export const Dashboard = () => {
     }, []);
 
     return (
-        <>
+        <motion.div initial="out" animate="in" variants={fadeAnimate}>
             <div className="stockmeister-dashboard-graph-container text-center bg-light">
                 {
                     loading &&
@@ -63,7 +65,7 @@ export const Dashboard = () => {
                 <DashboardStocks data={watchList}/>
             </div>
             <Footer/>
-        </>
+        </motion.div>
     )
 }
 

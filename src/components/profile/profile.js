@@ -152,6 +152,7 @@ export const Profile = ({ loggedUser = null }) => {
                                 <label>Gender</label>
                                 <input type="text"
                                        name="gender"
+                                       placeholder="Male | Female | Other"
                                        value={updateForm.gender}
                                        onChange={handleInput}
                                        className="form-control border-warning"/>
@@ -163,6 +164,7 @@ export const Profile = ({ loggedUser = null }) => {
                                 <label>Experience</label>
                                 <input type="text"
                                        name="experience"
+                                       placeholder="X years | y months"
                                        value={updateForm.experience}
                                        onChange={handleInput}
                                        className="form-control border-warning"/>
@@ -176,6 +178,7 @@ export const Profile = ({ loggedUser = null }) => {
                             </label>
                             <input type="text"
                                    name="phoneNumber"
+                                   placeholder="(XXX)-XXX-XXXX"
                                    value={updateForm.phoneNumber}
                                    onChange={handleInput}
                                    className="form-control border-warning shadow-sm"/>
@@ -188,6 +191,7 @@ export const Profile = ({ loggedUser = null }) => {
                             </label>
                             <input type="text"
                                    name="address"
+                                   placeholder="City, State"
                                    onChange={handleInput}
                                    value={updateForm.address}
                                    className="form-control border-warning shadow-sm"/>
@@ -216,6 +220,7 @@ export const Profile = ({ loggedUser = null }) => {
                                 </label>
                                 <input type="text"
                                        name="bankAccount"
+                                       placeholder="Bank name | Acc. # | Routing #"
                                        onChange={handleInput}
                                        value={updateForm.bankAccount}
                                        className="form-control border-warning shadow-sm"/>
