@@ -35,11 +35,14 @@ const Footer = () => {
                         </div>
                         <div className="stockmeister-links-items">
                             <h1 className="stockmeister-footer-title">
-                                Contact Us
+                                Contact Me
                             </h1>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">Ojas Thanawala</a>
-                            <a href="/" className="stockmeister-footer-link text-decoration-none">Vishwas Thakkar</a>
+                            <a href="https://mansukhp96.github.io/"
+                               className="stockmeister-footer-link text-decoration-none">Mansukh Pamarath</a>
+                            <a href="https://www.linkedin.com/in/mpamarath/"
+                               className="stockmeister-footer-link text-decoration-none">LinkedIn</a>
+                            <a href="mailto: mansukhp96@gmail.com"
+                               className="stockmeister-footer-link text-decoration-none">Email</a>
                         </div>
                     </div>
                 </div>
@@ -50,10 +53,14 @@ const Footer = () => {
                             StockMeister 2021
                         </p>
                         <div className="stockmeister-social-logos">
-                            <i aria-label="Facebook" className="fab fa-facebook stockmeister-social-link"/>
-                            <i aria-label="Instagram" className="fab fa-instagram stockmeister-social-link"/>
-                            <i aria-label="Twitter" className="fab fa-twitter stockmeister-social-link"/>
-                            <i aria-label="LinkedIn" className="fab fa-linkedin stockmeister-social-link"/>
+                            <a href="https://fb.com/izmansuk"
+                               className="fab fa-facebook stockmeister-social-link"/>
+                            <a href="https://instagram.com/izmansuk"
+                               className="fab fa-instagram stockmeister-social-link"/>
+                            <a href="https://github.com/mansukhp96"
+                               className="fab fa-github stockmeister-social-link"/>
+                            <a href="https://www.linkedin.com/in/mpamarath/"
+                               className="fab fa-linkedin stockmeister-social-link"/>
                         </div>
                     </div>
                 </div>

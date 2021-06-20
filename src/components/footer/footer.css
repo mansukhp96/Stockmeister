@@ -108,9 +108,17 @@
     font-size: 13px;
 }
 
+.stockmeister-social-link {
+    color: #4f5153;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+}
+
 .stockmeister-social-link:hover {
     color: #f69d52;
     cursor: pointer;
     font-size: 13px;
+    text-decoration: none;
 }
 

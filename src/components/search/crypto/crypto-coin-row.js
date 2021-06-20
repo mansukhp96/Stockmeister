@@ -21,13 +21,13 @@ const CryptoCoinRow = ({image, name, symbol, price, volume, priceChange, marketc
                             {volume.toLocaleString()}
                         </p>
                         {
-                            priceChange < 0 ? (
+                            priceChange ? (
                                 <p className="stockmeister-coin-percent text-danger">
                                     {priceChange.toFixed(2)}%
                                 </p>
                             ) : (
                                 <p className="stockmeister-coin-percent text-success">
-                                    {priceChange.toFixed(2)}%
+                                    {'-NA-'}%
                                 </p>
                             )
                         }
